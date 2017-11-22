@@ -1,0 +1,334 @@
+/*------------------------------------------------------------------------------------
+ * atdump.c
+ *
+ * Show's contents of an disk image
+ *  
+ * Part of the atools collection
+ *
+ * V0.0  // Revised: 8.4.2015
+ *------------------------------------------------------------------------------------*/  
+
+#define VERSION "\natdump V0.0 // 8.4.2015\n\n"
+
+#include <stdio.h>
+
+#include "_D2x_Base_Struct.h" /* Dos 2.x standarts */
+#include "_D2x_fms_low.c"     /* Dos 2.x FMS low level fms- functions like read or write a single sector */
+
+#define PATHSIZE 500
+
+// Define's for 'trace'                                                                                                                                       
+
+#define SIZE_ERR 1
+#define FNO_ERR  2
+#define NSEC_INV 4
+
+/*
+ * Global
+ */
+
+struct atr_dir mydir[128];  /* Structure of Atari DOS 2.x file directory */  
+struct atr_image myimage;   /* Structure of *.ATR disk image file */                                                                                        
+struct vtoc vtocp;          /* Structure of Atari DOS 2.x VTOC */
+
+/*-------------------------------------------------------------------------------------
+ * main
+ *------------------------------------------------------------------------------------*/
+
+int main(int argc, const char *argv[])
+{
+
+  FILE *input;
+    
+  int 
+    i,   
+    error,
+    vopt,
+    fopt,
+    sopt,
+    files;
+
+  char 
+    c,
+    file [PATHSIZE];
+          
+  /*                                
+   * Check parameters
+   */
+    
+  if (argc<=1) {
+    version();
+    descripe();
+    usag();
+    return(0); /*  No errors! */
+  }
+    
+  /*
+   * Check for options
+   */
+    
+  vopt=sopt=fopt=0;
+    
+  while (argc>=1 && argv[1][0]=='-'){
+    c=argv [1][1];
+        
+    switch (c){
+    case 'v': /* Don't display copyright message */
+      vopt++;
+      break;
+    
+    }
+    --argc;
+    ++argv;
+  }
+
+  argv++;
+
+  /*
+   * Display program name and version, if no '-v' option
+   */
+    
+  if (vopt==0){
+    version();
+  }
+
+  /*
+   * Open image file
+   */
+
+  if ((image_open (*argv))!=1){
+    dump(9,8);
+    return(0); // Exit, no errors           
+  }
+  
+  return (1); /* Error */
+}
+
+/*------------------------------------------------------------------------------------
+ * Usage
+ *------------------------------------------------------------------------------------*/
+
+usag ()
+{
+  printf ("Usage : [-v][Filename]\n");
+}
+
+/*------------------------------------------------------------------------------------
+ * Version
+ *------------------------------------------------------------------------------------*/
+
+version ()
+{
+  printf (VERSION);
+  printf ("Made by retrozock\n");  
+  printf ("www.retrozock.com\n\n");
+}
+
+/*------------------------------------------------------------------------------------
+ * Description
+ *------------------------------------------------------------------------------------*/
+
+descripe ()
+{
+  return (0);
+}
+/*------------------------------------------------------------------------------------
+ * Dump file contents
+ *
+ * int col => Number of collumns per line
+ * int fno => ' of file in directory to dump
+ *------------------------------------------------------------------------------------*/
+
+dump(int fno,int col)
+{
+  int i,
+    start,
+    length,
+    size;
+
+  BYTE buffer [130000];
+
+  start=mydir [fno].ssn_lo+256*mydir[fno].ssn_high;
+  length=mydir[fno].count_low+256*mydir[fno].count_high;
+  size=file_size(start);
+
+  printf ("Start sector:%d Number of sectors:%d File size (bytes):%d\n",start,length,size);
+
+  rfile (buffer,start);
+
+  printf ("Dumbing: %d bytes\n",size);  
+ 
+ for (i=0;i<size;i++){
+    printf ("%X,",buffer[i]);
+  }
+  printf ("\n");
+
+  for (i=0;i<size;i++){
+    printf ("%c",buffer[i]);
+  }
+
+
+  return (0);
+
+}
+
+/*------------------------------------------------------------------------------------                                                             
+ * Open image file
+ *-----------------------------------------------------------------------------------*/
+
+image_open (char *path[PATHSIZE])
+{
+  int 
+    error,
+    i;
+
+  error=d2x_init_image(path,&myimage,&mydir,&vtocp);
+
+  if (error!=0){
+    printf ("%s\n",path);
+    printf ("INIT: There is something wrong with your *.ATR file image\n\n");
+    
+    if (error==IMAGE_READ_ERR)
+      printf ("- The image could not be read from the filesystem\n\n");
+
+    if (error==IMAGE_NOT_VALID)
+      printf ("- File could be read, but it is not a valid *.ATR disk image file\n\n");
+
+    if (error==SECTORBYTES)
+      printf ("- Bytes per sector > 256!\n\n");
+    
+    if (error==SECTORS)
+      printf ("- # of sectors >1020\n\n");
+
+    return(1);
+
+  } else {
+
+    /*
+     * Image could be read and it is a valid *.ATR image file                                                                                                     * Check, is it a Dos 2.x formated disk?                                                                                                              
+     */
+    
+    if ((vtocp.sec_low+vtocp.sec_high*256!=1010) && /* Just a simple test, if total ' of sectors */
+	(vtocp.sec_low+vtocp.sec_high*256!=707)){   /* does not match waht we expect => no know dos format! */
+      
+      printf ("%s\n",path);
+      printf ("Valid *.ATR disk image but, not DOS 2.x formated. No Directory!\n\n");
+      return (1);
+    }
+
+  }
+  return (0); /* No error! */
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------
+ * rfile
+ *
+ *
+ * 
+ * ---------------------------------------------------------------------------------------------------------------*/
+
+rfile (BYTE *buffer[], int startsec)
+{
+ 
+  int   sector,                   // Sektor der gerade gelesen wird
+    sectors,                      // soviele Sektoren hat die Datei
+    nexts,                        // Nächster Sektor
+    offset,
+    length,                       // Filegröße
+    totalbytes,
+    secsize,                      // Größe eines Datensektors
+    i,j;                            // Zähler
+   char    bytes;                 // Bytes/ Sektor
+  
+  //
+  // Datei lesen
+  //
+    
+  totalbytes=0;                           // Bytes gelesen=0!
+  sector=startsec;                        // Aktueller Sektor= Startsektor der Datei
+  offset=0;
+
+  j=0;
+  while (sector!=0)
+    {
+
+      secsize=myimage.sec_low+256*myimage.sec_high;  // Sektor größe holen (256 oder 128 Bytes / Sektor)
+
+      bytes=d2x_secbyte(&myimage,sector); // Anzahl der Daten Bytes des aktuellen Sektors holen
+
+      totalbytes=totalbytes+bytes;      
+       
+      for (i=0;i<=secsize;i++){
+	buffer[j++]=myimage.data[offset++];
+      }
+
+      sector=d2x_secnext (&myimage,sector);
+      printf ("%d     %d\n",offset,sector);
+    }   
+  return (totalbytes);                    // Erfolg! Anzah der gelesenen Bytes zurückgeben
+}
+
+
+/*------------------------------------------------------------------------------------
+ * trace
+ *
+ * Trace and check a files sector chain
+ *
+ * Principle of Operation and valid contitions for an undammaged file:
+ * - Total # of sectors counted is the same as # of sectors stored in directory
+ * - Every sector belongs to the same file # 
+ * - File # matches the order of the file in the directory (countig starts with 0!)
+ * 
+ * If the conditons above do not apply, the file is damaged!
+ *------------------------------------------------------------------------------------*/
+
+trace (int start_sec,int size,int fn)
+{
+  int next,count,err;
+
+  count=err=0; 
+
+  do
+    {
+      next=d2x_secnext (&myimage,start_sec); /* Get next sector of file */
+
+      if (next>=1020){
+	err=err | NSEC_INV;
+	break;
+      }
+
+      if ((d2x_secfile (&myimage,start_sec))!=fn) err=err | FNO_ERR; 
+      start_sec=next; /* Get next sector in chain */      
+      count++;
+    }
+  while (next!=0); /* If next sector=0 => end of file reached */
+
+  if (count!=size) err=err | SIZE_ERR;
+
+  return (err); 
+}
+
+/*------------------------------------------------------------------------------------
+ * file_size
+ *
+ * Returns file- size in bytes
+ *------------------------------------------------------------------------------------*/
+
+file_size(unsigned int sec)
+{
+  int i,b;
+  b=0;
+
+  do{
+    i=d2x_secnext (&myimage,sec);
+
+    if (i>=1020)  break;
+
+    b=b+d2x_secbyte (&myimage,sec);
+    sec=i;
+    }
+  while (sec !=0);
+  
+return (b);
+}

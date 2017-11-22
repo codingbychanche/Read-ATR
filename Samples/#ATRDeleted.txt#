@@ -1,0 +1,2206 @@
+#	TEMP    .   
+#	TURTLE  .PLT
+#	COPY32  .COM
+#	CHK4ERR .SRC
+#	DIR     .COM
+#	PACKER  .BAS
+#	SPOOKY  .BAS
+#	TCOPY   .BAS
+#	USCOPY4 .COM
+#	PACKER  .CTB
+#	VIDEOTIT.BAS
+#	TRANS   .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	DISKNAME.DAT
+#	SGN06M  .OBJ
+#	EFT99T  .ASM
+#	EFT99C  .ASM
+#	MEDIT00 .   
+#	INTRUPT .BAK
+#	INTRUPT .BAK
+#	INTRUPT .BAK
+#	BASIC   .HAH
+#	EFKRSK  .ORL
+#	WFT01T  .BAK
+#	EQUATE  .DAT
+#	NEWSGEN .SRC
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	OLDMCDO .SOU
+#	DIROUT  .UTL
+#	RENUMB  .UTL
+#	STOPUHR .BAS
+#	PMLOCAT .BAS
+#	SYSTIM2 .SOR
+#	SYSTIM2 .BAS
+#	SYSTIM2 .OBJ
+#	INTZAEL .BAS
+#	MSLSCAL .UTL
+#	OXYGENE .SOU
+#	STREICH .BAS
+#	FILL    .UTL
+#	INTFARB .BAS
+#	LOTTO   .BAS
+#	COPY32  .COM
+#	CHK4ERR .SRC
+#	DIR     .COM
+#	PACKER  .BAS
+#	SPOOKY  .BAS
+#	TCOPY   .BAS
+#	USCOPY4 .COM
+#	PACKER  .CTB
+#	VIDEOTIT.BAS
+#	TRANS   .BAS
+#	UFO     .MC 
+#	HORIZ   .MC 
+#	UFO     .MC 
+#	HORIZ   .MC 
+#	TEST    .   
+#	TEXTGRA .UTL
+#	VARDUMP .UTL
+#	OLDMCDO .SOU
+#	DIROUT  .UTL
+#	RENUMB  .UTL
+#	STOPUHR .BAS
+#	PMLOCAT .BAS
+#	SYSTIM2 .SOR
+#	SYSTIM2 .BAS
+#	SYSTIM2 .OBJ
+#	INTZAEL .BAS
+#	MSLSCAL .UTL
+#	OXYGENE .SOU
+#	STREICH .BAS
+#	FILL    .UTL
+#	INTFARB .BAS
+#	LOTTO   .BAS
+#	COPY32  .COM
+#	CHK4ERR .SRC
+#	DIR     .COM
+#	PACKER  .BAS
+#	SPOOKY  .BAS
+#	TCOPY   .BAS
+#	USCOPY4 .COM
+#	PACKER  .CTB
+#	VIDEOTIT.BAS
+#	TRANS   .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	DEBUG   .BAK
+#	QA      .COM
+#	QA      .SET
+#	RIP     .ASM
+#	RIP     .OBJ
+#	RIP2    .ASM
+#	RIP2    .OBJ
+#	R       .BAT
+#	HORIZ   .MC 
+- # of sectors >1020
+#	TITEL   .FNT
+#	ICONPROP.BEF
+#	MOVIES  .DRV
+#	SHOW    .DRV
+#	QA      .COM
+#	QA      .SET
+#	RIP     .ASM
+#	RIP     .OBJ
+#	RIP2    .ASM
+#	RIP2    .OBJ
+#	R       .BAT
+#	MOON    .PIC
+#	UFO     .MC 
+#	HORIZ   .MC 
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	DISKNAME.DAT
+#	SGN06M  .OBJ
+#	EFT99T  .ASM
+#	EFT99C  .ASM
+#	MEDIT00 .   
+#	INTRUPT .BAK
+#	INTRUPT .BAK
+#	INTRUPT .BAK
+#	BASIC   .HAH
+#	EFKRSK  .ORL
+#	WFT01T  .BAK
+#	EQUATE  .DAT
+#	NEWSGEN .SRC
+#	ENDBAT  .ASM
+#	BATTLE  .OBJ
+#	WHITE   .CFG
+#	NUMBER  .MAC
+#	PURGE   .MAC
+#	RUN     .MAC
+#	TURTLE  .PLT
+- # of sectors >1020
+- # of sectors >1020
+#	AULD    .BIN
+#	HEAR    .BIN
+#	SAT     .   
+#	TEST    .MAC
+#	SAT     .   
+#	TEST    .MAC
+#	SAT     .   
+#	TEST    .MAC
+#	SAT     .   
+#	TEST    .MAC
+#	SAT     .   
+#	TEST    .MAC
+#	MEM     .SAV
+#	DROPZONE.BIN
+#	QIX     .BIN
+#	DEFENDER.BIN
+#	SLUDGE  .TXT
+#	XAGON   .OBJ
+#	MEM     .SAV
+#	DROPZONE.BIN
+#	QIX     .BIN
+#	DEFENDER.BIN
+#	SLUDGE  .TXT
+#	XAGON   .OBJ
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	ÿÿÿÿÿÿÿÿ.ÿÿÿ
+#	FONT    .   
+#	JOHNETEB.SF 
+- # of sectors >1020
+#	LASRGATE.EXE
+- # of sectors >1020
+#	FLYER   .OBJ
+#	INTRO   .FNT
+#	VBFLYER .ASM
+#	DATA    .   
+#	AUTORUN .SYS
+#	VBFLYER .ASM
+#	FLYER   .OBJ
+#	INTRO   .FNT
+#	VBFLYER .ASM
+#	DATA    .   
+#	AUTORUN .SYS
+#	VBFLYER .ASM
+#	FLYER   .OBJ
+#	INTRO   .FNT
+#	VBFLYER .ASM
+#	DATA    .   
+#	AUTORUN .SYS
+#	VBFLYER .ASM
+#	FLYER   .OBJ
+#	INTRO   .FNT
+#	VBFLYER .ASM
+#	DATA    .   
+#	AUTORUN .SYS
+#	VBFLYER .ASM
+	* #202  .*  
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	FARMERS .   
+	* #202  .*  
+#	TEMP    .   
+#	TURTLE  .PLT
+#	DRUMS   .BAS
+#	SLIDE   .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/0/221B Baker Street Case Library #1.atr
+- # of sectors >1020
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/0/221B Baker Street Case Library #2.atr
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	AUTOGO  .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DUP     .SYS
+#	AUTOGO  .BAS
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+#	OLD     .   
+- # of sectors >1020
+#	TEMP    .   
+#	TEMP    .   
+#	TEMP    .   
+#	TEMP    .   
+- # of sectors >1020
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/A/Abraxas Adventure #1 - Assault on the Astral Rift (1984)(MMG Micro)(Disk 1 of 2).atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/A/Abraxas Adventure #1 - Assault on the Astral Rift (1984)(MMG Micro)(Disk 2 of 2).atr
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	TEST    .CTB
+#	SETUP   .COM
+#	ADVNTISL.BAS
+#	MINIMAN .   
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	ROOM52  .   
+#	ROOM54  .   
+#	ROOM51  .   
+#	LASRGATE.EXE
+#	AUTOGO  .BAS
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+- # of sectors >1020
+#	VOICE2  .   
+#	VOICE1  .   
+#	C       .DWB
+#	C       .SRF
+#	TY      .DWB
+#	TY      .SRF
+#	PETE    .DWB
+#	PETE    .SRF
+#	AUTOGO  .BAS
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+#	ýýýýýýýý.ýýý
+- # of sectors >1020
+#	ACTION  .COM
+#	LIB     .COM
+#	BOSS    .COM
+#	MFCOPY  .COM
+#	SMFC    .COM
+#	XF90    .COM
+#	XF130   .COM
+#	XF180   .COM
+#	ABETA   .XEX
+#	RUNTIME .ACT
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	SAVE2   .   
+#	SAVE3   .   
+#	SAVE4   .   
+#	SAVE5   .   
+#	SIDE2   .   
+#	ALICE20 .TXT
+#	FLIP    .TXT
+#	SIDE2   .   
+#	ALICE20 .TXT
+#	FLIP    .TXT
+#	WACE    .BAS
+#	AUTORUN .BAS
+#	AUTORUN .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	AUTOGO  .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	FLYC    .BA 
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	HELLO   .UNC
+#	TEST    .   
+#	DELETEND.   
+#	TESTOUT .   
+#	BLHOLE  .DOC
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	PCR048  .PCR
+#	PCR049  .PCR
+#	PCR050  .PCR
+#	PCR051  .PCR
+#	PCR052  .PCR
+#	PCR053  .PCR
+#	PCR048  .PCR
+#	PCR049  .PCR
+#	PCR050  .PCR
+#	PCR051  .PCR
+#	PCR052  .PCR
+#	PCR053  .PCR
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	MENU    .   
+#	DDIG    .COM
+#	MENU    .   
+#	DDIG    .COM
+#	DUP     .SYS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	AUTOGO  .BAS
+#	.Í÷
+	÷‚#Ó1!.í5
+#	“!í%.7u
+#	·!÷„L.ISÔ
+#	ØQF´.Å
+	# ·!¦
+#	§!E¡F.
+#	ÿØ÷…IN.DEØ
+#	É9ˆØ.¡
+#	q¡«Æ.
+#	öÿ÷…LL.ISÔ
+%Hä#.€#Ì
+	¯#Hð&Ò!.qð
+#	ª÷…VL.ISÔ
+#	q=´^.
+#	l
+#	
+#	h•”©.•
+#	ƒCIÏî"í.3#ö
+#	µ. Vä
+#	”.º%#
+	Cº{#EC:.‚Eº
+#	:‚Kº#E.K:‚
+	S:„OPEÎ.Ÿ#í
+	+#0÷….CLO
+	ƒGEÔÜ#í.¦
+	+#÷ƒPU.Ôõ#
+#	
+qq7.+#0
+	q+#0¦
+	#$÷ŠPU.T-R
+	#$÷ˆGE.T-C
+	  q+.#0
+#	APHICÓ–$.íP
+	¥%¤#9.Q¦
+#	¦
+Qä#¯.#7
+#	µ)¨µ.•
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	TEST    .UNT
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	AUTOGO  .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	FLYC    .BA 
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+- # of sectors >1020
+#	ALAMBUSH.   
+#	TEST    .BAS
+#	ROBBOTS .CMC
+#	ROBBOTS .DLI
+#	ROBBOTS .FNT
+#	ROBBOTS .REP
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	ROBBOTS .CMC
+#	ROBBOTS .DLI
+#	ROBBOTS .FNT
+#	ROBBOTS .REP
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+- # of sectors >1020
+#	ORACLE  .   
+#	SURPRISE.LST
+#	ANSWERS .1  
+#	AUTOGO  .BAS
+#	ALAMBUSH.   
+#	AUTORUN .BAS
+#	LNOID   .TXL
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	GNOM    .TB 
+#	EDIT    .TB 
+#	WACE    .BAS
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+#	WACE    .BAS
+- # of sectors >1020
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/A/Value Pack #1.atr
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/A/Value Pack #2.atr
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/A/Value Pack #3.atr
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/A/Value Pack #4.atr
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	B1NUCLEA.TXT
+#	B1NUCLEA.TXT
+#	WACE    .BAS
+#	WACE    .BAS
+#	FILLER  .   
+#	FILLER  .   
+#	FILLER  .   
+#	FILLER  .   
+#	FILLER  .   
+#	FILLER  .   
+#	FILLER  .   
+#	FILLER  .   
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	AUTORUN .BAS
+#	AUTORUN .SYS
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	BLHOLE  .DOC
+#	WACE    .BAS
+#	AUTOGO  .BAS
+- # of sectors >1020
+#	BLHOLE  .DOC
+- # of sectors >1020
+#	WACE    .BAS
+#	AUTORUN .SYS
+#	DUP     .SYS
+#	PANIC   .   
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	DUP     .SYS
+#	BS      .   
+#	WACE    .BAS
+#	BLHOLE  .DOC
+- # of sectors >1020
+- # of sectors >1020
+#	SEQSAV  .BAS
+#	SEQPIC  .SPC
+#	COPY32  .COM
+#	DISKFIX .COM
+- # of sectors >1020
+#	AUTOGO  .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	FORMS   .   
+#	DISKNAME.DAT
+#	TEXTGRAF.DMO
+#	TEXTMODE.DMO
+#	TWOCOLOR.DMO
+#	FOURCOLR.DMO
+#	DISKNAME.DAT
+- # of sectors >1020
+#	Ô ÎÅÁÒ Ô.ÈÅ 
+#	ÏÆ Á ÄÅÅ.ÐÁÎ
+#	Ë ÌÁËÅ® .ÔÈÅ
+#	Å ÉÓ ÔÏÏ. ÓÔ
+#	ÏÃÌÉÍÂ® .ÁÎ 
+#	Ä ÃÁÎ ÂÅ. ÓÅ
+#	 ÔÈÅ ÅÁÓ.ÔÉÎ
+#	ÃÅÎÔÅÒ Ï.Æ Ô
+#	ËÅ®Á ÐÁÒ.ÔÉÃ
+#	ÙÄÁÒË ÓÐ.ÏÔ 
+#	ÔÅÒ ÌÉÅÓ. ÄÉ
+#	Ù ÂÅÎÅÁÔ.ÈÙÏ
+- # of sectors >1020
+#	Ô ÎÅÁÒ Ô.ÈÅ 
+#	ÏÆ Á ÄÅÅ.ÐÁÎ
+#	Ë ÌÁËÅ® .ÔÈÅ
+#	Å ÉÓ ÔÏÏ. ÓÔ
+#	ÏÃÌÉÍÂ® .ÁÎ 
+#	Ä ÃÁÎ ÂÅ. ÓÅ
+#	 ÔÈÅ ÅÁÓ.ÔÉÎ
+#	ÃÅÎÔÅÒ Ï.Æ Ô
+#	ËÅ®Á ÐÁÒ.ÔÉÃ
+#	ÙÄÁÒË ÓÐ.ÏÔ 
+#	ÔÅÒ ÌÉÅÓ. ÄÉ
+#	Ù ÂÅÎÅÁÔ.ÈÙÏ
+#	Ô ÎÅÁÒ Ô.ÈÅ 
+#	ÏÆ Á ÄÅÅ.ÐÁÎ
+#	Ë ÌÁËÅ® .ÔÈÅ
+#	Å ÉÓ ÔÏÏ. ÓÔ
+#	ÏÃÌÉÍÂ® .ÁÎ 
+#	Ä ÃÁÎ ÂÅ. ÓÅ
+#	 ÔÈÅ ÅÁÓ.ÔÉÎ
+#	ÃÅÎÔÅÒ Ï.Æ Ô
+#	ËÅ®Á ÐÁÒ.ÔÉÃ
+#	ÙÄÁÒË ÓÐ.ÏÔ 
+#	ÔÅÒ ÌÉÅÓ. ÄÉ
+#	Ù ÂÅÎÅÁÔ.ÈÙÏ
+- # of sectors >1020
+- # of sectors >1020
+#	DLIVB   .   
+#	DLIVB   .   
+#	DLIVB   .   
+#	DLIVB   .   
+#	DLIVB   .   
+#	WACE    .BAS
+#	WACE    .BAS
+#	DUP     .SYS
+#	DUP     .SYS
+#	CZASZKI .COM
+#	WACE    .BAS
+#	WACE    .BAS
+#	AUTORUN .SYS
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	WACE    .BAS
+#	AUTORUN .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	ONEUP   .   
+#	BURGER  .SCF
+#	BURGER  .SCG
+#	BURGER  .SCH
+#	BURGER  .SCI
+#	BURGER  .SCJ
+#	BURGER  .SCK
+#	BURGER  .SCL
+#	BURGER  .SCM
+#	BURGER  .SCN
+#	BURGER  .SCO
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	OPENING .OBJ
+#	KITDISK .   
+#	GAME    .   
+#	POLASCRM.OBJ
+#	AUTORUN .OBJ
+#	OPENING .OBJ
+#	KITDISK .   
+#	GAME    .   
+#	POLASCRM.OBJ
+#	AUTORUN .OBJ
+#	OPENING .OBJ
+#	KITDISK .   
+#	GAME    .   
+#	POLASCRM.OBJ
+#	AUTORUN .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	AUTOGO  .BAS
+#	PACKER  .COM
+- # of sectors >1020
+- # of sectors >1020
+#	TEST    .   
+#	TEST    .   
+#	TEST    .   
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+- # of sectors >1020
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+- # of sectors >1020
+- # of sectors >1020
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	WACE    .BAS
+#	BUISSNES.BAT
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	DUP     .SYS
+- # of sectors >1020
+#	DELETE  .   
+- # of sectors >1020
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/C/Adams Adventure #05 - The Count v3.9-115 (19xx)(Adventure International)[k-file].atr
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/C/Camel _ unknown version #1.atr
+#	WACE    .BAS
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/C/Camel _ unknown version #2.atr
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	AUTOGO  .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	SCORES  .TET
+#	WACE    .BAS
+#	WACE    .BAS
+#	MARCUSE2.OBJ
+#	MARCUSE2.OBJ
+#	EDIT    .   
+#	SSI     .X  
+#	WACE    .BAS
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/C/Casebook of Hemlock Soames #1 (The).atr
+#	WACE    .BAS
+#	FLYC    .BA 
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	CHROMATC.CTB
+#	CHROMMUS.COM
+#	CHROMATC.CHR
+#	CHROMATC.CTB
+#	CHROMMUS.COM
+#	CHROMATC.CHR
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	DUP     .SYS
+#	AUTORUN .SYS
+#	LOGO3   .   
+#	LOGO2   .   
+#	VBFLYER .OBJ
+#	AUTOGO  .BAS
+#	AUTORUN .SYS
+#	VBFLYER .OBJ
+#	TUT1    .   
+#	PHONEDIL.   
+#	FAUCET  .   
+#	AUTORUN .SYS
+#	WACE    .BAS
+#	WACE    .BAS
+#	CAVEHUNT.PT2
+#	CAVEHUNT.PT2
+#	EDITOR  .BAS
+#	LVL4    .LST
+#	PL49    .PFD
+#	PL47    .PFD
+#	MAIN    .CTB
+#	EDIT2   .BAS
+#	LEVEL3  .LST
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	AUTORUN .SYS
+#	AUTORUN .SYS
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/C/Chem Lab Simulations #3.atr
+#	P       .   
+Imagefile: /Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/C/Chem Lab Simulations #4.atr
+- # of sectors >1020
+- # of sectors >1020
+#	BURGER  .SCE
+#	BURGER  .SCF
+#	BURGER  .SCG
+#	BURGER  .SCH
+#	BURGER  .SCI
+#	BURGER  .SCJ
+#	BURGER  .SCK
+#	BURGER  .SCL
+#	BURGER  .SCM
+#	BURGER  .SCN
+#	BURGER  .SCO
+#	WACE    .BAS
+#	WACE    .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	ASSEM   .SGE
+#	DSEG    .ASM
+#	ASSEM   .SGF
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	BLHOLE  .DOC
+#	BLHOLE  .DOC
+#	AUTOGO  .BAS
+#	VBFLYER .OBJ
+#	AUTOGO  .BAS
+#	VBFLYER .OBJ
+#	AUTOGO  .BAS
+#	VBFLYER .OBJ
+#	WACE    .BAS
+#	»°¬ßßßßß.¬¦¬
+#	»ª¯ßßßßß.¬¦¬
+#	¾ª«°­ª±ß.¬¦¬
+#	§²¾´ºßßß.ßßß
+#	¾ª«°ßßßß.ßßß
+#	½­°¾»¬¶».½¾¬
+#	§Îßßßßßß.ßßß
+#	½¬¾¶ßßßß.½¾¬
+- # of sectors >1020
+- # of sectors >1020
+#	EARTHCO .OBJ
+#	SWANDEMO.OBJ
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	CLOAK   .NEW
+#	CLOAK   .NEW
+#	DUP     .SYS
+#	DUP     .SYS
+#	DUP     .SYS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	SLOAD   .   
+#	CHECKSUM.   
+#	HEADER  .   
+#	BOOK    .   
+#	MEM     .SAV
+#	LOADER  .   
+#	LOADG   .   
+#	M       .   
+#	YYY     .   
+#	SLOAD   .   
+#	CHECKSUM.   
+#	HEADER  .   
+#	BOOK    .   
+#	MEM     .SAV
+#	LOADER  .   
+#	LOADG   .   
+#	M       .   
+#	YYY     .   
+#	WRPUPSCN.RNM
+#	PLYPRSN2.OBJ
+#	PLYPRSN1.OBJ
+#	BLDSHDOW.OBJ
+#	CCMAIN  .OBJ
+#	GAMEBAS .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	FRAC    .VOL
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	DBOLT   .CHK
+#	DUP     .SYS
+#	WACE    .BAS
+#	WACE    .BAS
+#	CRICKETA.LST
+#	NFL     .   
+#	MAIN    .OBJ
+#	AUTORUN .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	DIM     .TMP
+#	TB      .   
+#	TB      .   
+- # of sectors >1020
+#	WACE    .BAS
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	OPTION  .BAS
+#	WAR     .BA 
+#	WACE    .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	AUTORUN .SYS
+#	AUTORUN .SYS
+#	SCREEN04.DAT
+#	SCREEN05.DAT
+#	SCREEN06.DAT
+#	SCREEN07.DAT
+#	SCREEN08.DAT
+#	SCREEN09.DAT
+#	SCREEN10.DAT
+#	SCREEN11.DAT
+#	SCREEN12.DAT
+#	SCREEN13.DAT
+#	SCREEN14.DAT
+#	SCREEN15.DAT
+#	SCREEN16.DAT
+#	SCREEN17.DAT
+#	SCREEN18.DAT
+#	SCREEN19.DAT
+#	SCREEN20.DAT
+#	SCREEN21.DAT
+#	SCREEN22.DAT
+#	SCREEN23.DAT
+#	SCREEN24.DAT
+#	SCREEN25.DAT
+#	SCREEN26.DAT
+#	SCREEN27.DAT
+#	SCREEN28.DAT
+#	SCREEN29.DAT
+#	SCREEN30.DAT
+#	SCREEN31.DAT
+#	SCREEN32.DAT
+#	SCREEN33.DAT
+#	SCREEN34.DAT
+#	SCREEN35.DAT
+#	SCREEN36.DAT
+#	SCREEN37.DAT
+#	SCREEN38.DAT
+#	SCREEN39.DAT
+#	SCREEN40.DAT
+#	SCREEN41.DAT
+#	SCREEN42.DAT
+#	SCREEN43.DAT
+#	SCREEN44.DAT
+#	SCREEN45.DAT
+#	SCREEN46.DAT
+#	SCREEN47.DAT
+#	SCREEN48.DAT
+#	SCREEN49.DAT
+#	SCREEN50.DAT
+#	SCREEN51.DAT
+#	SCREEN52.DAT
+#	SCREEN53.DAT
+#	SCREEN54.DAT
+#	SCREEN55.DAT
+#	SAVDAT  .BAS
+#	AUTORUN .SYS
+#	ROMCOPY .   
+#	MALEFIZ .BAS
+#	ROMCOPY .   
+#	MALEFIZ .BAS
+#	WACE    .BAS
+	* #231  .*  
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	DUP     .SYS
+#	JMW     .   
+#	JJJ     .   
+#	DCW     .   
+#	MLK     .   
+#	DUP     .SYS
+#	JMW     .   
+#	JJJ     .   
+#	DCW     .   
+#	MLK     .   
+#	DUP     .SYS
+#	JMW     .   
+#	JJJ     .   
+#	DCW     .   
+#	MLK     .   
+#	DUP     .SYS
+#	JMW     .   
+#	JJJ     .   
+#	DCW     .   
+#	MLK     .   
+#	DUP     .SYS
+#	JMW     .   
+#	JJJ     .   
+#	DCW     .   
+#	MLK     .   
+#	DUP     .SYS
+#	JMW     .   
+#	JJJ     .   
+#	DCW     .   
+#	MLK     .   
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WGXMIT  .BA 
+#	CCC65   .OLD
+#	CCC65   .OLD
+#	CCC65   .OLD
+#	AUTORUN .SYS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	AUTORUN .SYS
+#	STRANDAR.DD 
+#	GRAPHICS.WIZ
+#	AUTORUN .BAS
+#	AUTORUN .SYS
+#	PROGRAM .1  
+#	MYFUNHOU.SEZ
+#	ERYUSHOU.SEZ
+#	AUTORUN .SYS
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	--------.---
+#	--------.---
+#	…ð8é ¤.CÀ
+#	‘EèæEÐæ.FÆC
+#	ªÐ×©W.©
+#	Ž©¢.
+#	‘EŠÉ›Ð©.åC
+#	ð¢É}ÐLÈ.	É~
+#	#¢¥EÉzÐ.¥F
+#	EÐæFæC¥.CI
+#	Ðáð¦ÉÐ.¢Ð
+#	¢¥EÉ;Ð.¤FÀ
+#	ð»ÉÐ¢.ÐØé
+#	pppFõ
+#	FLYC    .BA 
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	FLYC    .BA 
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	FLYC    .BA 
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+- # of sectors >1020
+#	WAR     .BA 
+#	WACE    .BAS
+#	WACE    .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	AUTOGO  .BAS
+- # of sectors >1020
+#	WANDUSER.COM
+#	PLAY    .COM
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	AUTORUN .SYS
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	AUTORUN .SYS
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	DWS2001 .TUR
+#	STRAD   .DOC
+#	KD7     .PIC
+#	DUP     .SYS
+- # of sectors >1020
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	DUP     .SYS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	A       .   
+#	DICO    .8  
+#	EICHERN .   
+#	00      .DAT
+#	00      .DT2
+#	1       .DAT
+#	1       .DT2
+#	PRG22   .   
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	WORT    .BAS
+#	NEWYORK .   
+#	NEWYORK .   
+#	TIT     .   
+#	V       .   
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	WACE    .BAS
+#	AUTORUN .SYS
+#	D2      .   
+#	D3      .   
+#	DFWORDS .   
+#	UWORDS  .   
+#	VB      .OBJ
+#	VBM     .   
+#	VBS2    .   
+#	VBS     .   
+#	BLHOLE  .DOC
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	AUTORUN .BAS
+#	AUTORUN .SYS
+#	SCREEN04.DAT
+#	SCREEN05.DAT
+#	SCREEN06.DAT
+#	SCREEN07.DAT
+#	SCREEN08.DAT
+#	SCREEN09.DAT
+#	SCREEN10.DAT
+#	SCREEN11.DAT
+#	SCREEN12.DAT
+#	SCREEN13.DAT
+#	SCREEN14.DAT
+#	SCREEN15.DAT
+#	SCREEN16.DAT
+#	SCREEN17.DAT
+#	SCREEN18.DAT
+#	SCREEN19.DAT
+#	SCREEN20.DAT
+#	SCREEN21.DAT
+#	SCREEN22.DAT
+#	SCREEN23.DAT
+#	SCREEN24.DAT
+#	SCREEN25.DAT
+#	SCREEN26.DAT
+#	SCREEN27.DAT
+#	SCREEN28.DAT
+#	SCREEN29.DAT
+#	SCREEN30.DAT
+#	SCREEN31.DAT
+#	SCREEN32.DAT
+#	SCREEN33.DAT
+#	SCREEN34.DAT
+#	SCREEN35.DAT
+#	SCREEN36.DAT
+#	SCREEN37.DAT
+#	SCREEN38.DAT
+#	SCREEN39.DAT
+#	SCREEN40.DAT
+#	SCREEN41.DAT
+#	SCREEN42.DAT
+#	SCREEN43.DAT
+#	SCREEN44.DAT
+#	SCREEN45.DAT
+#	SCREEN46.DAT
+#	SCREEN47.DAT
+#	SCREEN48.DAT
+#	SCREEN49.DAT
+#	SCREEN50.DAT
+#	SCREEN51.DAT
+#	SCREEN52.DAT
+#	SCREEN53.DAT
+#	SCREEN54.DAT
+#	SCREEN55.DAT
+#	SAVDAT  .BAS
+#	AUTORUN .SYS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	FLYC    .BA 
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	MUELL   .   
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	DRGMES3 .   
+#	DRGMES2 .   
+#	DRGMES4 .   
+#	DRGMES5 .   
+#	DUP     .SYS
+#	END     .   
+#	ORGANA  .   
+#	DRGMES3 .   
+#	DRGMES2 .   
+#	DRGMES4 .   
+#	DRGMES5 .   
+#	DUP     .SYS
+#	END     .   
+#	ORGANA  .   
+#	AUTOGO  .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	RUNTIME .COM
+#	DRAC    .CTB
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	DUC2    .   
+#	DUC1    .   
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+#	DOS     .SYS
+#	AUTORUN .SYS
+#	ETA     .DAN
+#	ETB     .DAN
+#	ETC     .DAN
+#	ETD     .DAN
+#	ETE     .DAN
+#	ETF     .DAN
+#	BLHOLE  .DOC
+#	DUP     .SYS
+#	DUP     .SYS
+#	DUP     .SYS
+#	EASYMONY.COM
+#	ELECTRA .COM
+#	HELLFIRE.5OL
+#	HELLFIRE.7OL
+#	LCHR    .   
+#	LSAVED  .   
+#	DANIEL  .PLR
+#	FREDERIC.PLR
+#	SAMMY   .PLR
+#	SETCOL  .LIS
+#	COLORFIX.   
+#	HELLFIRE.5OL
+#	HELLFIRE.7OL
+#	LCHR    .   
+#	LSAVED  .   
+#	DANIEL  .PLR
+#	FREDERIC.PLR
+#	SAMMY   .PLR
+#	SETCOL  .LIS
+#	COLORFIX.   
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	DUP     .SYS
+- # of sectors >1020
+#	ADVENTUR.ER 
+#	DYER    .   
+#	EAMON   .CUR
+#	FRESHMEA.T  
+#	DARIUS  .DAT
+#	FIREBALL.DAT
+#	EAMON   .CUR
+#	FRESHMEA.T  
+#	DARIUS  .DAT
+#	FIREBALL.DAT
+#	DUP     .SYS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	STUDREC .FIL
+#	STUDREC .FIL
+#	STUDREC .FIL
+#	TEMP    .   
+#	STUDREC .FIL
+#	STUDREC .FIL
+#	STUDREC .FIL
+#	ADRESSE .   
+#	GEIL    .   
+#	NA      .   
+#	GEWINN  .   
+#	WACE    .BAS
+#	WACE    .BAS
+#	DUP     .SYS
+#	DWIEWIEZ.COM
+#	EASYMONY.COM
+#	DUP     .SYS
+#	DWIEWIEZ.COM
+#	EASYMONY.COM
+#	DUP     .SYS
+#	DWIEWIEZ.COM
+#	EASYMONY.COM
+#	WACE    .BAS
+#	E       .   
+#	E       .   
+#	BURGER  .SCE
+#	BURGER  .SCF
+#	BURGER  .SCG
+#	BURGER  .SCH
+#	BURGER  .SCI
+#	BURGER  .SCJ
+#	BURGER  .SCK
+#	BURGER  .SCL
+#	BURGER  .SCM
+#	BURGER  .SCN
+#	BURGER  .SCO
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+- # of sectors >1020
+#	AUTORUN .SYS
+#	TRIANGLE.DTB
+#	PART1   .PRG
+#	TR1     .ADV
+#	ENIGME  .PRG
+#	ENIGME  .DTB
+#	SUITE   .SAV
+#	AUTORUN .SYS
+#	TEST    .SAV
+#	TR2     .ADV
+#	TR2     .PRG
+#	FLYC    .BA 
+#	FLYER   .FNT
+#	FLYER   .OBJ
+#	HELLCAT .PIC
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	AUTOGO  .BAS
+#	WACE    .BAS
+#	TYPE    .4OK
+#	L2      .   
+#	WACE    .BAS
+#	STARTUP .EXC
+#	STARTUP .EXC
+- # of sectors >1020
+#	WACE    .BAS
+#	KARRIERE.DAT
+#	SCREEN1 .OBJ
+#	VBI     .MUS
+#	WACE    .BAS
+#	KARRIERE.DAT
+#	SCREEN1 .OBJ
+#	VBI     .MUS
+#	WACE    .BAS
+#	KARRIERE.DAT
+#	SCREEN1 .OBJ
+#	VBI     .MUS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	HORIZ1  .OBJ
+#	INTRO   .FNT
+#	VBFLYER .OBJ
+#	ELECTRA .   
+#	ESCAPEFR.OMN
+#	ALIENAMB.USN
+#	ALIENS  .CON
+#	ATTACKOF.THN
+#	ELECTRA .   
+#	ESCAPEFR.OMN
+#	ALIENAMB.USN
+#	ALIENS  .CON
+#	ATTACKOF.THN
+#	DUP     .SYS
+#	TALLY   .   
+#	GAR     .   
+#	EGS     .   
+#	TIT     .   
+- # of sectors >1020
+- # of sectors >1020
+- # of sectors >1020
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	AUTOGO  .BAS
+#	TEMP    .   
+#	AUTORUN .BAS
+#	AUTORUN .BAS
+#	BOMBS   .DOC
+#	BOMBS   .HI 
+#	AUTORUN .BAS
+#	REAC    .PIC
+#	REAC    .TB 
+- # of sectors >1020
+- # of sectors >1020
+#	WACE    .BAS
+#	DOS     .SYS
+#	DUP     .SYS
+#	ANDRU   .BAS
+#	BACKUP  .OBJ
+#	QB      .OBJ
+#	WACE    .BAS
+#	WACE    .BAS
+#	WACE    .BAS
+- # of sectors >1020
+#	WACE    .BAS
+#	MAIN    .PRG
+#	MAIN    .PRG
+- # of sectors >1020
+- # of sectors >1020
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/G/Adams Adventure #09 - Ghost Town v3.9-123 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/G/Adams Adventure #12 - The Golden Voyage v3.9-182 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/G/Gamepack_#1.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/M/Adams Adventure #03 - Mission Impossible v3.9-306 (1981)(Adventure International)[k-file].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/M/Hi-Res Adventure #0 - Mission Asteroid _ On-Line Systems _ side A.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/M/Hi-Res Adventure #0 - Mission Asteroid _ On-Line Systems _ side B.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/M/Hi-Res Adventure #0 - Mission Asteroid _ Sierra On-Line _ side A.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/M/Hi-Res Adventure #0 - Mission Asteroid _ Sierra On-Line _ side B.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/M/Mastermind_unknown_version_#1.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/P/Adams Adventure #02 - Pirate Adventure v3.9-408 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/P/Panzer Grenadier - Scenario #2 - The Cards of the Tabble (19xx)(-)[h Gumisoft][k-file].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/P/Panzer Grenadier - Scenario #3 - Kirorograd... Echo of Doom (19xx)(-)[h Gumisoft][k-file].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/P/Panzer Grenadier - Scenario #4 - One more River - One More Town (19xx)(-)[h Gumisoft][k-file].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/P/Panzer Grenadier - Scenario #5 - Wilkowishken - Engage and Hold (19xx)(-)[h Gumisoft][k-file].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/S/Adams Adventure #06 - Strange Odyssey v3.9-119 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/S/Adams Adventure #13 - Sorcerer of Claymorgue Castle v3.9-123 (1981)(Adventure International)[k-file].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/S/Simon_unknown_version_#1.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/S/Simon_unknown_version_#2.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/S/Strip Poker Data Disk #1.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/S/Strip Poker Data Disk #2.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/S/Strip Poker Data Disk #3.atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/T/Adams Adventure #15 - The Treasure of Andromeda v3.9-182 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/U/Hi-Res Adventure #4 - Ulysses and the Golden Fleece [rel. 1] [side A].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/U/Hi-Res Adventure #4 - Ulysses and the Golden Fleece [rel. 2] [side A].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/U/Hi-Res Adventure #4 - Ulysses and the Golden Fleece [side B].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/U/Hi-Res Adventure #4 - Ulysses and the Golden Fleece [side C].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/U/Sawfish Software Public Domain #1 [side A].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/U/Sawfish Software Public Domain #1 [side B].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/V/Adams Adventure #04 - Voodoo Castle v3.9-119 (1983)(Adventure International).atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/W/Hi-Res Adventure #2 - Wizard and the Princess [side A].atr
+/Users/Berthold/Desktop/Atari800MacX 13.26.26/Programme/0_Almost complete Disk Collection/Games/W/Hi-Res Adventure #2 - Wizard and the Princess [side B].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/0/221B Baker Street Case Library #1.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/0/221B Baker Street Case Library #2.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/A/Abraxas Adventure #1 - Assault on the Astral Rift (1984)(MMG Micro)(Disk 1 of 2).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/A/Abraxas Adventure #1 - Assault on the Astral Rift (1984)(MMG Micro)(Disk 2 of 2).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/A/Value Pack #1.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/A/Value Pack #2.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/A/Value Pack #3.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/A/Value Pack #4.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/C/Adams Adventure #05 - The Count v3.9-115 (19xx)(Adventure International)[k-file].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/C/Camel _ unknown version #1.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/C/Camel _ unknown version #2.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/C/Casebook of Hemlock Soames #1 (The).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/C/Chem Lab Simulations #3.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/C/Chem Lab Simulations #4.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/G/Adams Adventure #09 - Ghost Town v3.9-123 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/G/Adams Adventure #12 - The Golden Voyage v3.9-182 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/G/Gamepack_#1.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/M/Adams Adventure #03 - Mission Impossible v3.9-306 (1981)(Adventure International)[k-file].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/M/Hi-Res Adventure #0 - Mission Asteroid _ On-Line Systems _ side A.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/M/Hi-Res Adventure #0 - Mission Asteroid _ On-Line Systems _ side B.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/M/Hi-Res Adventure #0 - Mission Asteroid _ Sierra On-Line _ side A.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/M/Hi-Res Adventure #0 - Mission Asteroid _ Sierra On-Line _ side B.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/M/Mastermind_unknown_version_#1.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/P/Adams Adventure #02 - Pirate Adventure v3.9-408 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/P/Panzer Grenadier - Scenario #2 - The Cards of the Tabble (19xx)(-)[h Gumisoft][k-file].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/P/Panzer Grenadier - Scenario #3 - Kirorograd... Echo of Doom (19xx)(-)[h Gumisoft][k-file].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/P/Panzer Grenadier - Scenario #4 - One more River - One More Town (19xx)(-)[h Gumisoft][k-file].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/P/Panzer Grenadier - Scenario #5 - Wilkowishken - Engage and Hold (19xx)(-)[h Gumisoft][k-file].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/S/Adams Adventure #06 - Strange Odyssey v3.9-119 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/S/Adams Adventure #13 - Sorcerer of Claymorgue Castle v3.9-123 (1981)(Adventure International)[k-file].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/S/Simon_unknown_version_#1.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/S/Simon_unknown_version_#2.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/S/Strip Poker Data Disk #1.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/S/Strip Poker Data Disk #2.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/S/Strip Poker Data Disk #3.atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/T/Adams Adventure #15 - The Treasure of Andromeda v3.9-182 (1981)(Adventure International).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/U/Hi-Res Adventure #4 - Ulysses and the Golden Fleece [rel. 1] [side A].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/U/Hi-Res Adventure #4 - Ulysses and the Golden Fleece [rel. 2] [side A].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/U/Hi-Res Adventure #4 - Ulysses and the Golden Fleece [side B].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/U/Hi-Res Adventure #4 - Ulysses and the Golden Fleece [side C].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/U/Sawfish Software Public Domain #1 [side A].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/U/Sawfish Software Public Domain #1 [side B].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/V/Adams Adventure #04 - Voodoo Castle v3.9-119 (1983)(Adventure International).atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/W/Hi-Res Adventure #2 - Wizard and the Princess [side A].atr
+/Users/Berthold/Desktop/PSP/atari800-2.1.0.1-1.0/games/roms/0_Almost complete Disk Collection/Games/W/Hi-Res Adventure #2 - Wizard and the Princess [side B].atr
+
