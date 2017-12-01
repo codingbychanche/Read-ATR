@@ -85,7 +85,7 @@ int main(int argc, const char *argv[])
     break;
  
     case 's':           /* Show short version of dir (like DUP does) */
-      sopt++;
+      sopt++;           /* Don't check files read, do not show start, end sector # ..... */
       break;
     }
     --argc;
@@ -93,9 +93,9 @@ int main(int argc, const char *argv[])
   }
   
   /*
-   * Check if file name was given.
+   * Check if file name was passed from shell.
    * This is the case, when argc is > than 1, then the second element 
-   * contains what shpuld be the file name string (the argument at 0 is the 
+   * contains what should be the file name string (the argument at 0 is the 
    * programm name (atdir).
    *
    * If argc=1, then the user may have forgotten to pass a file name.
@@ -109,6 +109,8 @@ int main(int argc, const char *argv[])
   }
   
   /*
+   * All went well, now, start.....
+   *
    * Display program name and version, if no '-v' option
    */
     
@@ -306,7 +308,6 @@ dir (char *path[PATHSIZE])
       filename[9],   /* File name */
       ext[4];        /* File extension */
 
-
     /*
      * Get various info about the disk (from VTOC)
      */
@@ -320,12 +321,11 @@ dir (char *path[PATHSIZE])
     
     printf ("Image file: %s\n\n",path); 
     printf ("# of useable data sectors on disk/ unused data sectors on disk:%d/ %d\n\n",sectors,free_sec);
-    
     printf ("FN\tStat\tFilename\tStart\t#Sect.\t#Bytes\tSector chain\n");
     printf ("---\t------\t---------------\t-----\t------\t------\t------------\n");          
-    
-    fno=0;
 
+    fno=0;
+    	
     while ((mydir[fno].filename[0])!=0 && (fno<=64))     /* Read from image until last entry */
     {
 	
@@ -416,18 +416,12 @@ dir (char *path[PATHSIZE])
 	
 	fstat=trace (start,size,fno);
         
-        if ((fstat & FNO_ERR) == FNO_ERR) printf ("\tF#!");         /* File number! */
-        if ((fstat  & SIZE_ERR) == SIZE_ERR)printf ("\tSize!");     /* File size! */
-	if ((fstat & NSEC_INV)== NSEC_INV)printf ("\tNSec!");       /* Invalif next sector! */
+        if ((fstat  & FNO_ERR)   == FNO_ERR)   printf ("\tF#!");         /* File number! */
+        if ((fstat  & SIZE_ERR)  == SIZE_ERR)  printf ("\tSize!");       /* File size! */
+	if ((fstat  & NSEC_INV)  == NSEC_INV)  printf ("\tNSec!");       /* Invalif next sector! */
+	if ((fstat  & NSEC_LOOP) == NSEC_LOOP) printf ("\t8");           /* Sector chain loops...*/
 	
-       
-	//if ((fstat & NSEC_LOOP)== NSEC_LOOP){
-	//  printf ("\tLoop!\n");                                     /* Next=Prev. sector! */
-	//  break;
-	//}
-        
-
-	if (fstat== 0) printf ("\tOK");                             /* File is OK! */
+	if (fstat== 0) printf ("\tOK");                                  /* File is OK! */
 
         /*
          * Next entry
@@ -435,10 +429,8 @@ dir (char *path[PATHSIZE])
 	
         printf ("\n"); /* Next line */
 	
-        fno++;
-    
+        fno++;    
     } 
- 
     return(0);  
 }
 
@@ -458,33 +450,29 @@ dir (char *path[PATHSIZE])
 trace (int start_sec,int size,int fn)
 {
   int next,count,err;
-  int prev_sec[1024];                        /* Files sector chain */
 
   count=err=0; 
 
   do
     {
-      prev_sec[count]=start_sec;
       next=d2x_secnext (&myimage,start_sec);        /* Get next sector of file */
 
-      for (i=0;i<=count;i++){                       /* Check sector chain */
-	if (next==prev_sec[i]) err=err | NSEC_LOOP;    /* trace would loop if we did not abord*/
-      }
-      if ((err & NSEC_LOOP)==NSEC_LOOP){
-	printf ("LOOOOOOP");
-	break;
+      if (count >= 1020){
+	err=err | NSEC_LOOP;                        /* If the file has more sectors than the disk */
+        break;                                      /* asume that the file 'loops' */
       }
 
       if (next>=1020){
 	err=err | NSEC_INV;
 	break;
       }
+
       if ((d2x_secfile (&myimage,start_sec))!=fn) err=err | FNO_ERR; 
       
-      start_sec=next;                       /* Get next sector in chain */      
+      start_sec=next;                               /* Get next sector in chain */      
       count++;
     }
-  while (next!=0);                          /* If next sector=0 => end of file reached */
+  while (next!=0);                    /* If next sector=0 => end of file reached */
 
   if (count!=size) err=err | SIZE_ERR;
   return (err); 
