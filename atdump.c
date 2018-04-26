@@ -218,14 +218,14 @@ checkfile(char file[])
 
     if ((strcmp(name,file))==0){                    /* File exists? */
       if ((mydir[m].flag & DEL)==DEL){              /* Is it deleted? */
-	printf ("File found, but deleted!\n");      /* Yes! => return with error */
+	printf ("atdump: File found, but deleted!\n");      /* Yes! => return with error */
 	return (1025);
       }
       return (start);                               /* File exists, Return startsector= no error */
     }
     m++;                                            /* File not found yet, check next entry */
   }
-  printf ("File not found.\n");                     /* All entrys checked, file not found */
+  printf ("atdump: File not found.\n");              /* All entrys checked, file not found */
   return (1025);                                    /* Return, error */
 }
 
