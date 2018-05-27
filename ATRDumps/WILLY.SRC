@@ -1,0 +1,813 @@
+* TURBOLAR WILLI (SPIEL) 
+ * EQUATES UND INITIALISIERUNG
+ *------------------------------------
+ * EQUATES
+ *------------------------------------
+ PMBASE EQU 54279     ZEIGER AUF PMTAB
+ *
+ PMTAB EQU 19456     PMTABELLE
+ *
+ PLAYER1 EQU PMTAB+512 PLAYER 1
+ PLAYER2 EQU PMTAB+640 PLAYER 2
+ PLAYER3 EQU PMTAB+768 PLAYER 3
+ PLAYER4  EQU PMTAB+896 PLAYER 4
+ *
+ PMCNTL EQU 53277
+ DMACNTL EQU 559
+ HPOSP1   EQU 53248     X POS PLAYER 1
+ HPOSP2 EQU 53249     X POS PLAYER 2
+ HPOSP3 EQU 53250     X POS PLAYER 3
+ KOLP0L EQU 53260     KOLISION P1
+ KOLP1L EQU 53261     KOLISION P2
+ KOLP2L EQU 53262         ''   P3
+ HITCLR EQU 53278     KOLISION CLEAR      RANDFAR
+ SIZEP3 EQU 53258     BREITE PLAYER 3
+ *
+ PL0ADR   EQU 205       ADR.FUER PL
+ *
+ V1 EQU 1537      X POS PLAYER 1
+ V2 EQU 1538      X POS PLAYER 2
+ V3 EQU 1539      X POS PLAYER 3
+ STICK0 EQU 632       STICK #0
+ TRIG EQU 644       TRIGGER #0
+ *
+ SDLIST EQU $230      ZEIGER ANTIC PG
+ *
+ COLPF0 EQU $D016     BACKG. COLOR
+ COLPF1 EQU $D017     ZEICHEN COLOR
+ COLPF2 EQU $D018     -
+ COLPF3 EQU $D019     -
+ COLPF4 EQU $D01A     RAND FARBE
+ *
+ DLIVKTL EQU 512       DLI VEKTOR LOW
+ DLIVKTH EQU 513       DLI VEKTOR HI
+ NMIEN EQU 54286     AKTIVIERE DLI
+ *
+ SYSTIM  EQU 538      SYSTEMTIMMER1.
+ TVEK1 EQU 552      VEKTOR SYSTIM1.
+ YPOS EQU 1540      Y POS OBJEKT
+ RANDOM EQU 53770     RANDOM ZAHL.
+ *
+ POS EQU 1541      X POSITION ZAHL 
+ YBUFF EQU 202       UNIVERS.BUFFER.
+ XBUFF    EQU 1561      UNIVERS.BUFFER.
+ *
+ FRO1 EQU 212       ZAHL LOW
+ FRO2 EQU 213       ZAHL HI
+ INBUFFL EQU 243       ZEIGER AUF ZAHL
+ FASC EQU 55526     FP ZAHL ->ASC
+ IFP EQU $D9AA     ZAHL NACH FP
+ *
+ SCOREL EQU 1542      PUNKTE LOWBYTE
+ SCOREH EQU 1543      PUNKTE HIBYTE 
+ LEBEN EQU 1544      WILLY'S
+ *
+ ZEIGER EQU 54281     ZEIGER->ZSATZ
+ *
+ AUDF1 EQU $D202     FREQUENZ # 2
+ AUDC1 EQU $D203     TOHN # 2
+ *
+ GEFANGEN EQU 1546      GEFANGENE OTTOS
+ MAXFANG  EQU 1547      ZU FANG.OTTS
+ *
+ LEVEL2 EQU 1548      AKTUELLE LEVEL.
+ MAXLEV   EQU 1549      MAXIMALER LEVEL
+ *
+ DIFICULT EQU 1550      SCHWIERIKEIT.
+ *
+ TIMVK1 EQU 552       INTERUPT VEKTOR
+ TIMVK2   EQU 553       LOW UND HI.
+ TIMER1   EQU 538       TIMMER 1.
+ *
+ FLAG EQU 1551      BEWEGUNGSPHASE
+ CFLAG    EQU 1552      KOL.MIT CAR?
+ *
+ * TABELLE DER UNTERPROGRAMMTEILE
+ * -ZEICHENSATZ            $B000-$B060
+ * -TITELSCREEN(PROGRAMM)  $B061-$B131
+ * -DISPLAY LIST INTERUPT  $B132-?
+ *
+ ZSATZ EQU $B000     ZEICHENSATZ
+ TITELPG  EQU $B061     TITELSCREEN
+ DLI1 EQU $B200     DLI
+ BRAMPLF EQU $B300     SPIELFELD GR.
+ *-------------------------------------
+ * PLAYER DATEN
+ *-------------------------------------
+  ORG $A800
+  JMP START     SATRT PROGRAMM
+ *
+ * DATEN FUER BEWEGUNGSPHASE RECHTS
+ *
+ RIGHT1   DFB 28,28,8,15,8,28,36,54,0
+ RIGHT2 DFB 28,28,8,30,8,28,38,48,0
+ RIGHT3 DFB 28,28,8,15,8,28,26,3,0
+ *
+ * DATEN FUER BEWEGUNGSPHASE LINKS
+ *
+ LEFT1 DFB 28,28,8,120,8,28,18,54,0
+ LEFT2 DFB 28,28,8,60,8,28,50,6,0
+ LEFT3    DFB 28,28,8,120,8,28,44,96,0
+ *
+ * DATEN FUER STEHENDES MAENCHEN
+ *
+ STAND1   DFB 14,14,4,14,21,4,10,27,0
+ STAND2 DFB 14,14,4,14,21,4,26,3,0
+ *
+ * DATEN FUER FALLENDES MAENCHEN
+ *
+ OBJEKT1 DFB 0,28,28,73,42,28,73,127
+ OBJEKT2 DFB 0,28,28,8,107,28,73,127
+ *
+ * KAPUTTER WILLY
+ *
+ KAPUTT DFB 56,56,16,56,84,16,146,254
+ *
+ * KRANKENWAGEN
+ *
+ CAR DFB 240,248,248,236,236,199,199,239,239,255,255,255,102,102
+ *
+ * 21 MOEGLICHE POSITIONEN FUER PLAYER
+ *
+ XTAB DFB 96,98,100,102,104,108,110
+  DFB 112,114,116,118,120,122 
+  DFB 124,126,128,130
+ *------------------------------------
+ * ANTICPROGRAMM FUER SPIELFELD.
+ *------------------------------------
+ PLAYF DFB 112
+  DFB 7+64
+ INFO DFW TOP
+  DFB 176
+  DFB 2+64
+  DFW BRAMPLF
+  DFB 176,133,5,5,133,5,5
+  DFB 5,133,5
+  DFB 65
+ *------------------------------------
+ * ANTICPROGRAMM FUER NEUHEN LEVEL
+ *------------------------------------
+ LEVEL DFB 112,112,112,112,112
+  DFB 64+6
+  DFW LEVTXT
+  DFB 7
+  DFB 6,6,6,6,6,6
+  DFB 65 
+ *                                      
+ LEVTXT ASC $                    $
+  ASC $       BRAVO.       $
+  ASC %                    %
+  ASC %   SIE ERREICHEN    %
+  ASC %                    %
+  ASC % DIE NAECHSTE RUNDE %
+  ASC $                    $
+  ASC $     <TRIGGER>      $
+ *------------------------------------
+ * SCROE=0 LEBEN=3 FEHLER=0
+ * GEFANGEN=0 MAXFANG=10 LEVEL=1
+ *------------------------------------
+ START LDA #0         PLAYER 1,2,3
+  STA HPOSP1     VOM BILD-
+  STA HPOSP2     SCHIRM. 
+  STA HPOSP3
+ *
+  LDA #TOP       TITEL
+  STA INFO       UEBER DEM 
+  LDA #TOP/256   SPIELFELD
+  STA INFO+1     AUSGEBEN
+ *
+  LDA #0       SOUND AUS
+  STA 536
+  STA 1560       SOUND ZAELER=0
+ *
+  JSR TITELPG    TITEL OUTPUT.
+ *
+  LDA #1       SOUND AN!!!
+  STA 536
+ *
+  LDA #0
+  STA SCOREL
+  STA SCOREH
+  STA GEFANGEN
+  LDA #3
+  STA LEBEN
+  LDA #3
+  STA MAXFANG
+  LDA #3
+  STA MAXLEV
+  LDA #1
+  STA LEVEL2
+  LDA #6
+  STA DIFICULT
+ *------------------------------------
+ * LOESCHEN DER PUNKTEANZEIGE AUS
+ * BILDRAM FUER PLAYEFIELD.
+ *------------------------------------
+  LDA #0
+  STA BRAMPLF+11
+  STA BRAMPLF+12
+  STA BRAMPLF+13
+  STA BRAMPLF+14
+  STA BRAMPLF+15
+ *------------------------------------
+ * AUSGABE DER PUNKTE/LEBEN/RUNDE
+ *------------------------------------
+ START2 LDA #11
+  STA POS
+  LDA SCOREL
+  LDX SCOREH
+  JSR PUTZAHL
+ *
+  LDA #22
+  STA POS
+  LDA LEVEL2
+  LDX #0
+  JSR PUTZAHL
+ *
+  LDA #36
+  STA POS
+  LDA LEBEN
+  LDX #0
+  JSR PUTZAHL
+ *------------------------------------
+ * AKTIVIERE DLI
+ *------------------------------------
+  LDA #DLI1:L   PRG.ADRESSE
+  STA DLIVKTL   LOW->VEKTORL.
+  LDA #DLI1:H   PRG.ADRESSE
+  STA DLIVKTH   HI->VEKTORH.
+ *
+  LDA #192      STARTE INTERUPT
+  STA NMIEN
+ *------------------------------------
+ * PLAYER MISILI VORBEREITEN
+ *------------------------------------
+  LDA #3
+  STA PMCNTL
+  LDA #46
+  STA DMACNTL
+  LDA #76
+  STA PMBASE
+ *                                     
+  LDA #%00000001
+  STA 623
+ *                                     
+  LDA #0
+  LDX #0
+ LOESCHEN STA PLAYER1,X     CLEAR PL1
+  STA PLAYER2,X     CLEAR PL2
+  STA PLAYER3,X CLEAR PL3
+  STA PLAYER4,X CLEAR PL4
+  INX
+  BNE LOESCHEN      BIS X=255
+ *                                      
+  LDA #40
+  STA YPOS
+ *                                     
+  LDX #88
+  LDY #0
+ CARLESEN LDA CAR,Y 
+  STA PLAYER3,X
+  INX
+  INY
+  CPY #14
+  BNE CARLESEN
+ *------------------------------------
+ * HIER BEGINNT DIE HAUPTROTINE
+ * -STICKABFRAGE
+ * -PLAYER BEWEGUNG
+ *------------------------------------
+ *                                     
+ MAINPRG LDA #PLAYF
+  STA SDLIST
+  LDA #PLAYF/256
+  STA SDLIST+1
+ *
+  LDA #100       X POS PLAYER2 1
+  STA HPOSP2
+  LDA #65
+  STA HPOSP3
+  STA HPOSP1
+  STA V3
+  STA V1
+  LDA #0         FARBE PLAYER 1
+  STA 704
+  LDA #0
+  STA 705
+  LDA #255
+  STA 706
+ *
+  LDA #1         PLAYER 3
+  STA SIZEP3     DOPPELT BREIT
+ *                                     
+  LDA #RUNDE1:L  ADRESSE
+  STA TIMVK1     INTERUPT PROG-
+  LDA #RUNDE12:H RAM HI UND
+  STA TIMVK2     LOW BYTE.
+ *
+  LDA DIFICULT   PROGRAMM
+  STA TIMER1     STARTEN.
+ *                                     
+  LDA #50        Y POS PLAYER 2
+  STA YPOS       AUF 100.
+ *                                     
+ STAND LDY #STAND1:L  PLAYER ADRESSE
+  LDX #95        Y POS PLAYER 0
+  JSR PLAYER0    PLAYER LESEN
+  JSR WAIT2       WARTE.
+ *                                     
+  LDY #STAND2:L  
+  LDX #95
+  JSR PLAYER0
+  JSR WAIT2
+ *------------------------------------
+ * STICKABFRAGE
+ *------------------------------------
+ STICK    LDA STICK0
+  CMP #15
+  BNE NOT15
+  JMP STAND      STICK=15
+ *                                      
+ NOT15 LDA STICK0
+  CMP #7
+  BNE NOT7
+ *                                     
+  JSR RIGHT
+ *
+ NOT7 LDA STICK0
+  CMP #11
+  BNE NOT11
+ *                                       
+  JSR LEFT
+ *
+ NOT11 JMP STICK
+ *
+ *-------------------------------------
+ * ANIMIERE PLAYER #1 (RECHTSBEWEGUNG)
+ *-------------------------------------
+ RIGHT    LDA V1       IST V1=200?
+  CMP #196
+  BNE MORIGHT
+ *
+  RTS            KEINE BEWEGUNG       
+ *
+ MORIGHT LDY #RIGHT1:L  ADRESSE PLAYER
+  LDX #95        Y POS PLAYER
+  JSR PLAYER0    LESE PLAYER.
+  JSR WAIT       WARTESCHLEIFE.
+ *
+  INC V1         ERHOEHE X
+  INC V1
+  LDA V1         POS PLAYER 1
+  STA HPOSP1
+ *                                     
+  LDY #RIGHT2:L
+  LDX #95
+  JSR PLAYER0
+  JSR WAIT
+ *
+  INC V1
+  INC V1
+  LDA V1
+  STA HPOSP1
+ *                                      
+  LDY #RIGHT3:L
+  LDX #95
+  JSR PLAYER0
+ *                                      
+  LDX #100
+  LDA #66  
+  JSR SOUND
+ *
+  INX V1
+  INC V1
+  LDA V1
+  STA HPOSP1
+  RTS
+ *-------------------------------------
+ * ANIMIERE PLAYER (LINKSBEWEGUNG)
+ *-------------------------------------
+ LEFT LDA V1        IST V1<45?
+  CMP #52
+  BNE MOVLEFT
+ *
+  RTS           KEINE BEWEGUNG     
+ *
+ MOVLEFT LDY #LEFT1:L  PLAYER ADRESSE
+  LDX #95       Y POSITION PL.
+  JSR PLAYER0   PLAYER LESEN.
+  JSR WAIT      WARTESCHLEIFE
+ *
+  DEC V1        X POS PLAYER
+  DEC V1
+  LDA V1        1 ERNIEDRIGEN
+  STA HPOSP1     
+ *                                      
+  LDY #LEFT2:L
+  LDX #95
+  JSR PLAYER0
+  JSR WAIT
+ *
+  DEC V1
+  DEC V1
+  LDA V1
+  STA HPOSP1
+ *                                      
+  LDY #LEFT3:L
+  LDX #95
+  JSR PLAYER0
+ *                                      
+  LDX #100
+  LDA #66
+  JSR SOUND
+ *
+  DEC V1
+  DEC V1
+  LDA V1
+  STA HPOSP1
+  RTS
+ *------------------------------------
+ * DIESE ROTINE PRUEFT OB Y POS PLAYER
+ * 2 SCHON 100 IST
+ * UND OB KOLLISION MIT PLAYER 1
+ * STATGEFUNDEN HAT.
+ *------------------------------------
+ CHECK LDA YPOS
+  CMP #95
+  BNE RETURN   YPOS<>100:RETURN
+  LDA #50     Y POS ZUREUCK 
+  STA YPOS     AUF 40 SETZEN.
+ *
+  LDA KOLP2L   KRANKENWAGEN
+  BEQ CLEARP2  BERUERT?
+  LDA #1       JA:FLAG AUF 1
+  STA CFLAG
+ *                                     
+  LDX #95
+ CLEARP2 LDA #0
+  STA PLAYER2,X
+  INX
+  CPX #110
+  BNE CLEARP2
+ *                                     
+  LDA RANDOM   AUS DEN 26 
+  AND #20     WERTEN VON XTAB
+  TAX     EINEN ZUFAELIGEN
+  LDA XTAB,X   WERT AUSWAELEN. 
+  STA HPOSP2
+ *
+ *                                     
+  LDA KOLP1L
+  BEQ NOKOL    KEINE KOLISION.
+ *                                     
+ CATCH LDA CFLAG    CFLAG<>1
+  BEQ NOKOL    ->NOKOLL
+ *
+  LDA #0       CFLAG AUF 0
+  STA CFLAG
+ *
+          LDA #1       KOLLISIONS-
+  STA HITCLR   LOESCHEN. 
+ *
+  LDA GEFANGEN ANZAHL DER GE-  
+  CLC     FANGENEN OTTOS
+  ADC #1     ERHOEHEN
+  STA GEFANGEN SPEICHERN
+  CMP MAXFANG  UND MIT MAXFANG
+  BNE SAMELEV  VERGLEICHEN.
+  JMP NEXTLEV  GEFANGEN=MAXFANG
+ *      NAECHSTER LEVEL. 
+ *
+ SAMELEV LDX #100     FREQUENZ.
+  LDA #100     TONHOEHE
+  JSR SOUND    TOHNAUSGEBEN.
+ *
+  JSR PUNKTE   PUNKTE AUSGEBEN.
+ RETURN RTS     FERTIG.
+ *
+ NOKOL JMP NOCATCH  ->NOCATCH
+ *-------------------------------------
+ * UNTERPROGRAMM:NAECHSTER LEVEL.
+ *-------------------------------------
+ NEXTLEV  LDA #0       INTERUPT STOPPEN
+  STA TIMER1    
+  STA HPOSP1    P1.VOM SCHIRM.
+ *
+  LDA MAXFANG  MAXFANG ERHOEHEN
+  CLC
+  ADC #2
+  STA MAXFANG
+ *
+  LDA #0       GEFANGEN=0
+  STA GEFANGEN
+ *
+  LDA LEVEL2   IST LEVEL=10?
+  CMP #MAXLEV
+  BNE ADDLEV   LEVEL<>MAXLEVV
+  JMP START    NEUSTART
+ *
+  LDA #3     MAXFANG ERHOEHEN
+  STA MAXFANG
+  CLC
+  ADC LEVEL2
+  STA MAXFANG
+ *
+ ADDLEV LDX #0
+  LDA #11
+  STA POS
+ *
+ BONUS STX XBUFF    X REG. SICHERN.
+  JSR PUNKTE   PUNKTE AUSGEBEN. 
+  LDX #175     FREQUENZ.    
+  JSR SOUND    SOUND OUT.    
+  LDX XBUFF    X REG RESTORE.        
+  INX     
+  CPX MAXFANG    
+  BNE BONUS
+ *
+  LDA LEVEL2
+  CLC
+  ADC #1
+  STA LEVEL2
+ *
+  DEC DIFICULT  DIFF=DIFF-1
+ *                                      
+ MOVE LDA #20
+  LDX #100
+  JSR SOUND
+ *
+  LDX V3
+  INX
+  STX HPOSP3
+  STX V3
+ *
+  LDA #1
+  LDX #0
+  JSR SOUND
+ *
+  LDX V3
+  CPX #240
+  BNE MOVE
+ *                                     
+  LDA #LEVEL
+  STA SDLIST
+  LDA #LEVEL/256
+  STA SDLIST+1
+ *                                      
+  LDA #22      POSITION FUER
+  STA POS     OUTPUT.
+ *
+  LDA LEVEL2   LOWBYTE ZAHL.
+  LDX #0       HIBYTE=0.
+  JSR PUTZAHL
+ *                                     
+ TRIGGER LDA TRIG     FARGE TRIGGER  
+  BEQ PRESSED  BIS TRIG=0 IST 
+  BNE TRIGGER  AB. 
+ *
+ PRESSED  LDA #50      YPOS=50
+  STA YPOS
+ *
+  JMP MAINPRG  TRIG=0
+ *-------------------------------------
+ * UNTERPROGRAMM PLAYER EINLESEN
+ * IN Y ADRESSE PLAYER DATEN
+ * IN X Y POSITION PLAYER
+ *-------------------------------------
+ PLAYER0 STY PL0ADR 
+  LDY #0 
+ LOOP LDA (PL0ADR),Y 
+  STA PLAYER1,X 
+  INX 
+  INY 
+  CPY #8 
+  BNE LOOP 
+  RTS  
+ *-------------------------------------
+ * UNTERPTROGRAMM PLAYER 2 EINLESEN
+ * ANSPRUNG WIE ROTINE FUER PL1
+ *-------------------------------------
+ P2 STY PL0ADR
+  LDY #0
+ LOOP2 LDA (PL0ADR),Y
+  STA PLAYER2,X
+  INX
+  INY
+  CPY #8
+  BNE LOOP2
+  RTS
+ *-------------------------------------
+ * INTERUPT ZUR BEWEGUNG DER FALLENDEN
+ * GEGENSTAENDE.
+ *-------------------------------------
+ *                                      
+ RUNDE1 LDA FLAG      WELCHE BEWEGUN-
+  BEQ RUNDE12   SPHASE?  
+ *               FLAG=1:PHASE 1.
+  LDA #0        FLAG=0:PHASE 2
+  STA FLAG
+ *
+  LDY #OBJEKT1:L PHASE 1
+ *
+  LDX YPOS       YPOS ERHOHEN.
+  INX
+  STX YPOS
+ *
+  JSR P2         PLAYER 2 
+ *        EINELSEN.
+  LDA DIFICULT   TIMMER 1
+  STA TIMER1     JE NACH LEVEL
+ *                INITIALISIEREN
+  JMP CHECK      YPOS=100?.
+ *                                     
+ RUNDE12 LDA #1         
+  STA FLAG
+ *
+  LDY #OBJEKT2:L PHASE 2.
+ *
+  LDX YPOS       Y POSITION
+  INX            ERHOEHEN.
+  STX YPOS
+ *
+  JSR P2         PLAYER 2
+ *        EINLESEN.
+  LDA DIFICULT   TIMMER 1 JE  
+  STA TIMER1     NACH LEVEL
+ *        INITIALISIEREN
+  JMP CHECK      YPOS=100?.
+ *-------------------------------------
+ * AB HIER UNTERPROGRAMME:
+ * -ZAHLENAUSGABE (NAME:PUTZAHL)
+ * -DISPLAYLISTINTERUPT
+ * -WARTESCHLEIFE
+ * -TOHNERZEUGUNG
+ *-------------------------------------
+ * WARTESCHLEIFE (UNIVERSELL ENITZBAR)    
+ *-------------------------------------
+ WAIT LDX #80
+ W LDY #80
+ W2 DEY
+  BNE W2
+  DEX
+  BNE W
+  RTS
+ WAIT2 LDX #190
+ L LDY #160
+ L2 DEY
+  BNE L2
+  DEX
+  BNE L
+  RTS
+ *------------------------------------
+ * UNTERPROGRAMM ZUR AUSGABE DER
+ * PUNKTEZAHL
+ *------------------------------------
+ PUNKTE LDA SCOREL    SCORE LOWBYTE
+  CLC
+  ADC #1        SC=SC+1
+  STA SCOREL
+  BNE AUSGABE
+ *
+  LDA SCOREH    SCORE HIBYTE
+  CLC
+  ADC #1
+  STA SCOREH
+ *
+ AUSGABE LDA #11      X POSITION DER
+  STA POS      ZAHL
+ *
+  LDA SCOREL    LOWBYTE ZAHL.
+  LDX SCOREH    HIBYTE ZAHL
+  JSR PUTZAHL
+  RTS      FERTIG!!
+ *------------------------------------
+ * DIESE ROTINE RECHNET EINE ZAHL IM
+ * FP FORMAT IN ASCII FORMAT UM
+ * LOW BYTE ZAHL IN A
+ * HI BYTE ZAHL IN X
+ *-----------------------------------
+ PUTZAHL STA FRO1      Z.LO.NACH FRO1
+  STX FRO2      Z.HI NACH FRO2
+  JSR IFP       ->ZAHL NACH FP.
+  JSR FASC      FP Z. NACH ASC
+ *------------------------------------
+ * UNTERPROGRAMM ZUR ZAHLENAUSGABE L.
+ *------------------------------------
+  LDY #0
+ *
+ OUTPUT   LDA (INBUFFL),Y BYTE LADEN
+  CLC
+  SBC #31         BYTE -31
+  BMI STOP        BYTE INVERS?
+ *
+  STY YBUFF       Y REG.SICHERN
+  LDY POS         POS.F.ZAHL.
+  STA BRAMPLF,Y   ZAHL OUT.
+  INY             POS=POS+1
+  STY POS         POS. MERKEN.
+  LDY YBUFF       X POS. LADEN.
+ *
+  INY        Y=Y+1
+  BNE OUTPUT      BIS BYTE>128.      
+ *
+ STOP LDA (INBUFFL),Y LETZES 
+  CLC        ZEICHEN DER
+  SBC #159        ZAHL NICHT        
+  STY YBUFF       INVERS AUS-
+  LDY POS         GEBEN.
+  STA BRAMPLF,Y
+  INY
+  STY POS
+ *
+  RTS        FERTIG.
+ *------------------------------------
+ * UNTERPROGRAMM ZUR SOUND ERZEUGUNG
+ * UEBERGEBENE WERTE:
+ * TOHNHOEHE IN A
+ * TOHNFREQUENZ IN X
+ *------------------------------------
+ SOUND STX AUDF1      TOHNHOHE
+  STA AUDC1      TOHNFREQUENZ
+  JSR WAIT       WARTEN.
+  LDA #0         TOHN
+  STA AUDC1      AUSSCHALTEN
+  STA AUDF1
+  RTS       FERTIG.
+ *------------------------------------
+ * UNTERPROGRAMM >NICHT GEFANGEN<
+ *------------------------------------
+ NOCATCH  LDA #0         INTERUPPT 1
+  STA TIMER1     AUSSCHALTEN.
+ *
+          LDA LEBEN      ZAHL DER
+  BEQ VERLOREN   LEBEN=0:VERL.
+ *
+ SBCLEBEN DEC LEBEN      ANZAHL DER       
+ *        LEBEN 
+  LDA #36        UM 1 
+  STA POS        VERMINDERN.
+  LDA LEBEN
+  LDX #0
+  JSR PUTZAHL  
+ *                                     
+  LDY #KAPUTT:L  ADRESSE PLAYER
+  LDX #95        YPOS=100
+  JSR PLAYER0    PLAYER ZEIGEN
+ *
+ WARTEN   LDA TRIG       TRIGGER GE-
+  BEQ PRESS      DREUCKT?
+ *  
+  LDA RANDOM     ZUFALLSWERTE     
+  STA PLAYER1+93 IN PLAYER 1 
+ *                       BIS TRIGGER
+  JSR WAIT       GEDRUECKT.
+  JMP WARTEN     
+ *
+ PRESS LDA #0
+  STA PLAYER1+93
+ *
+  JMP MAINPRG    FERTIG.
+ *------------------------------------
+ * UNTERPROGRAMM VERLOREN
+ *------------------------------------
+ VERLOREN LDA #OVER      GAME OVER 
+  STA INFO       AUSGEBEN
+  LDA #OVER/256
+  STA INFO+1 
+ *
+  LDA #0
+  STA HPOSP1     ALLE PLAYER
+  STA HPOSP2     VOM SCHIRM
+  STA HPOSP3
+  JSR WAIT2      WARTESCHLEIFE
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JSR WAIT2
+  JMP START
+ *                                     
+ *
+ OVER ASC $     m E      V e   $
+ TOP ASC %   TURBOLAR WILLY   %
+                                                
