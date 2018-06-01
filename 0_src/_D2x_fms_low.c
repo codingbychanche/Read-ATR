@@ -84,29 +84,48 @@ d2x_init_image (char *image [],
 
     if (f!=0)
     {     
-        fread(headerp,16,1,f);
 
-        sector_bytes=headerp->sec_low+256*headerp->sec_high;
-	if (sector_bytes>=257) return(SECTORBYTES);
-        if (headerp->signature != 0x96) return (IMAGE_NOT_VALID);       /* Ist kein *.ATR Image! */
-        
-        fseek (f,(16+128*3+sector_bytes*358)-sector_bytes,SEEK_SET);    /* Directory lesen SD+DD Version) */
-        fread(dirp,(8*sector_bytes),1,f);
-        
-        fseek (f,(16+128*3+sector_bytes*357)-sector_bytes,SEEK_SET);    /* VTOC lesen */
-        fread(vtocp,sector_bytes,1,f);
+      /* ATR- Datei header lesen und prüfen.*/
 
-        sectors=vtocp->sec_low+256*vtocp->sec_high;
-	if (sectors>=1021) return (SECTORS);
+      fread(headerp,16,1,f);
+
+      sector_bytes=headerp->sec_low+256*headerp->sec_high;
+      if (sector_bytes>=257){
+	printf ("- Bytes per sector > 256!\n\n");
+	return(SECTORBYTES);
+      }
+	
+      if (headerp->signature != 0x96){
+	printf ("- File could be read, but it is not a valid *.ATR disk image file\n\n");
+	return (IMAGE_NOT_VALID);       /* Ist kein *.ATR Image! */
+      }
+
+      /* Directory lesene */
+
+      fseek (f,(16+128*3+sector_bytes*358)-sector_bytes,SEEK_SET);
+      fread(dirp,(8*sector_bytes),1,f);
+      
+      /* VTOC lesen */
+
+      fseek (f,(16+128*3+sector_bytes*357)-sector_bytes,SEEK_SET);
+      fread(vtocp,sector_bytes,1,f);
+      
+      sectors=vtocp->sec_low+256*vtocp->sec_high;
+      if (sectors>=1021){
+	printf ("- # of sectors >1020\n\n");
+	return (SECTORS);
+      }
+
+      /* Last but not least, komplettes imgae lesen */
 
         fseek (f,0,SEEK_SET); 
-        fread (headerp->data,sector_bytes*sectors,1,f);                 /* Daten lesen */
+        fread (headerp->data,sector_bytes*sectors,1,f);
         
         fclose (f);
 
         return (NO_ERR); /* Erfolg! */
     }
-
+    printf ("- The image could not be read from the filesystem\n\n");
     return (IMAGE_READ_ERR); /* Datei- Lesefehler */
 }
 
