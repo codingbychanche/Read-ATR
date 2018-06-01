@@ -26,7 +26,7 @@
 #define NSEC_LOOP 8
 
 
-/* The error */
+/* Errors */
 
 #define ERROR     1
 #define NOERROR   0

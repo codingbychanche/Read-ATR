@@ -23,6 +23,11 @@
 
 #define PATHSIZE 500
 
+/* Errors */
+
+#define ERROR     1
+#define NOERROR   0
+
 struct atr_dir mydir[128];  /* Structure of Atari DOS 2.x file directory */  
 struct atr_image myimage;   /* Structure of *.ATR disk image file */                                                                                        
 struct vtoc vtocp;          /* Structure of Atari DOS 2.x VTOC */
@@ -63,7 +68,7 @@ int main(int argc, const char *argv[])
     version();
     descripe();
     usag();
-    return(0); /* This is not an error :-) */
+    return(NOERROR); 
   }
     
   /*
@@ -120,7 +125,7 @@ int main(int argc, const char *argv[])
      usag();
      printf ("Done nothing\nChoose one of the options above.\n");
       
-     return (1);   /* This might be an error because the user forgot to tell what he wanted */
+     return (ERROR);   /* This might be an error because the user forgot to tell what he wanted */
    }
 
    /*
@@ -133,10 +138,10 @@ int main(int argc, const char *argv[])
        if (copt) dump (checkfile(atarifile));
        if (hopt) hexdump(checkfile(atarifile),atarifile);
        
-       return(0);  /* Exit, no errors */           
+       return(NOERROR);  /* Exit, no errors */           
      }
    }  
-   return (1);     /* Exit with error. Error description is done by the function causing it */
+   return (ERROR);     /* Exit with error. Error description is done by the function causing it */
 }
 
 /*------------------------------------------------------------------------------------
@@ -159,6 +164,7 @@ version ()
   printf (VERSION);
   printf ("Made by retrozock\n");  
   printf ("www.retrozock.com\n\n");
+  return (NOERROR);
 }
 
 /*------------------------------------------------------------------------------------
@@ -171,7 +177,7 @@ descripe ()
   printf ("Works for single density (720 sectors, 128 bytes/ sector) enhanched density (1040 sectors, 128\n");
   printf ("bytes/ sector) and double density (720 sectors/ 256 bytes/ sector).\n");
   printf ("Debugging has been done, using the native 'Disk Wizzard II' tool on an emulated Atari 800 XL (Atari800MacX 13.26.26).\n\n");
-  return (0);
+  return (NOERROR);
 }
 
 /*------------------------------------------------------------------------------------
@@ -362,7 +368,7 @@ image_open (char *path[PATHSIZE])
     if (error==SECTORS)
       printf ("- # of sectors >1020\n\n");
 
-    return(1);
+    return(ERROR);
 
   } else {
 
@@ -380,7 +386,7 @@ image_open (char *path[PATHSIZE])
     }
 
   }
-  return (0);                                       /* No error! */
+  return (NOERROR);                                       /* No error! */
 }
 
 
