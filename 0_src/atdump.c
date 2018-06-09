@@ -132,7 +132,7 @@ int main(int argc, const char *argv[])
     * Open image file and dump atari DOS 2.x file
     */
    
-   if ((image_open (imagefile))!=1){
+    if ((d2x_init_image(imagefile,&myimage,&mydir,&vtocp))==NOERROR){
      if (checkfile(atarifile)!=1025){
 
        if (copt) dump (checkfile(atarifile));
@@ -340,54 +340,6 @@ hexdump(int start,char atarifile [])
   return (1);
 }
 
-/*------------------------------------------------------------------------------------         
- * Open image file
- *-----------------------------------------------------------------------------------*/
-
-image_open (char *path[PATHSIZE])
-{
-  int 
-    error,
-    i;
-
-  error=d2x_init_image(path,&myimage,&mydir,&vtocp);
-
-  if (error!=0){
-    printf ("%s\n",path);
-    printf ("INIT: There is something wrong with your *.ATR file image\n\n");
-    
-    if (error==IMAGE_READ_ERR)
-      printf ("- The image could not be read from the filesystem\n\n");
-
-    if (error==IMAGE_NOT_VALID)
-      printf ("- File could be read, but it is not a valid *.ATR disk image file\n\n");
-
-    if (error==SECTORBYTES)
-      printf ("- Bytes per sector > 256!\n\n");
-    
-    if (error==SECTORS)
-      printf ("- # of sectors >1020\n\n");
-
-    return(ERROR);
-
-  } else {
-
-    /*
-     * Image could be read and it is a valid *.ATR image file                                                
-     * Check, is it a Dos 2.x formated disk?
-     */
-    
-    if ((vtocp.sec_low+vtocp.sec_high*256!=1010) && /* Just a simple test, if total ' of sectors */
-	(vtocp.sec_low+vtocp.sec_high*256!=707)){   /* does not match what we expect => */ 
-                                                    /* no know dos format! */
-      printf ("%s\n",path);
-      printf ("Valid *.ATR disk image but, not DOS 2.x formated. No Directory!\n\n");
-      return (1);                                   /* Return with error */
-    }
-
-  }
-  return (NOERROR);                                       /* No error! */
-}
 
 
 
