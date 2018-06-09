@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/
 
-#define VERSION "\natdump V1.4 //25.4.2018\n\n"
+#define VERSION "\natdump V1.5 //09.06.2018\n\n"
 
 #define ATARI_LF 13
 #define FIRST_ASCII_CHAR 33
