@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/
 
-#define VERSION "\natdump V1.5 //09.06.2018\n\n"
+#define VERSION "\natdump V1.5.0 // 12.06.2018\n\n"
 
 #define ATARI_LF 13
 #define FIRST_ASCII_CHAR 33
@@ -77,7 +77,7 @@ int main(int argc, const char *argv[])
     
   copt=hopt=0;
     
-  while (argc>=1 && argv[1][0]=='-'){
+  while (argc>1 && argv[1][0]=='-'){
     c=argv [1][1];
         
     switch (c){
@@ -89,12 +89,26 @@ int main(int argc, const char *argv[])
     case 'h': /* Hex- dump, assembler sourche (.byte ..... */
       hopt++;
       break;
-
     }
     --argc;
     ++argv;
   }
-  argv++;
+
+  /*
+   * Check if file name was passed from shell.
+   * This is the case, when argc is > than 1, then the second element 
+   * contains what should be the file name string (the argument at 0 is the 
+   * programm name (atdir).
+   *
+   * If argc=1, then the user may have forgotten to pass a file name.
+   */
+
+  if (argc>1) argv++;
+  else{ 
+    printf ("No file name of atr- image given.\n\n");
+    usag();
+    return(ERROR); 
+  }
 
   /*
    * Get filename of Atari-file
@@ -207,7 +221,7 @@ checkfile(char file[])
     }
 
     n=i;                                          /* n points to the end of the name string */
-    if (i<strlen(adirentry)){                  /* Get file extension, if it is there */
+    if (i<strlen(adirentry)){                     /* Get file extension, if it is there */
       name[n]='.';                                /* File extension exists, get it! */
       n++;
       while (adirentry[i]==' ') i++;
@@ -217,7 +231,7 @@ checkfile(char file[])
 	i++;
       }
     }
-    name[n]='\0';                                  /* C- strings must be terminated by NULL */
+    name[n]='\0';                                   /* C- strings must be terminated by NULL */
 
     printf ("---Name:%s\n",name);
     /*
@@ -233,7 +247,7 @@ checkfile(char file[])
     }
     m++;                                            /* File not found yet, check next entry */
   }
-  printf ("atdump: File not found.\n");              /* All entrys checked, file not found */
+  printf ("atdump: File not found.\n");             /* All entrys checked, file not found */
   return (1025);                                    /* Return, error */
 }
 
@@ -336,7 +350,6 @@ hexdump(int start,char atarifile [])
 
      } /* do */
    while (next!=0);     
- 
   return (1);
 }
 

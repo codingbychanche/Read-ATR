@@ -1,15 +1,13 @@
-/*
+/*------------------------------------------------------------------------------------
  * atdir.c
  *
  * Show disc directory of an *.ATR file image.
  *  
  * Part of the atools collection
  *
- * Revised: 8.12.2017
  *------------------------------------------------------------------------------------*/  
 
-
-#define VERSION "\natdir V2.8 // 1.12.2017\n\n"
+#define VERSION "\natdir V2.8.1 // 11.6.2018\n\n"
 
 #include <stdio.h>
 
@@ -57,7 +55,6 @@ char
 
 int main(int argc,const char *argv[])
 {
-
   FILE *input;
           
   /*                                
@@ -145,15 +142,13 @@ int main(int argc,const char *argv[])
      * basic status info.
      */
 
-    if ((image_open (*argv))!=1){
+    if ((d2x_init_image(*argv,&myimage,&mydir,&vtocp))==NOERROR){
       if (sopt) sdir(*argv);                     /* Short version */
       if (!sopt && !aopt) dir (*argv);           /* Detailed version */
       if (aopt)	atdumpdir(*argv);                /* atdump compatible */
-
-      /* No errors, return to shell */
-
-      return(NOERROR); /* Exit, no errors */
+      return(NOERROR); 
     }
+    return (ERROR);
   }
 
   /* Batch processing */
@@ -161,37 +156,35 @@ int main(int argc,const char *argv[])
   if (fopt) { 
     files=0;
     printf ("Input file:%s\n",*argv);
-
     if ((input=fopen (*argv,"r"))!=NULL){
       while (fgets(file,PATHSIZE,input)){
-          
-          /* Path names must be terminated by 'NULL'! Remove '\n'  */
-          
-          char *p=strchr(file,'\n');            
-          if (p!=NULL) *p='\0';    
-          
-          if ((image_open(file))==0){
-	    if (sopt) sdir(file);                     /* Short version */
-	    if (!sopt && !aopt) dir (file);           /* Detailed version */
-	    if (aopt) atdumpdir(file);                 /* atdump compatible */
-	  }
+	
+	/* Path names must be terminated by 'NULL'! Remove '\n'  */
+        
+	char *p=strchr(file,'\n');            
+	if (p!=NULL) *p='\0';    
+        
+	if ((d2x_init_image(file,&myimage,&mydir,&vtocp))==NOERROR){
+	  if (sopt) sdir(file);                     /* Short version */
+	  if (!sopt && !aopt) dir (file);           /* Detailed version */
+	  if (aopt) atdumpdir(file);                /* atdump compatible */
+	}
 	files++;
       }
       printf ("Processed %d image files\n\n",files);
       return (0); /* Exit, no errors! */
-
     } else {
       printf ("Could not read batch file:%s\n",*argv);
       return (1); /* Exit, error! */
     }
-
+    
     /* End of Show- dir */
     
     fclose (input);
-    return (0);     /* Exit, no errors! */
+    return (NOERROR);   
   }
-  return (1);       /* Exit, error! */
-}
+  return (ERROR);       
+  }
 
 /*------------------------------------------------------------------------------------
  * Usage
@@ -228,62 +221,12 @@ descripe ()
   printf ("Works for single, enhanched and double density formated disk images\n\n");
 }
 
-/*------------------------------------------------------------------------------------     
- * Open image file
- *-----------------------------------------------------------------------------------*/
-
-image_open (char *path[PATHSIZE])
-{
-  int 
-    error,
-    i;
-
-  error=d2x_init_image(path,&myimage,&mydir,&vtocp);
-
-  if (error!=0){
-    printf ("%s\n",path);
-    printf ("INIT: There is something wrong with your *.ATR file image\n\n");
-    
-    if (error==IMAGE_READ_ERR)
-      printf ("- The image could not be read from the filesystem\n\n");
-
-    if (error==IMAGE_NOT_VALID)
-      printf ("- File could be read, but it is not a valid *.ATR disk image file\n\n");
-
-    if (error==SECTORBYTES)
-      printf ("- Bytes per sector > 256!\n\n");
-    
-    if (error==SECTORS)
-      printf ("- # of sectors >1020\n\n");
-
-    return(1);
-
-  } else {
-
-    /*
-     * Image could be read and it is a valid *.ATR image file  
-     * Check, is it a Dos 2.x formated disk?
-     */
-    
-    if ((vtocp.sec_low+vtocp.sec_high*256!=1010) && /* Just a simple test, if total ' of sectors */
-	(vtocp.sec_low+vtocp.sec_high*256!=707)){   /* does not match what we expect 
-						    /* => no know dos format! */
-      
-      printf ("%s\n",path);
-      printf ("Valid *.ATR disk image but, not DOS 2.x formated. No Directory!\n\n");
-      return (1);
-    }
-
-  }
-  return (0);                                       /* No error! */
-}
-
 /*------------------------------------------------------------------------------------      
  * Show dir
  * Basic version.
  *----------------------------------------------------------------------------------*/
 
-sdir (char *path [PATHSIZE])
+sdir (char path [])
 {
   int 
     fno=0,
@@ -353,7 +296,7 @@ atdumpdir (char *path [PATHSIZE])
  * Long version.
  *------------------------------------------------------------------------------------*/
     
-dir (char *path[PATHSIZE])
+dir (char path[])
 {
  int   
    stat,               /* File status from directory entry */

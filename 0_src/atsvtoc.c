@@ -8,7 +8,7 @@
  * Revised: 20.5.2018
  *------------------------------------------------------------------------------------*/  
 
-#define VERSION "\natsvtoc BETA // 20.5.2018\n\n"
+#define VERSION "\natsvtoc 1.0.0  // 12.6.2018\n\n"
 
 #include <stdio.h>
 
@@ -147,7 +147,7 @@ descripe ()
  *
  *-------------------------------------------------------------------------------------/*/
 
-shvtoc (unsigned char *daten)
+shvtoc (unsigned char daten[])
 {
     int                 offset=VTOC;    // Offset im ATR- File
     
