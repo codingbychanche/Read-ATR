@@ -3,10 +3,7 @@
  *
  * Part of the atools collection
  *
- * 29.12..2014
  */
-
-
 
 #define     BYTE    unsigned char
 #define     ADRESS  int
@@ -30,24 +27,24 @@
 
 struct atr_image
 {
-  unsigned char signature;         /* Nick Atari signature=96 */
-  unsigned char e1;                
-  unsigned char p_low;             /* Paragraphs low + high */
-  unsigned char p_high;
-  unsigned char sec_low;           /* Bytes/ Sektor (128= single/ enhached denstity  */
-  unsigned char sec_high;          /* 256= (true) double density */
-  unsigned char p_extented;        /* Paragraphs extented */
-  unsigned char u1;                /* Unbenutzt */
-  unsigned char u2;
-  unsigned char u3;
-  unsigned char u4;
-  unsigned char u5;
-  unsigned char u6;
-  unsigned char u7;
-  unsigned char u8;
-  unsigned char u9;
-  unsigned char data [200000];      /* Statisch => schmutzig! */
-};                                  /* 16 Bytes */
+  BYTE signature;         /* Nick Atari signature=96 */
+  BYTE e1;                
+  BYTE p_low;             /* Paragraphs low + high */
+  BYTE p_high;
+  BYTE sec_low;           /* Bytes/ Sektor (128= single/ enhached denstity  */
+  BYTE sec_high;          /* 256= (true) double density */
+  BYTE p_extented;        /* Paragraphs extented */
+  BYTE u1;                /* Unbenutzt */
+  BYTE u2;
+  BYTE u3;
+  BYTE u4;
+  BYTE u5;
+  BYTE u6;
+  BYTE u7;
+  BYTE u8;
+  BYTE u9;
+  BYTE data [200000];      /* Statisch => schmutzig! */
+};                         /* 16 Bytes */
 
 
 /* Dos 2.x Directory Eintrag */
@@ -67,21 +64,21 @@ struct atr_dir
 
 struct vtoc
 {
-  unsigned char   dos;      /* DOS Type. 0 zeigt an, es ist eine DOS 2.0 Disk */
-  unsigned char   sec_low;  /* Anzahl der Sektoren insgesammt */
-  unsigned char   sec_high;  
-  unsigned char   sec_unul; /* Anzahl der nicht benutzten Sektoren */
-  unsigned char   sec_unuh;
-  unsigned char   reserved; 
-  unsigned char   u1;   
-  unsigned char   u2;
-  unsigned char   u3;
-  unsigned char   u4;       /* 10 Bytes */
+  BYTE   dos;      /* DOS Type. 0 zeigt an, es ist eine DOS 2.0 Disk */
+  BYTE   sec_low;  /* Anzahl der Sektoren insgesammt */
+  BYTE   sec_high;  
+  BYTE   sec_unul; /* Anzahl der nicht benutzten Sektoren */
+  BYTE   sec_unuh;
+  BYTE   reserved; 
+  BYTE   u1;   
+  BYTE   u2;
+  BYTE   u3;
+  BYTE   u4;       /* 10 Bytes */
   
-  unsigned char   sector_bm [90]; /* 90 Bytes */
+  BYTE   sector_bm [90]; /* 90 Bytes */
   
-  unsigned char   u7[28];
-};                          /* 128 Bytes */
+  BYTE   u7[28];
+};                       /* 128 Bytes */
     
     
     

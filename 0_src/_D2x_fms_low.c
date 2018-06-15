@@ -1,38 +1,11 @@
-/*  _D2x_fms_low.c
- *
- * Revised: 29.12.2014
+/*--------------------------------------------------------------------------------------------------------------------------------
+ *  _D2x_fms_low.c
  *
  * Bietet die Funktionalität des Atari DOS 2.X File Manager Systems (FMS)
  * Enthält alle 'low- level' Funtionen (lese einen Sektor/ schreibe einen Sektor usw...)
  *
- * Basic:
- * ------
- *
- * init_image           Initialisiert das Disk Image. Die drei Grundlegenden C- Strukturen, der header des Disk Images
- *                      das Directory und die VTOC werden mit Daten gefüllt
- *
- * Kernelfunktionen:
- * -----------------
- *
- * Jede Funktionen dieser Gruppe, stellt für sich den jew. kleinst möglichen Funktionsumfang dar.
- *
- *  - Sector
- *      ⎜
- *      +- secread       (char daten, char buffer,sector,bytes) Einen Sektor lesen
- *      ⎜
- *      +- secwrite      (char daten, char buffer,sector,bytes) Einen Sektor schreiben
- *      ⎜
- *      +- secnext       (char daten, char sektor)              Liefert die Nummer des Sektors zurück, auf den "sektor zeigt
- *      ⎜
- *      +- secwnext     
- *      ⎜   
- *      +- secbyte       (char daten, char sector)              Liefert die Anzahl der Datenbytes des mit "sector" bezeichneten
- *      ⎜                                                       Sektors zurück.
- *      ⎜                                                                   
- *      +- secfile       (char daten, char sector)              Liefert die Nummer der Datei zurück, zu der der Sektor gehört
  *              
  *--------------------------------------------------------------------------------------------------------------------------------*/
-
 
 #include <stdio.h>
 
@@ -44,18 +17,18 @@
 #define SECTORS         5  /* Mehr als 1020 Sektoren! */
 
 /*-------------------------------------------------------------------------------------------------------------------------------- 
-// init_image
-//
-// Prüft das Disk- Image auf Gültigkeit und initialisiert wichtige Strukturen:
-// 
-// Übergabe:    char    image   Pfad zum Disk- Image
-//              struct  header  File Header des *.ATR images
-//              struct  dir     Grundlegende Struktur zum Directory Eintrag des dos 2.x
-//              struct  vtoc    Die VTOC
-//
-// Rückgabe:    error code
-//              
-//--------------------------------------------------------------------------------------------------------------------------------*/
+ * init_image
+ *
+ * Prüft das Disk- Image auf Gültigkeit und initialisiert wichtige Strukturen:
+ * 
+ * Übergabe:    char    image   Pfad zum Disk- Image
+ *              struct  header  File Header des *.ATR images
+ *              struct  dir     Grundlegende Struktur zum Directory Eintrag des dos 2.x
+ *              struct  vtoc    Die VTOC
+ *
+ * Rückgabe:    error code
+ *              
+ *--------------------------------------------------------------------------------------------------------------------------------*/
 
 d2x_init_image (char *image [],
             struct atr_image *headerp, 
@@ -71,12 +44,12 @@ d2x_init_image (char *image [],
   char error;       /* Error Code */
     
   /*    
-  // ATR File- Image öffnen
-  //
-  // 90  kb image:  720 sect. + 128 bytes/sect. = Single Density
-  // 130 kb image: 1040 sect. + 128 bytes/sect. = (1050)Enhanched Denstity
-  // 180 kb image:  720 sect. + 256 bytes/sect. = (true)Double Density
-  */
+   * ATR File- Image öffnen
+   *
+   * 90  kb image:  720 sect. + 128 bytes/sect. = Single Density
+   * 130 kb image: 1040 sect. + 128 bytes/sect. = (1050)Enhanched Denstity
+   * 180 kb image:  720 sect. + 256 bytes/sect. = (true)Double Density
+   */
 
     f=fopen(image,"r");
     
@@ -130,15 +103,15 @@ d2x_init_image (char *image [],
 }
 
 /*----------------------------------------------------------------------------------------------------------------
-// secread  
-//
-// Liest einen Sektor
-//
-// Aufruf:
-// headerp=> Zeiger auf die Struktur des Diskimages
-// daten=> Zeiger auf den buffer, in den die Daten geschrieben werden
-// sector=> Erster Sektor der Datei
-//----------------------------------------------------------------------------------------------------------------*/
+ * secread  
+ *
+ * Liest einen Sektor
+ *
+ * Aufruf:
+ * headerp=> Zeiger auf die Struktur des Diskimages
+ * daten=> Zeiger auf den buffer, in den die Daten geschrieben werden
+ * sector=> Erster Sektor der Datei
+ *----------------------------------------------------------------------------------------------------------------*/
 
 d2x_secread (struct atr_image *headerp, BYTE *daten,int sector,int boffset)
 {
@@ -155,21 +128,21 @@ d2x_secread (struct atr_image *headerp, BYTE *daten,int sector,int boffset)
 }
 
 /*----------------------------------------------------------------------------------------------------------------
-// secwrite >>>>>> ANPASSEN
-//
-// Schreibt einen Sektor
-//
-// Aufruf:      secwrite   (daten,buffer,sector,bytes)
-//
-//              daten       ATR- File Rohdaten
-//              buffer      daher kommen die zu schreibenden Daten
-//              boffset     Offsetim Buffer, das heist: ab hier werden die Daten aus dem Buffer gelesen
-//              sector      der Sector soll geschrieben werden
-//              bytes       Anzahl der zu schreibenden Bytes, man besorge sich diese vorzugsweise über die Funktion "secbytes"
-//
-// Rückgabe:    -
-//
-//----------------------------------------------------------------------------------------------------------------*/
+ * secwrite >>>>>> ANPASSEN
+ *
+ * Schreibt einen Sektor
+ *
+ * Aufruf:      secwrite   (daten,buffer,sector,bytes)
+ *
+ *              daten       ATR- File Rohdaten
+ *              buffer      daher kommen die zu schreibenden Daten
+ *              boffset     Offsetim Buffer, das heist: ab hier werden die Daten aus dem Buffer gelesen
+ *              sector      der Sector soll geschrieben werden
+ *              bytes       Anzahl der zu schreibenden Bytes, man besorge sich diese vorzugsweise über die Funktion "secbytes"
+ *
+ * Rückgabe:    -
+ *
+ *----------------------------------------------------------------------------------------------------------------*/
 
 secwrite (unsigned char *daten[], unsigned char *buffer[],int boffset,int sector, int bytes)
 {
@@ -183,26 +156,26 @@ secwrite (unsigned char *daten[], unsigned char *buffer[],int boffset,int sector
 }
 
 /*----------------------------------------------------------------------------------------------------------------
-// secnext
-//
-// Liefert die Nummer des Sektors zurück, auf den "sektor" zeigt
-//
-// Aufruf:          secnext (daten,sektor)
-//                  daten   ATR File Rohdaten
-//                  sektor  gewünschter Sektor
-//
-// Rückgabe:        Zeiger auf den nächsten Daten Sektor
-// 
-// Aufbau eines Daten Sektors (DOS 2.X):
-// - Byte 0-124:    Data Bytes
-// - Byte 125:      Die ersten 6 Bits enthalten die Nummer des zugehörigen Files im Verzeichniss.
-//                  Eintrag 0 hat die Nummer 0. Eintrag 1 hat die Nummer 1 und so weiter....
-//                  Die  reslichen 2 Bits bilden zusammen mit allen 8 Bit von Byte 126 eine 10- Bit große Zahl...
-// - Byte 126:      ..welche auf den nächsten Data Sektor des Files zeigt. Gültige Werte reichen von 0 - 719
-//                  Eine 0 zeigt an, dass das Ende des Files erreicht wurde.
-// - Byte 127:      Sektor Byte Count. Enthält die Anzahl der Bytes im Sektor
-//
-//----------------------------------------------------------------------------------------------------------------*/
+ * secnext
+ *
+ * Liefert die Nummer des Sektors zurück, auf den "sektor" zeigt
+ *
+ * Aufruf:          secnext (daten,sektor)
+ *                  daten   ATR File Rohdaten
+ *                  sektor  gewünschter Sektor
+ *
+ * Rückgabe:        Zeiger auf den nächsten Daten Sektor
+ * 
+ * Aufbau eines Daten Sektors (DOS 2.X):
+ * - Byte 0-124:    Data Bytes
+ * - Byte 125:      Die ersten 6 Bits enthalten die Nummer des zugehörigen Files im Verzeichniss.
+ *                  Eintrag 0 hat die Nummer 0. Eintrag 1 hat die Nummer 1 und so weiter....
+ *                  Die  reslichen 2 Bits bilden zusammen mit allen 8 Bit von Byte 126 eine 10- Bit große Zahl...
+ * - Byte 126:      ..welche auf den nächsten Data Sektor des Files zeigt. Gültige Werte reichen von 0 - 719
+ *                  Eine 0 zeigt an, dass das Ende des Files erreicht wurde.
+ * - Byte 127:      Sektor Byte Count. Enthält die Anzahl der Bytes im Sektor
+ *
+ *----------------------------------------------------------------------------------------------------------------*/
 
 d2x_secnext (struct atr_image *headerp,int sektor)
 {
@@ -218,18 +191,18 @@ d2x_secnext (struct atr_image *headerp,int sektor)
   j=i+secsize-2;                                                                   
     
     /*
-    // File- Nummer und nächster Sektor
-    // Sind in Byte 125 und 126 des Sektors enthalten. Format:
-    //
-    // Byte         /             1                 //               2               /
-    //              --------------------------------//--------------------------------
-    // Bit          /128/64 /32 /16 /8  /4  /2  /1  //128/64 /32 /16 /8  /4  /2  /1  /
-    //              --------------------------------//--------------------------------
-    // Bit          /128/64 /32 /16 /8  /4  //512/256/128/64 /32 /16 /8  /4  /2  /1  /
-    //              ------------------------------------------------------------------
-    //              /    File #             // Nächster Sektor                       / 
-    //
-    // File # ist eine Zahl aus 6- bit und die Sektor # eine Zahl im 10- Bit Format.
+    * File- Nummer und nächster Sektor
+    * Sind in Byte 125 und 126 des Sektors enthalten. Format:
+    *
+    * Byte         /             1                 //               2               /
+    *              --------------------------------//--------------------------------
+    * Bit          /128/64 /32 /16 /8  /4  /2  /1  //128/64 /32 /16 /8  /4  /2  /1  /
+    *              --------------------------------//--------------------------------
+    * Bit          /128/64 /32 /16 /8  /4  //512/256/128/64 /32 /16 /8  /4  /2  /1  /
+    *              ------------------------------------------------------------------
+    *              /    File #             // Nächster Sektor                       / 
+    *
+    * File # ist eine Zahl aus 6- bit und die Sektor # eine Zahl im 10- Bit Format.
     */
     
     nsektor=0;
@@ -248,16 +221,16 @@ d2x_secnext (struct atr_image *headerp,int sektor)
 }
 
 /*----------------------------------------------------------------------------------------------------------------
-// secbyte
-//
-// Liefert die Anzhal der belegten Datenbytes des Sektors zurück
-//
-// Aufruf:          secbyte (daten,sektor)
-//                  daten   ATR File Rohdaten
-//                  sektor  gewünschter Sektor
-//
-// Rückgabe:        Anzahl der Datenbytes
-//----------------------------------------------------------------------------------------------------------------*/
+* secbyte
+*
+* Liefert die Anzhal der belegten Datenbytes des Sektors zurück
+*
+* Aufruf:          secbyte (daten,sektor)
+*                  daten   ATR File Rohdaten
+*                  sektor  gewünschter Sektor
+*
+* Rückgabe:        Anzahl der Datenbytes
+*----------------------------------------------------------------------------------------------------------------*/
 
 d2x_secbyte (struct atr_image *headerp,int sector)
 {
@@ -276,26 +249,26 @@ d2x_secbyte (struct atr_image *headerp,int sector)
 }
 
 /*----------------------------------------------------------------------------------------------------------------
-// secfile 
-//
-// Liefert die Nummer der Datei zurück, zu der der Sektor gehört
-//
-// Aufruf:          secfile (daten,sektor)
-//                  daten   ATR File Rohdaten
-//                  sektor  gewünschter Sektor
-//
-// Rückgabe:        Die Filenummer
-// 
-// Aufbau eines Daten Sektors:
-// - Byte 0-124:    Data Bytes
-// - Byte 125:      Die ersten 6 Bits enthalten die Nummer des zugehörigen Files im Verzeichniss.
-//                  Eintrag 0 hat die Nummer 0. Eintrag 1 hat die Nummer 1 und so weiter....
-//                  Die  reslichen 2 Bits bilden zusammen mit allen 8 Bit von Byte 126 eine 10- Bit große Zahl...
-// - Byte 126:      ..welche auf den nächsten Data Sektor des Files zeigt. Gültige Werte reichen von 0 - 719
-//                  Eine 0 zeigt an, dass das Ende des Files erreicht wurde.
-// - Byte 127:      Sektor Byte Count. Enthält die Anzahl der Bytes im Sektor
-//
-//----------------------------------------------------------------------------------------------------------------*/
+ * secfile 
+ *
+ * Liefert die Nummer der Datei zurück, zu der der Sektor gehört
+ *
+ * Aufruf:          secfile (daten,sektor)
+ *                  daten   ATR File Rohdaten
+ *                  sektor  gewünschter Sektor
+ *
+ * Rückgabe:        Die Filenummer
+ * 
+ * Aufbau eines Daten Sektors:
+ * - Byte 0-124:    Data Bytes
+ * - Byte 125:      Die ersten 6 Bits enthalten die Nummer des zugehörigen Files im Verzeichniss.
+ *                  Eintrag 0 hat die Nummer 0. Eintrag 1 hat die Nummer 1 und so weiter....
+ *                  Die  reslichen 2 Bits bilden zusammen mit allen 8 Bit von Byte 126 eine 10- Bit große Zahl...
+ * - Byte 126:      ..welche auf den nächsten Data Sektor des Files zeigt. Gültige Werte reichen von 0 - 719
+ *                  Eine 0 zeigt an, dass das Ende des Files erreicht wurde.
+ * - Byte 127:      Sektor Byte Count. Enthält die Anzahl der Bytes im Sektor
+ *
+ *----------------------------------------------------------------------------------------------------------------*/
 
 unsigned int d2x_secfile (struct atr_image *headerp, int sektor)
 {
@@ -311,19 +284,19 @@ unsigned int d2x_secfile (struct atr_image *headerp, int sektor)
     j=i+secsize-2;                                                                       
     
     /*
-    // File- Nummer und nächster Sektor
-    // Sind in Byte 125 und 126 des Sektors enthalten. Format:
-    //
-    // Byte         /             125               //               126             /
-    //              --------------------------------//--------------------------------
-    // Bit          /128/64 /32 /16 /8  /4  /2  /1  //128/64 /32 /16 /8  /4  /2  /1  /
-    //              --------------------------------//--------------------------------
-    // Bit          /32 /16 /8 /4  /2  /1  //512/256//128/64 /32 /16 /8  /4  /2  /1  /
-    //              ------------------------------------------------------------------
-    //              /    File #           // Nächster Sektor                        / 
-    //
-    // File # ist eine Zahl aus 6- bit und die Sektor # eine Zahl im 10- Bit Format.
-    */
+     * File- Nummer und nächster Sektor
+     * Sind in Byte 125 und 126 des Sektors enthalten. Format:
+     *
+     * Byte         /             125               //               126             /
+     *              --------------------------------//--------------------------------
+     * Bit          /128/64 /32 /16 /8  /4  /2  /1  //128/64 /32 /16 /8  /4  /2  /1  /
+     *              --------------------------------//--------------------------------
+     * Bit          /32 /16 /8 /4  /2  /1  //512/256//128/64 /32 /16 /8  /4  /2  /1  /
+     *              ------------------------------------------------------------------
+     *              /    File #           // Nächster Sektor                        / 
+     *
+     * File # ist eine Zahl aus 6- bit und die Sektor # eine Zahl im 10- Bit Format.
+     */
     
     fno=0;
     if ((((unsigned int)headerp->data [k])& 4)==4) fno=fno+1;   
