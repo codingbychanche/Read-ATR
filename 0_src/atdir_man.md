@@ -1,6 +1,6 @@
 atdir
 =====
-Shows the directory of the specified disk image. It shows file #, start sector, # of sectors
+Shows the directory of the specified diskimage. It shows file #, start sector, # of sectors
 and the size in bytes. it also checks the files sector chain.
 
 Works for single density (720 sectors, 128 bytes/ sector) enhanched density (1040 sectors, 128

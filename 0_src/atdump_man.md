@@ -1,6 +1,6 @@
 atdump
 ======
-Dumps the contents of an file, saved on an Atari Dos 2.x formated disc to the standart output.
+Dumps the contents of an file, saved on an Atari Dos 2.x formated disk to the standart output.
 
 Works for single density (720 sectors, 128 bytes/ sector) enhanched density (1040 sectors, 128
 bytes/ sector) and double density (720 sectors/ 256 bytes/ sector). 

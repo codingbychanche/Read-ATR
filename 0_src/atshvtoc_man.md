@@ -1,6 +1,6 @@
 Show Volume Table of Contents (VTOC)
 ====================================
-DOS 2.x VTOC is located at sector 369 and contains 10 bytes status information (total # of sectors and
+DOS 2.x VTOC is located at sector 360 and contains 10 bytes status information (total # of sectors and
 available # of sectors) and 90 bytes (90 x 8 bit = 720 bit= 720 sectors) which are the sector map. Each bit set marks an 
 sector that my be overwritten (data of an deleted file) and each zero bit a sector that may not be overwritten (
 sectors data belong toan active file).
@@ -21,4 +21,4 @@ File # and status are marked as follows:
 	Both are marked as "Taken" and my not be overwritten by the system.
 
 
-BF 5/2018
+BF 6/2018
