@@ -12,6 +12,9 @@
 
 rm errorLog
 
+# Grey text
+printf  "\e[90m"
+
 echo --------------------------------------- Building 'atdir' for x86
 cc -w -o ../0_bin/x86/Mac/atdir  atdir.c 2>>errorLog
 cp atdir_man.md ../0_bin/x86/Mac
@@ -52,7 +55,7 @@ cp atdir_man.md ../0_bin/x86/Mac
 echo ---------------------------------------- DONE!
 
 # Any errors, f so, show them
-#
+
 if [ $(egrep "error" errorLog) ]
 then
     echo Errors found:
@@ -62,4 +65,21 @@ else
     echo No errors! For a complete list of warnings: See 'errorLog'
 fi
 
+# Count lines in 'errorLog'
 
+lines=0
+while read errorLog
+do
+    let "lines=lines+1"
+done < errorLog
+
+if [ $lines -gt 0 ]
+then
+    echo Error log contains $lines lines. 
+else
+    echo Error log contains no lines. You lucky bastard!
+fi
+
+# Reset all escape squences...
+
+printf "\e[m"
