@@ -30,7 +30,7 @@
  *              
  *--------------------------------------------------------------------------------------------------------------------------------*/
 
-d2x_init_image (char *image [],
+d2x_init_image (char image [],
             struct atr_image *headerp, 
             struct dir *dirp,
             struct vtoc *vtocp)
@@ -43,8 +43,7 @@ d2x_init_image (char *image [],
   
   char error;       /* Error Code */
     
-  /*    
-   * ATR File- Image öffnen
+  /* ATR File- Image öffnen
    *
    * 90  kb image:  720 sect. + 128 bytes/sect. = Single Density
    * 130 kb image: 1040 sect. + 128 bytes/sect. = (1050)Enhanched Denstity
@@ -144,7 +143,7 @@ d2x_secread (struct atr_image *headerp, BYTE *daten,int sector,int boffset)
  *
  *----------------------------------------------------------------------------------------------------------------*/
 
-secwrite (unsigned char *daten[], unsigned char *buffer[],int boffset,int sector, int bytes)
+secwrite (unsigned char daten[], unsigned char *buffer[],int boffset,int sector, int bytes)
 {
   int offset;                                                         /* Offset auf das erste Datenbyte */
   int i;                                                              /* Zähler */

@@ -49,6 +49,8 @@ char
     c,
     file [PATHSIZE];
 
+char unused;
+
 /*------------------------------------------------------------------------------------
  * main
  *------------------------------------------------------------------------------------*/
@@ -111,7 +113,7 @@ int main(int argc,const char *argv[])
 
   if (argc>1) argv++;
   else{ 
-    printf ("No file name of atr- image given.\n\n");
+    fprintf (stderr,"Error: No file name of atr- image given.\n\n");
     usag();
     return(ERROR); 
   }
@@ -174,8 +176,8 @@ int main(int argc,const char *argv[])
       printf ("Processed %d image files\n\n",files);
       return (0); /* Exit, no errors! */
     } else {
-      printf ("Could not read batch file:%s\n",*argv);
-      return (1); /* Exit, error! */
+      fprintf (stderr,"Error: Could not read batch file:%s\n",*argv);
+      return (ERROR); /* Exit, error! */
     }
     
     /* End of Show- dir */
@@ -343,8 +345,8 @@ dir (char path[])
       if (mydir[fno].count_high<=3){
 	size=mydir[fno].count_low+256*mydir[fno].count_high;
       }else{
-	printf ("DIR: File #%d -> Invalid # of sectors\n",fno);
-	return (1);
+	fprintf (stderr,"Error: DIR: File #%d -> Invalid # of sectors\n",fno);
+	return (ERROR);
       }
       
       /*
@@ -354,8 +356,8 @@ dir (char path[])
       if (mydir[fno].ssn_high<=3){
 	start=mydir [fno].ssn_lo+256*mydir[fno].ssn_high;
       } else{
-	printf ("DIR: File #%d -> Invalid start sector. Start sector>1020\n",fno);
-	return (1);
+	fprintf (stderr,"Error: DIR: File #%d -> Invalid start sector. Start sector>1020\n",fno);
+	return (ERROR);
       }
 
       /*

@@ -105,7 +105,7 @@ int main(int argc, const char *argv[])
 
   if (argc>1) argv++;
   else{ 
-    printf ("No file name of atr- image given.\n\n");
+    fprintf (stderr,"Error: No file name of atr- image given.\n\n");
     usag();
     return(ERROR); 
   }
@@ -137,7 +137,7 @@ int main(int argc, const char *argv[])
      
      version();
      usag();
-     printf ("Done nothing\nChoose one of the options above.\n");
+     fprintf (stderr,"Warning: Done nothing\nChoose one of the options above.\n");
       
      return (ERROR);   /* This might be an error because the user forgot to tell what he wanted */
    }
@@ -233,21 +233,20 @@ checkfile(char file[])
     }
     name[n]='\0';                                   /* C- strings must be terminated by NULL */
 
-    printf ("---Name:%s\n",name);
     /*
      * Check if file exists and if it is readable
      */
 
     if ((strcmp(name,file))==0){                    /* File exists? */
       if ((mydir[m].flag & DEL)==DEL){              /* Is it deleted? */
-	printf ("atdump: File found, but deleted!\n");      /* Yes! => return with error */
+	fprintf (stderr,"Warning: atdump: File found, but deleted!\n");      /* Yes! => return with error */
 	return (1025);
       }
       return (start);                               /* File exists, Return startsector= no error */
     }
     m++;                                            /* File not found yet, check next entry */
   }
-  printf ("atdump: File not found.\n");             /* All entrys checked, file not found */
+  fprintf (stderr,"Error: atdump: File not found.\n");             /* All entrys checked, file not found */
   return (1025);                                    /* Return, error */
 }
 
@@ -275,7 +274,7 @@ dump(int start)
        
        boffset=(DTSTART+start*secsize)-secsize;
 
-       for (i=boffset;i<=(boffset+bytes-1);i){
+       for (i=boffset;i<=(boffset+bytes-1);){
 	 c=myimage.data[i++];	 
 	 if (c==ATARI_LF) printf("\n");	 
 
@@ -329,7 +328,7 @@ hexdump(int start,char atarifile [])
        
        boffset=(DTSTART+start*secsize)-secsize;
 
-       for (i=boffset;i<=(boffset+bytes-1);i){
+       for (i=boffset;i<=(boffset+bytes-1);){
 	 c=myimage.data[i++];
 	
 	 if (c!=0 && c>=16 ) printf ("$%x",c);

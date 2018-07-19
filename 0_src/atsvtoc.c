@@ -85,7 +85,7 @@ int main(int argc,const char *argv[])
 
   if (argc>1) argv++;
   else{ 
-    printf ("No file name of atr- image given.\n\n");
+    fprintf (stderr,"Error: No file name of atr- image given.\n\n");
     usag();
     return(ERROR); 
   }
@@ -117,7 +117,7 @@ usag ()
 {
   printf ("Usage : [-v][Filename]\n");
   printf ("-v:\t\tHide coyright message\n");
-  printf ("-c:\t\tMar VTOC map with colors\n");
+  printf ("-c:\t\tMark VTOC map with colors\n");
   printf ("Filename:\tValid *.ATR disk image, Dos 2.x formated\n\n");
 }
 
@@ -145,7 +145,7 @@ descripe ()
 /*------------------------------------------------------------------------------------
  * Show contents of VTOC
  *
- *-------------------------------------------------------------------------------------/*/
+ *------------------------------------------------------------------------------------*/
 
 shvtoc (unsigned char daten[])
 {
@@ -167,9 +167,9 @@ shvtoc (unsigned char daten[])
     int taken,empty,sector;
     
     
-    //
-    // Vtoc Bytes ermitteln
-    //
+    /*
+     * Vtoc Bytes ermitteln
+     */
        
     dosbyte=daten [offset];
 
@@ -183,7 +183,6 @@ shvtoc (unsigned char daten[])
     sfreeh=daten [offset+4];
     totalused=sfreel+256*sfreeh;
 
-    
     /*
      * Some info...
      */
