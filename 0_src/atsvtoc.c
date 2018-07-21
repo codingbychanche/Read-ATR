@@ -8,7 +8,7 @@
  * Revised: 20.5.2018
  *------------------------------------------------------------------------------------*/  
 
-#define VERSION "\natsvtoc 1.0.0  // 12.6.2018\n\n"
+#define VERSION "\natsvtoc 1.0.1  // 7/2018\n\n"
 
 #include <stdio.h>
 
@@ -32,6 +32,8 @@ struct vtoc vtocp;          /* Structure of Atari DOS 2.x VTOC */
 int k,l;
 int c,vopt,copt;
 
+char filename [PATHSIZE];
+
 /*------------------------------------------------------------------------------------
  * main
  *------------------------------------------------------------------------------------*/
@@ -39,6 +41,13 @@ int c,vopt,copt;
 int main(int argc,const char *argv[])
 {
   FILE *input;
+
+  /*
+   * Filename of this binary to 'filename' so that
+   * it can be used gobally...
+   */
+
+  strcpy(filename,argv[0]);
           
   /*                                
    * Any parameters passed?
@@ -85,7 +94,7 @@ int main(int argc,const char *argv[])
 
   if (argc>1) argv++;
   else{ 
-    fprintf (stderr,"Error: No file name of atr- image given.\n\n");
+    fprintf (stderr,"%s > Error: No file name of atr- image given.\n\n",filename);
     usag();
     return(ERROR); 
   }
@@ -103,7 +112,7 @@ int main(int argc,const char *argv[])
    */
 
   printf ("\n\nChecking disk image:%s\n\n",*argv);
-  if ((d2x_init_image(*argv,&myimage,&mydir,&vtocp))==NOERROR){
+  if ((d2x_init_image(filename,*argv,&myimage,&mydir,&vtocp))==NOERROR){
     shvtoc(myimage.data);
     return (NOERROR); 
   } else return (ERROR);

@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/
 
-#define VERSION "\natdump V1.5.0 // 12.06.2018\n\n"
+#define VERSION "\natdump V1.5.1 // 21.7.2018\n\n"
 
 #define ATARI_LF 13
 #define FIRST_ASCII_CHAR 33
@@ -38,6 +38,12 @@ int copt,
   n,
   m;
 
+char filename[PATHSIZE];
+
+char c,
+  imagefile[PATHSIZE],
+  atarifile[20];
+
 /*------------------------------------------------------------------------------------
  * main
  *------------------------------------------------------------------------------------*/
@@ -45,18 +51,21 @@ int copt,
 int main(int argc, const char *argv[])
 {
 
-  FILE *input;
-    
+  FILE *input;  
+
+  char file [PATHSIZE];
+
   int 
     i,   
     error,
     files;
 
-  char 
-    c,
-    file [PATHSIZE],
-    imagefile[PATHSIZE],
-    atarifile[20];
+  /*
+   * Filename of this binary to 'filename' so that
+   * it can be used gobally...
+   */
+
+  strcpy(filename,argv[0]);
           
   /*                                
    * Check parameters
@@ -105,7 +114,7 @@ int main(int argc, const char *argv[])
 
   if (argc>1) argv++;
   else{ 
-    fprintf (stderr,"Error: No file name of atr- image given.\n\n");
+    fprintf (stderr,"%s > Error: No file name of atr- image given.\n\n",filename);
     usag();
     return(ERROR); 
   }
@@ -137,7 +146,7 @@ int main(int argc, const char *argv[])
      
      version();
      usag();
-     fprintf (stderr,"Warning: Done nothing\nChoose one of the options above.\n");
+     fprintf (stderr,"%s > Image File: %s > Warning: Done nothing. Choose one of the options above.\n",filename,imagefile);
       
      return (ERROR);   /* This might be an error because the user forgot to tell what he wanted */
    }
@@ -146,7 +155,7 @@ int main(int argc, const char *argv[])
     * Open image file and dump atari DOS 2.x file
     */
    
-    if ((d2x_init_image(imagefile,&myimage,&mydir,&vtocp))==NOERROR){
+   if ((d2x_init_image(filename,imagefile,&myimage,&mydir,&vtocp))==NOERROR){
      if (checkfile(atarifile)!=1025){
 
        if (copt) dump (checkfile(atarifile));
@@ -231,22 +240,23 @@ checkfile(char file[])
 	i++;
       }
     }
+    i++;
     name[n]='\0';                                   /* C- strings must be terminated by NULL */
 
     /*
      * Check if file exists and if it is readable
      */
 
-    if ((strcmp(name,file))==0){                    /* File exists? */
+    if ((strcmp(name,file))==127){                  /* File exists? */
       if ((mydir[m].flag & DEL)==DEL){              /* Is it deleted? */
-	fprintf (stderr,"Warning: atdump: File found, but deleted!\n");      /* Yes! => return with error */
+	fprintf (stderr,"%s > Image File: %s >  Warning: File '%s' found on Atari Disk, but deleted!\n",filename,imagefile,file);      /* Yes! => return with error */
 	return (1025);
       }
       return (start);                               /* File exists, Return startsector= no error */
     }
     m++;                                            /* File not found yet, check next entry */
   }
-  fprintf (stderr,"Error: atdump: File not found.\n");             /* All entrys checked, file not found */
+  fprintf (stderr,"%s > Image File: %s > Error: File '%s' not found on Atari- Disk.\n",filename,imagefile,file);             /* All entrys checked, file not found */
   return (1025);                                    /* Return, error */
 }
 
@@ -293,8 +303,9 @@ dump(int start)
        start=next;     
 
      } /* do */
-   while (next!=0);     
-   return (1);
+   while (next!=0);
+   printf ("\n");     
+   return (NOERROR);
 }
 
 /*------------------------------------------------------------------------------------         
@@ -348,12 +359,7 @@ hexdump(int start,char atarifile [])
        start=next;     
 
      } /* do */
-   while (next!=0);     
-  return (1);
+   while (next!=0);   
+   printf ("\n");       
+  return (NOERROR);
 }
-
-
-
-
-
-

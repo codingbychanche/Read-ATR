@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/  
 
-#define VERSION "\natdir V2.8.1 // 11.6.2018\n\n"
+#define VERSION "\natdir V2.8.2 // 21.7.2018\n\n"
 
 #include <stdio.h>
 
@@ -47,7 +47,8 @@ int
     files;
 char 
     c,
-    file [PATHSIZE];
+  file [PATHSIZE],
+  thisfile [PATHSIZE];
 
 char unused;
 
@@ -58,7 +59,14 @@ char unused;
 int main(int argc,const char *argv[])
 {
   FILE *input;
-          
+   
+  /*
+   * Filename of this binary to 'filename' so that
+   * it can be used gobally...
+   */
+
+  strcpy(thisfile,argv[0]);
+       
   /*                                
    * Any parameters passed?
    * If not, show info, return to shell.
@@ -113,7 +121,7 @@ int main(int argc,const char *argv[])
 
   if (argc>1) argv++;
   else{ 
-    fprintf (stderr,"Error: No file name of atr- image given.\n\n");
+    fprintf (stderr,"%s > Error: No file name of atr- image given.\n\n",thisfile);
     usag();
     return(ERROR); 
   }
@@ -144,7 +152,7 @@ int main(int argc,const char *argv[])
      * basic status info.
      */
 
-    if ((d2x_init_image(*argv,&myimage,&mydir,&vtocp))==NOERROR){
+    if ((d2x_init_image(thisfile,*argv,&myimage,&mydir,&vtocp))==NOERROR){
       if (sopt) sdir(*argv);                     /* Short version */
       if (!sopt && !aopt) dir (*argv);           /* Detailed version */
       if (aopt)	atdumpdir(*argv);                /* atdump compatible */
@@ -166,7 +174,7 @@ int main(int argc,const char *argv[])
 	char *p=strchr(file,'\n');            
 	if (p!=NULL) *p='\0';    
         
-	if ((d2x_init_image(file,&myimage,&mydir,&vtocp))==NOERROR){
+	if ((d2x_init_image(thisfile,file,&myimage,&mydir,&vtocp))==NOERROR){
 	  if (sopt) sdir(file);                     /* Short version */
 	  if (!sopt && !aopt) dir (file);           /* Detailed version */
 	  if (aopt) atdumpdir(file);                /* atdump compatible */
@@ -282,11 +290,11 @@ atdumpdir (char *path [PATHSIZE])
     strncpy (ext,mydir[fno].ext,3);
 
     stat=mydir [fno].flag;
-    if ((stat & DEL) ==DEL && filename[0]!=0) printf ("#"); /* If deleted, mark so */
-
-    /* Output */
-    
-    printf ("%s@%s.%s\n",path,filename,ext);
+    if ((stat & DEL) ==DEL && filename[0]!=0){ 
+      fprintf (stderr,"%s > Warning: The file '%s.%s' on image file '%s' has status 'deleted'\n",thisfile,filename,ext,path); /* If deleted, mark so */
+    }else{
+      printf ("%s@%s.%s\n",path,filename,ext);
+    }
     fno++;
   }
   return (0);
@@ -345,7 +353,7 @@ dir (char path[])
       if (mydir[fno].count_high<=3){
 	size=mydir[fno].count_low+256*mydir[fno].count_high;
       }else{
-	fprintf (stderr,"Error: DIR: File #%d -> Invalid # of sectors\n",fno);
+	fprintf (stderr,"%s > Error: DIR: File #%d -> Invalid # of sectors\n",thisfile,fno);
 	return (ERROR);
       }
       
@@ -356,7 +364,7 @@ dir (char path[])
       if (mydir[fno].ssn_high<=3){
 	start=mydir [fno].ssn_lo+256*mydir[fno].ssn_high;
       } else{
-	fprintf (stderr,"Error: DIR: File #%d -> Invalid start sector. Start sector>1020\n",fno);
+	fprintf (stderr,"%s > Error: DIR: File #%d -> Invalid start sector. Start sector>1020\n",thisfile,fno);
 	return (ERROR);
       }
 
@@ -372,7 +380,6 @@ dir (char path[])
 	
       strncpy (filename,mydir[fno].filename,8);
       strncpy (ext,mydir[fno].ext,3);
-      
       filename [8]=0;  /* Terminate with \0 to make it a C compatible string */        
       ext [3]=0;       
       
