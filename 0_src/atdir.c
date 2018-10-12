@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/  
 
-#define VERSION "\natdir V2.8.2 // 21.7.2018\n\n"
+#define VERSION "\natdir V2.8.3 // 12.10.2018\n\n"
 
 #include <stdio.h>
 
@@ -76,7 +76,7 @@ int main(int argc,const char *argv[])
     version();
     descripe();
     usag();
-    return(NOERROR); /*  No errors! */
+    return(NOERROR);
   }
 
   /*
@@ -112,7 +112,7 @@ int main(int argc,const char *argv[])
   
   /*
    * Check if file name was passed from shell.
-   * This is the case, when argc is > than 1, then the second element 
+   * This is the case, when argc is >1 then the second element 
    * contains what should be the file name string (the argument at 0 is the 
    * programm name (atdir).
    *
@@ -380,7 +380,7 @@ dir (char path[])
 	
       strncpy (filename,mydir[fno].filename,8);
       strncpy (ext,mydir[fno].ext,3);
-      filename [8]=0;  /* Terminate with \0 to make it a C compatible string */        
+      filename [7]=0;  /* Terminate with \0 to make it a C compatible string */        
       ext [3]=0;       
       
         /*

@@ -83,7 +83,7 @@ int main(int argc, const char *argv[])
   /*
    * Check for options
    */
-    
+0    
   copt=hopt=0;
     
   while (argc>1 && argv[1][0]=='-'){
