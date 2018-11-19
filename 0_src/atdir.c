@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/  
 
-#define VERSION "\natdir V2.8.3 // 12.10.2018\n\n"
+#define VERSION "\natdir V2.8.4 // 19.11.2018\n\n"
 
 #include <stdio.h>
 
@@ -335,15 +335,15 @@ dir (char path[])
      * Print header
      */
     
-    printf ("------------------------------------------------------------------------\n");
+    printf ("--------------------------------------------------------------------------\n");
     printf ("Image file: %s\n\n",path); 
     printf ("# of useable data sectors on disk/ unused data sectors on disk:%d/ %d\n\n",sectors,free_sec);
     printf ("FN\tStat\tFilename\tStart\t#Sect.\t#Bytes\tSector chain\n");
-    printf ("---\t------\t---------------\t-----\t------\t------\t------------\n");          
+    printf ("---\t------\t---------------\t-----\t------\t------\t------------------\n");          
 
     fno=0;
     	
-    while ((mydir[fno].filename[0])!=0 && (fno<=64))     /* Read from image until last entry */
+    while ((mydir[fno].filename[0])!=0 && (fno<=63))     /* Read from image until last entry */
     {
 	
       /*
@@ -435,7 +435,7 @@ dir (char path[])
         if ((fstat  & FNO_ERR)   == FNO_ERR)   printf ("\tF#!");         /* File number! */
         if ((fstat  & SIZE_ERR)  == SIZE_ERR)  printf ("\tSize!");       /* File size! */
 	if ((fstat  & NSEC_INV)  == NSEC_INV)  printf ("\tNSec!");       /* Invalif next sector! */
-	if ((fstat  & NSEC_LOOP) == NSEC_LOOP) printf ("\t8");           /* Sector chain loops...*/
+	if ((fstat  & NSEC_LOOP) == NSEC_LOOP) printf (" LOOP");         /* Sector chain loops...*/
 	
 	if (fstat== 0) printf ("\tOK");                                  /* File is OK! */
 
@@ -502,8 +502,10 @@ trace (int start_sec,int size,int fn)
 
 file_size(unsigned int sec)
 {
-  int i,b;
+  int i,b,sectors_read;
   b=0;
+  sectors_read=0;
+
 
   do{
     i=d2x_secnext (&myimage,sec);
@@ -512,7 +514,13 @@ file_size(unsigned int sec)
 
     b=b+d2x_secbyte (&myimage,sec);
     sec=i;
+    sectors_read++;
+
+    if (sectors_read>1020){
+      b=0;
+      break;
     }
+  }
   while (sec !=0);
   
 return (b);
