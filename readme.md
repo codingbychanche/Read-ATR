@@ -4,7 +4,7 @@ RetroZock 2014
 www.retrozock.com
 retrozock@hotmail.com
 
-A collection of C- Language subroutines and tools for processing *.ATR image files. 
+A collection of C- Language subroutines and tools for processing '*.ATR' image files. 
 
 A sample output of each tool is included at the end of this file.
 
@@ -19,9 +19,9 @@ atdump
 ------
 Dumps file contents of a file in an '*.ATR' image file to standard output.
 
-atsvto
-------c
-Reads the VTOC (Volume Table of Contents) from an '*.ATR' image file and writes it to the standart output.
+atsvtoc
+-------
+Reads the VTOC (Volume Table of Contents) from an '*.ATR' image file and writes it to the standard output.
 
 
 Version
@@ -30,7 +30,8 @@ Execute binary without command line options, version and usage will be displplay
 
 License
 =======
-
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License:
+https://creativecommons.org/licenses/by-nc-sa/4.0/
  	
 
 Binary's (and how to build them....)
@@ -59,6 +60,9 @@ Sample outputs
 
 Sample output of 'atdir'
 ------------------------
+Long version, showing full status of each file:
+	
+	bertholsappleii:Read ATR Berthold$ atdir Samples/FMeine.atr 
 
 	atdir V2.8.3 // 12.10.2018
 
@@ -96,6 +100,46 @@ Sample output of 'atdir'
 	21	*NO2	SNOOPY .PIC	814	62	7680	OK
 	22	*NO2	TIGER  .PIC	876	62	7680	OK
 	23	*NO2	MICROMA.PIC	938	62	7680	OK
+
+
+Short version, showing the directory like 'DUP.SYS' does:
+
+	bertholsappleii:Read ATR Berthold$ atdir -s Samples/DOS25.ATR
+
+	atdir V2.8.4 // 19.11.2018
+
+	Made by retrozock
+	www.retrozock.com
+
+	------------------------------------------------------------------------
+	Imagefile: Samples/DOS25.ATR
+		   DOS     .SYS
+	  	   DUP     .SYS
+	   	   TEST    .BAS
+	   	   TEST    .DAT
+	   	   TEST    .DAT
+		   PIA2    .BAS
+
  
+
+Sample output of 'atdump'
+-------------------------
+
+Hex dump:
+
+	bertholsappleii:Read ATR Berthold$ atdump -h Samples/FMeine.atr@ZEICHEN.TXT
+
+	;------------------
+	; Dump of:ZEICHEN.TXT
+
+	.byte  $2a,$2d,$2d,$2d,$2d,$2d,$2d,$2d
+	.byte  $2d,$2d,$2d,$2d,$2d,$2d,$2d,$2d
+	.byte  $2d,$2d,$2d,$2d,$2d,$2d,$2d,$2d
+	.byte  $2d,$2d,$2d,$2d,$2d,$2d,$2d,$2d
+	.byte  $2d,$2d,$2d,$2d,$2d,$0d,$2a,$20
+	.byte  $5a,$45,$49,$43,$48,$45,$4e,$53
+	.byte  $41,$54,$5a,$0d,$2a,$2d,$2d,$2d
+	.byte  $2d,$2d,$2d,$2d,$2d,$2d,$2d,$2d
+
 
 
