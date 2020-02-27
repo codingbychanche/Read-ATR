@@ -7,9 +7,10 @@
  *
  *------------------------------------------------------------------------------------*/
 
-#define VERSION "\natdump V1.5.1 // 21.7.2018\n\n"
+#define VERSION "\natdump V1.5.3 // 27.11.2018\n\n"
 
 #define ATARI_LF 13
+#define ATARI_RETURN 155
 #define FIRST_ASCII_CHAR 33
 #define LAST_ASCII_CHAR 127
 #define FIRST_INVERSE_CHAR 161
@@ -32,17 +33,14 @@ struct atr_dir mydir[128];  /* Structure of Atari DOS 2.x file directory */
 struct atr_image myimage;   /* Structure of *.ATR disk image file */                                                                                        
 struct vtoc vtocp;          /* Structure of Atari DOS 2.x VTOC */
 
-int copt,
-  hopt,
-  i,                        
-  n,
-  m;
+int copt,hopt,ropt,i,n,m;
 
 char filename[PATHSIZE];
 
-char c,
-  imagefile[PATHSIZE],
-  atarifile[20];
+BYTE c,imagefile[PATHSIZE],atarifile[20];
+
+int secsize,bytes,boffset,next;
+
 
 /*------------------------------------------------------------------------------------
  * main
@@ -55,10 +53,7 @@ int main(int argc, const char *argv[])
 
   char file [PATHSIZE];
 
-  int 
-    i,   
-    error,
-    files;
+  int error,files;
 
   /*
    * Filename of this binary to 'filename' so that
@@ -83,29 +78,48 @@ int main(int argc, const char *argv[])
   /*
    * Check for options
    */
-0    
-  copt=hopt=0;
+    
+  copt=hopt=ropt=0;
     
   while (argc>1 && argv[1][0]=='-'){
     c=argv [1][1];
         
     switch (c){
       
-    case 'c': /* Dump raw contens, if file contains ascii chars => textfile */
+    case 'c': /* Dump textfile */
       copt++;
       break;
 
     case 'h': /* Hex- dump, assembler sourche (.byte ..... */
       hopt++;
       break;
+
+    case 'r': /* Dump file as it is...... (e.g. get an XEX- file if file is a binary....*/
+      ropt++;
+    break;
     }
+
     --argc;
     ++argv;
   }
 
   /*
+   * If a file name was given but options are missing
+   * inform the user that nothing was done and tell the reason.
+   */
+
+   if (copt==0 && hopt==0 && ropt==0){
+     
+     version();
+     usag();
+     fprintf (stderr,"%s > Image File: %s > Warning: Done nothing. Choose one of the options above.\n",filename,imagefile);
+      
+     return (ERROR);   /* This might be an error because the user forgot to tell what he wanted */
+   }
+
+  /*
    * Check if file name was passed from shell.
-   * This is the case, when argc is > than 1, then the second element 
+   * This is the case, when argc is >1 then the second element 
    * contains what should be the file name string (the argument at 0 is the 
    * programm name (atdir).
    *
@@ -129,27 +143,21 @@ int main(int argc, const char *argv[])
   while (file [i]!='@'){
     imagefile[i]=file[i];  /* Get path of image- file */
     i++;
+    if (i==strlen(file)) { /* This is the case when no atari disk- file name was passed... */
+      fprintf (stderr,"%s > Which file on Atari Disk? Which file to dump?\n\n",filename);
+      return (ERROR);
+    }
   }
   imagefile[i]='\0';
+
+  /* 
+   * Get name of Atari- file
+   */
 
   i++;
   int n=0;
   while (file [i]!='\0') atarifile[n++]=file[i++];
   atarifile[n]='\0';
-  
-   /*
-   * If a file name was given but options are missing
-   * inform the user that nothing was done and tell the reason.
-   */
-
-   if (copt==0 && hopt==0){
-     
-     version();
-     usag();
-     fprintf (stderr,"%s > Image File: %s > Warning: Done nothing. Choose one of the options above.\n",filename,imagefile);
-      
-     return (ERROR);   /* This might be an error because the user forgot to tell what he wanted */
-   }
 
    /*
     * Open image file and dump atari DOS 2.x file
@@ -157,11 +165,10 @@ int main(int argc, const char *argv[])
    
    if ((d2x_init_image(filename,imagefile,&myimage,&mydir,&vtocp))==NOERROR){
      if (checkfile(atarifile)!=1025){
-
        if (copt) dump (checkfile(atarifile));
        if (hopt) hexdump(checkfile(atarifile),atarifile);
-       
-       return(NOERROR);  /* Exit, no errors */           
+       if (ropt) rawdump(checkfile(atarifile),atarifile);
+       return(NOERROR);/* Exit, all done, no errors */           
      }
    }  
    return (ERROR);     /* Exit with error. Error description is done by the function causing it */
@@ -175,7 +182,8 @@ usag ()
 {
   printf ("Usage:\t[-options][Filename]\n");
   printf ("-c\tDump text file\n");
-  printf  ("-h\tHex- dump of file assembler source file\n");
+  printf ("-h\tHex- dump of file assembler source file\n");
+  printf ("-r\tDump raw contents (e.g. if file is a binary the result is an an XEX- file)\n");
 }
 
 /*------------------------------------------------------------------------------------
@@ -263,20 +271,11 @@ checkfile(char file[])
 /*------------------------------------------------------------------------------------
  * Dump file contents
  *
- * Dumps raw contents, binary
+ * Dump as textfile, convert atari control.
  *------------------------------------------------------------------------------------*/
 
 dump(int start)
 {
-  int i,      
-    sector,       /* Sector currently read */
-    bytes,        /* # of data bytes of current sector */
-    next,
-    secsize;      /* density: 128 bytes/ sector= Single // 256 bytes/ sector= double */
-
-  int boffset;
-  char c;
-
    do
      {
        secsize=myimage.sec_low+256*myimage.sec_high;  
@@ -286,7 +285,10 @@ dump(int start)
 
        for (i=boffset;i<=(boffset+bytes-1);){
 	 c=myimage.data[i++];	 
-	 if (c==ATARI_LF) printf("\n");	 
+	 if (c==ATARI_LF || c==ATARI_RETURN){
+	   printf("\n");
+	   c=0; /* Do not print this char to console....!! */
+	 }	 
 
 	 /* Convert */
 
@@ -314,12 +316,6 @@ dump(int start)
 
 hexdump(int start,char atarifile [])
 {
-  int i,      
-    sector,       /* Sector currently read */
-    bytes,        /* # of data bytes of current sector */
-    next,
-    secsize;      /* density: 128 bytes/ sector= Single // 256 bytes/ sector= double */
-
   int cols;
 
   int boffset;
@@ -361,5 +357,30 @@ hexdump(int start,char atarifile [])
      } /* do */
    while (next!=0);   
    printf ("\n");       
+  return (NOERROR);
+}
+
+/*------------------------------------------------------------------------------------         
+ * Dump raw contents of file
+ *------------------------------------------------------------------------------------*/
+         
+rawdump(int start,char atrfile [])
+{
+  do
+     {
+       secsize=myimage.sec_low+256*myimage.sec_high;  
+       bytes=d2x_secbyte(&myimage,start);             
+       
+       boffset=(DTSTART+start*secsize)-secsize;
+
+       for (i=boffset;i<=(boffset+bytes-1);){
+	 c=myimage.data[i++];
+	 printf ("%c",c);
+       }
+       next=d2x_secnext (&myimage,start);       
+       start=next;
+     }
+ while (next!=0);
+
   return (NOERROR);
 }

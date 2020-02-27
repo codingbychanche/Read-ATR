@@ -1,49 +1,49 @@
-/*--------------------------------------------------------------------------------------------------------------------------------
+/*----------------------------------------------------------------------------------------------------------------
  *  _D2x_fms_low.c
  *
- * Bietet die Funktionalität des Atari DOS 2.X File Manager Systems (FMS)
- * Enthält alle 'low- level' Funtionen (lese einen Sektor/ schreibe einen Sektor usw...)
- *
+ * Basic Dos functions.
  *              
- *--------------------------------------------------------------------------------------------------------------------------------*/
+ *----------------------------------------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 
-#define NO_ERR          0  /* Alles OK! */
-#define IMAGE_READ_ERR  1  /* Lesefeler, die Datei konnte nicht gelesen werden */
-#define IMAGE_NOT_VALID 2  /* Lesen möglich, aber, kein gültiges *.ATR Image File */
-#define DOUBLE_DENSITY  3  /* Double Density */
-#define SECTORBYTES     4  /* Sektorgröße > 256 Bytes, das gint es nicht!  */
-#define SECTORS         5  /* Mehr als 1020 Sektoren! */
+#define NO_ERR          0  
+#define IMAGE_READ_ERR  1  /* The image- file could not be read  */
+#define IMAGE_NOT_VALID 2  /* File format not valid */
+#define DOUBLE_DENSITY  3  /* Disk image contains a double density disk */
+#define SECTORBYTES     4  /* Number of bytes per sectors  not valid */
+#define SECTORS         5  /* Total number of secotors is not valid */
 
-/*-------------------------------------------------------------------------------------------------------------------------------- 
+/*----------------------------------------------------------------------------------------------------------------
  * init_image
  *
- * Prüft das Disk- Image auf Gültigkeit und initialisiert wichtige Strukturen:
+ * Checks the disk- image to be read and inits data structures needed to work with the image.
  * 
- * Übergabe:    char    image   Pfad zum Disk- Image
- *              struct  header  File Header des *.ATR images
- *              struct  dir     Grundlegende Struktur zum Directory Eintrag des dos 2.x
- *              struct  vtoc    Die VTOC
+ * Parameters:  char    filename  Filename.
+ *              char    image     Path of disk- image file.
+ *              struct  header    File header of *.ATR image- file.
+ *              struct  dir       Dir entry.
+ *              struct  vtoc      VTOC
  *
- * Rückgabe:    error code
+ * Returns:     error code
  *              
- *--------------------------------------------------------------------------------------------------------------------------------*/
+ *----------------------------------------------------------------------------------------------------------------*/
 
-d2x_init_image (char image [],
+d2x_init_image (char filename[],char image [],
             struct atr_image *headerp, 
             struct dir *dirp,
             struct vtoc *vtocp)
 {
     
   FILE *f;
-  int sectors,      /* Anzahl der Sektoren des Images */
-    sector_bytes,   /* Bytes/ Sektor */
-    totalbytes;     /* Größe des Images in Bytes */
+  int sectors,        /* Total number of sectors on disk- image. */
+      sector_bytes,   /* Bytes per sector */
+      totalbytes;     /* Total size of image- file in bytes */
   
-  char error;       /* Error Code */
+  char error;         /* Error Code */
     
-  /* ATR File- Image öffnen
+  /* 
+   * Open file- image. 
    *
    * 90  kb image:  720 sect. + 128 bytes/sect. = Single Density
    * 130 kb image: 1040 sect. + 128 bytes/sect. = (1050)Enhanched Denstity
@@ -57,83 +57,73 @@ d2x_init_image (char image [],
     if (f!=0)
     {     
 
-      /* ATR- Datei header lesen und prüfen.*/
+      /* Read and check file header */
 
       fread(headerp,16,1,f);
 
       sector_bytes=headerp->sec_low+256*headerp->sec_high;
       if (sector_bytes>=257){
-	printf ("- Bytes per sector > 256!\n\n");
+	fprintf (stderr,"%s > Image File: %s > Error: Bytes per sector > 256!\n",filename,image);
 	return(SECTORBYTES);
       }
 	
       if (headerp->signature != 0x96){
-	printf ("- File could be read, but it is not a valid *.ATR disk image file\n\n");
-	return (IMAGE_NOT_VALID);       /* Ist kein *.ATR Image! */
+	fprintf (stderr,"%s > Image File: %s > Error: File could be read, but it is not a valid *.ATR disk image file\n",filename,image);
+	return (IMAGE_NOT_VALID);       
       }
 
-      /* Directory lesene */
+      /* Read directory */
 
       fseek (f,(16+128*3+sector_bytes*358)-sector_bytes,SEEK_SET);
       fread(dirp,(8*sector_bytes),1,f);
       
-      /* VTOC lesen */
+      /* Read VTOC */
 
       fseek (f,(16+128*3+sector_bytes*357)-sector_bytes,SEEK_SET);
       fread(vtocp,sector_bytes,1,f);
       
       sectors=vtocp->sec_low+256*vtocp->sec_high;
-      if (sectors>=1021){
-	printf ("- # of sectors >1020\n\n");
-	return (SECTORS);
-      }
-
-      /* Last but not least, komplettes imgae lesen */
+      
+      /* Read complete disk- image file. */
 
         fseek (f,0,SEEK_SET); 
         fread (headerp->data,sector_bytes*sectors,1,f);
         
         fclose (f);
 
-        return (NO_ERR); /* Erfolg! */
+        return (NO_ERR); 
     }
-    printf ("- The image could not be read from the filesystem\n\n");
-    return (IMAGE_READ_ERR); /* Datei- Lesefehler */
+    fprintf (stderr,"%s > Image File: %s > Error: The image could not be read from the filesystem\n",filename,image);
+    return (IMAGE_READ_ERR); 
 }
 
 /*----------------------------------------------------------------------------------------------------------------
  * secread  
  *
- * Liest einen Sektor
+ * Reads one sector from the disk- image.
  *
- * Aufruf:
- * headerp=> Zeiger auf die Struktur des Diskimages
- * daten=> Zeiger auf den buffer, in den die Daten geschrieben werden
- * sector=> Erster Sektor der Datei
  *----------------------------------------------------------------------------------------------------------------*/
 
 d2x_secread (struct atr_image *headerp, BYTE *daten,int sector,int boffset)
 {
-  int offset,         /* Offset auf das erste Datenbyte */ 
-    secsize,          /* Größe eines Sektors in Bytes */
-    i;                /* Zähler */
+  int offset,         /* Points to the first data byte of the sector to be read */ 
+      secsize,        /* Bytes/ sector. */
+      i;              /* Counter. */
     
-  secsize=headerp->sec_low+256*headerp->sec_high;      /* Sector Größe berechnen */
-  offset=(secsize*sector+DTSTART)-secsize;             /* Offset auf das erste Datenbyte von "sector" verbiegen */
+  secsize=headerp->sec_low+256*headerp->sec_high;      
+  offset=(secsize*sector+DTSTART)-secsize;             
  
-    for (i=offset;i<=(offset+secsize);i++) daten[boffset++]=headerp->data[i];            /* Datenbytes in den Buffer schreiben */
+    for (i=offset;i<=(offset+secsize);i++) daten[boffset++]=headerp->data[i];
     
-  return(0);
+  return(NO_ERR);
 }
 
 /*----------------------------------------------------------------------------------------------------------------
- * secwrite >>>>>> ANPASSEN
+ * secwrite 
  *
- * Schreibt einen Sektor
+ * Writes a sector.
  *
- * Aufruf:      secwrite   (daten,buffer,sector,bytes)
- *
- *              daten       ATR- File Rohdaten
+ * Parameters:  daten       ATR- File Rohdaten
  *              buffer      daher kommen die zu schreibenden Daten
  *              boffset     Offsetim Buffer, das heist: ab hier werden die Daten aus dem Buffer gelesen
  *              sector      der Sector soll geschrieben werden

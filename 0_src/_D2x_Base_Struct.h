@@ -9,10 +9,12 @@
 #define     ADRESS  int
 #define     BYTESEC 128                                 /* Bytes/ Sektor einer im Single Desnsity Format formatierten Diskette */
 #define     VTOCSEC 360                                 /* Startsektor der VTOC */
+#define     VTOC2SEC 1024                               /* Enhanched density disks haben eine 2. VTOC ab Sektor 1024 */
 #define     DIRSEC  361                                 /* Startsektor des Directorys */
 #define     DTSTART 16                                  /* Erstes Datenbyte im ATR- FIle */
 #define     DSEKTOR (BYTESEC*DIRSEC+DTSTART)-BYTESEC    /* Offset im ATR- File auf das erste Byte des Directorys (Sektor 361) */
 #define     VTOC    (BYTESEC*VTOCSEC+DTSTART)-BYTESEC   /* Offset im ATR- File auf das erste Byte der Vtoc (Sektor 360)*/
+#define     VTOC2   (BYTESEC*VTOC2SEC+DTSTART)-BYTESEC  /* Offset im ATR- File auf das erste Byte der Vtoc2 bei Enhanced density disks (1040 Sektoren/ 128 Bytes je Sektor */
 
 /* DOS 2.x File Stats */
 
@@ -34,7 +36,7 @@ struct atr_image
   BYTE sec_low;           /* Bytes/ Sektor (128= single/ enhached denstity  */
   BYTE sec_high;          /* 256= (true) double density */
   BYTE p_extented;        /* Paragraphs extented */
-  BYTE u1;                /* Unbenutzt */
+  BYTE u1;                /* Unused */
   BYTE u2;
   BYTE u3;
   BYTE u4;
@@ -43,42 +45,42 @@ struct atr_image
   BYTE u7;
   BYTE u8;
   BYTE u9;
-  BYTE data [200000];      /* Statisch => schmutzig! */
-};                         /* 16 Bytes */
+  BYTE data [200000];      
+};                         
 
 
-/* Dos 2.x Directory Eintrag */
+/* Dos 2.x dir entry */
 
 struct atr_dir 
 {
   BYTE flag;              /* File Status */
-  BYTE count_low;         /* Anzahl Sektoren, die die Datei belegt */
+  BYTE count_low;         /* Number of sectors used by this file */
   BYTE count_high;
-  BYTE ssn_lo;            /* Erster Sektor der Datei */
+  BYTE ssn_lo;            /* First data sector of this file */
   BYTE ssn_high;
-  BYTE filename [8];      /* Dateiname */
+  BYTE filename [8];      /* Filename */
   BYTE ext [3];           /* Extension */
-};                        /* 16 Bytes */
+};                        
 
 /* VTOC Volume Table of Contents */
 
 struct vtoc
 {
-  BYTE   dos;      /* DOS Type. 0 zeigt an, es ist eine DOS 2.0 Disk */
-  BYTE   sec_low;  /* Anzahl der Sektoren insgesammt */
+  BYTE   dos;      /* Dos type 0. 0: Dos 2.0 */
+  BYTE   sec_low;  /* Total number of usable sectors on disk */
   BYTE   sec_high;  
-  BYTE   sec_unul; /* Anzahl der nicht benutzten Sektoren */
+  BYTE   sec_unul; /* Total number of unused sectors */
   BYTE   sec_unuh;
   BYTE   reserved; 
   BYTE   u1;   
   BYTE   u2;
   BYTE   u3;
-  BYTE   u4;       /* 10 Bytes */
+  BYTE   u4;       
   
-  BYTE   sector_bm [90]; /* 90 Bytes */
+  BYTE   sector_bm [90]; /* Sector bitmap. */
   
   BYTE   u7[28];
-};                       /* 128 Bytes */
+};                       
     
     
     

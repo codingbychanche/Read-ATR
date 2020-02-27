@@ -9,19 +9,28 @@ Debugging has been done, using the native 'Disk Wizzard II' tool on an emulated 
 
 Usage
 =====
-Usage: [-options][Filename]@[DOS2XFIL.EXX]
+Usage: [-ch][Filename]@[DOS2XFIL.EXT]
 
 Filename	=	Valid *.ATR disk image, DOS 2.X formated. 
 DOS2XFIL.EXX	=	Point's to the file on the disk image.
 			Must be a valid DOS2X file name in UPPERCASE
 
+-c			ascii- dump, for the time beeing, no atascii char's are shown
+			and there is no hint if an atascii char was read from file but
+			not displayed.
+
+-h			Hex dump. 
+			Bytes displayed, preceeded by the '.byte'- assembler directive,
+			ready to copy and paste into your source code.
+
+-r			Raw dump.
+			Dumps a file as it is. Binarys can be run as '*.XEX' from your
+			emulator.
+
 If no parameters are passed, 'atdump' will show a copyright message and options.
 If no options are passed but a filename was given, 'atdump' abords.
 
-Output:
-=======
-Either a raw dump of the files contents (only ascii!) or a hexdump with a header and rows of eight bytes each preceded by 
-the '.byte' assembler directive.
+BF 6/2018
 
 
 
