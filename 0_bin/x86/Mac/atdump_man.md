@@ -23,6 +23,10 @@ DOS2XFIL.EXX	=	Point's to the file on the disk image.
 			Bytes displayed, preceeded by the '.byte'- assembler directive,
 			ready to copy and paste into your source code.
 
+-r			Raw dump.
+			Dumps a file as it is. Binarys can be run as '*.XEX' from your
+			emulator.
+
 If no parameters are passed, 'atdump' will show a copyright message and options.
 If no options are passed but a filename was given, 'atdump' abords.
 

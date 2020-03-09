@@ -1,0 +1,167 @@
+Atari Disk Formate, ein für alle mal.....
+
+Grundlagen
+==========
+Das erste weit verbreitete DOS für die Atari Computer war nach DOS 1.0 die Version 2.0. Diese DOS- Version war auch bekannt unter der
+Beziechnung DOS 2.0s. Das 's' stand für 'Single Density'.Dos 2.0 - bzw. DOS 2.0s ist der kleinste geeinsame Nenner für alle DOS 2.x 
+Versionen und ist vollkommen aufwärtskompatibel (zum Beispiel zu DOS 2.5).
+
+DOS besteht aus den Dateien:
+----------------------------
+'DOS.SYS': Das Dateiverwaltungssystem und der Gerätetrieber ('D:') der das Laufwerk von Atari- Basic aus ansprechbar macht.
+Das Dateiverwaltungssystem (FMS= Filemanagementsystem) aktuallisiert das Inhaltsverzeichniss beim Speichern und dem Löschen von
+Dateien. Es markiert die zur Datei gehörenden Sektoren als belegt oder frei und berechnet den belegten/ freien Speicherplatz auf der 
+Diskette.
+
+'DUP.SYS': Disketten Hilfsprogramm (Disk Utility Package). Ein Menü geführtes Programm mit dem sich Dateien  Löschen, umbenenen, schützen
+lassen und das weitere Funktionn bietet, die vom Atari- Basic aus nicht zugänglich sind.
+
+Lesen, Schreiben und Löschen sind im Kern Aufgaben die das FMS des DOS ausführt. Im Folgenden wird FMS als Synonym für '...das FMS des DOS...'
+verwendet. Wenn im Folgenden vom DOS oder dem FMS gesprochen wird, dann sind damit alle DOS 2.x Versionen gemeint. Die konkrete Verison wird nur
+dort genannt, wo die Unterscheidung wichtig wird.
+
+Pysische Disketten Formate und DOS- Formate
+-------------------------------------------
+Das Pysische Disketten Format meint das tatsächlich von der Hardware des Laufwerkes produzierte format der Diskette. Die Einteilung schaut grundsätzlich
+so aus:
+
+- Tracks
+- Sektoren/ Track
+- Bytes/ Sektor
+
+Dabei bezieht sich die schon erwähnte 'density' (Schreibdichte)  auf die Anzahl der Bytes die man in einen Sektor packen kann. Die Bezeichnung ist im 
+Grunde eine Relativ Angabe. Nehmen wir an ein Format X hat 10 Tracks, 5 Sektoren je Track und 100 Bytes je sektor. Wenn man nun die Anzahl der Bytes
+je Sektor verdoppelt, ohne die Anzahl der Tracks und die Anzahl der Sektoren zu verändern, dann ergibt sich ein neue Dichte die relativ zu
+Farmat x die doppelte ist.
+
+Für die Laufwerke der Firma Atari werden drei Schreibdichten unterschieden:
+
+- Single Density (einfache Schreibdichte)
+- Enhached Density (erwieterte Schreibdichte)
+- Double Density (Doppelte Schreibdichte)
+
+Das erst für den Atari Computer verfügbar Laufwerk war die 810. Die 810 konnte Disketten mit einfacher Schreibdichte formatieren, lesen und beschreiben.
+Die Disketten hatten rund 90 kB Speicherkapazität. Der Nachfolger, die 1050 konnte zusätzlich Diskette mit erweiterter Schreibdichte formatieren. Damit hatte eine
+Diskette rund 130 kB Speicherkapazität. Das letzte von der Firma Atari für die 8- Bit Computer gelieferte laufwerk war die XF551. Dieses Laufwerk konnte Disketten in
+Double Density formatieren. Es konnten beide Seiten des Diskette genutzt werden (ohne die Diskette zu drehen), je Seite waren rund 180 kB Speicherkapazität, 
+insgesammt also 360 kB möglich.
+
+Bei der Angabe der Speicherkapazität ist es wichtig zwischen der formatierten und der unformatieren Speichekapazität zu unterscheiden. Die oben angebenen Kapazitäten
+beziehen sich auf das was die Hardware des Laufwerkes theoretisch zulässt. Wenn man Dateien organisiert ablegen möchte, dann muss man die, ganz ähnlich wie
+in einer Datenbank, organisieren. Ein Dateiverzeichniss wird benötigt damit man seine Daten wieder findet (das Directory). 
+Dann mus dafpr gesorgt werden,dass beim ablegen von neuen Daten die bereits vorhandenne nicht einfach überschrieben werden und,  sollte es nicht möglich sein 
+größere Dateien an einem Stück - in aufeinanderfolgenden Sektoren - abzulegen, dann müssen die Sektoren miteinander verkettet werden.
+
+Das Dateiverzeichniss, die Belegung der Sektoren, die Zuordnung der Sektoren zu den Dateine und die Information wie die Sektoren miteinander 
+verkettet sind,  müssen als Information auf der Diskette gespeichert werden. Da benötigt Speicherplatz der den Nutzbaren Platz reduziert. Wenn
+im Folgenden vom Roh- Format geschrieben wird, oder einfach nur 'roh', dann ist die unformatierte Diskette, ohne DOS gemeint.
+
+Roh- Formate
+============
+Alle Angaben zur Speicherkapazität beziehen sich auf das Roh- Format (ohne Dos).
+
+Single density
+--------------
+40 Tracks, 18 Sektoren je Track mit 128 Bytes/ Sektor. => 92.160 Bytes Speicherkapazität 
+
+Enhached Density
+----------------
+40 Tracks, 26 Sektoren je Track mit 128 Bytes/ Sektor => 133.120 Bytes Speicherkapazität
+
+Double Density
+--------------
+40 Tracks, 18 Sektoren je Track mit 256 Bytes/ Sektor => 184.320 Bytes Speichekapazität
+
+
+Im Folgenden werden die  Formate 'Single-' und 'Enhached density' detailiert betrachtet:
+
+Formate im Detail
+=================
+Das FMS des DOS 2.0 organisiert die Disketten so:
+
+- Sektor    0  	    	Für das Laufwerk nicht ansprechbar, wird als belegt gekennzeichnet.
+- Sektor    1 - 3	Boot- Sektoren. 
+- Sektor    360 	VTOC= Volume Tabel of Contents
+- Sektoren  361 - 368	Dateiverzeichniss
+- Sektor    720	  	Für das FMS nicht ansprechbar und deshalb nich existent.
+
+Das FMS des DOS 2.5 macht das so:
+
+- Sektor    0  	    	  Für das Laufwerk nicht ansprechbar, wird als belegt gekennzeichnet.
+- Sektor    1 - 3	  Boot- Sektoren. 
+- Sektor    360     	  VTOC= Volume Tabel of Contents
+- Sektoren  361 - 368	  Dateiverzeichniss
+
+- Sektor    720	  	  Wird vom FMS als belegt gekennzeichnet (Atari hat vieleicht vermutet, das dieser Sektor von Anwendern genutzt wurde
+  	    		  und man wollte zur Wahrung der Kompatipilität verhindern, dass DOS 2.5 den überschreibt). 
+
+- Sektoren  721 - 1023	  Zusätzliche Daten- Sektoren
+- Sektor    1024  	  VTOC2
+- Sektoren  1025 - 1040   Vom FMS nicht addressierbar wegen der Beschränkung der Sektornummer auf 10 Bit.
+
+Die Strukturen der Boot- Sektoren und der Sektoren für das Dateiverzeichniss werden hier nicht weiter berachtet.
+
+Den Aufbau eines Datensektors muss man zum weiteren Verständnis der VTOC  kennen:
+
+- Bytes    0 - 124	 Datenbytes
+- Byte 	   125 		 Die 6 oberen Bits enthalten die Dateinummer (Zahlenbereich 0 bis 64)
+  	   		 Die Folgendne 2 Bits sind die Oberen Bits für die Nummer des folgenden Sektors.
+- Byte     126		 Die unteren 8 Bit der Nummer des folgenden Sektors.
+- Byte	   127		 Anzahl der Datenbytes im Sektor. Normalerweise 125. Wenn es der letzte Sektor einer Datei ist, dann 0.
+ 
+Die VTOC (Volume Table of Contents)
+-----------------------------------
+Frei übersetzt  heist VTOC in etwa 'Belegungstabelle der Inhalte'. Das funktioniert so: Wenn eine Datei geschrieben wird, dann werden ihre Daten auf Sektoren 
+verteilt. Jeder Datensektor zeigt auf den nächsten. Wenn der nächste Sektor 0 ist, dann ist das Dateiende erreicht. Der Name der Datei und der erste Sektor
+werden - ergänzt um einige Statusinformationen - im Dateiverzeichniss abgelegt. Die Sektoren, die durch die Datei belegt werden, werden in der VTOC gekennzeichnet und
+der übrig gebliebene Speicherplatz auf der Diskette dort aktuallisiert und gespeichert. Jedes mal wenn eine Neue Datei abgelegt wird, prüft das FMS anhand der 
+VTOC ob noch Platz ist und sucht sich dort die freien Sektoren heraus. Wenn Dateien gelöscht werden, dann werden die dazu gehörenden Sektoren in der VTOC
+als frei gekennzeichnet und der Speicheplatz entsprechend akzuallisiert. Die Daten in den Sketoren der gelöschten Datei bleiben beim Löschvorgang erhalten. Die
+werden erst bei einem erneuten Schreibvorgang zerstört, wenn der Sektor benötigt wird.
+
+In der VTOC wird jeder Sektor durch ein  Bit repräsentiert. Ein gesetztes Bit heist, der Sektor ist frei, ein gelöschtes Bit, der Sektor ist belegt und kann nicht
+überschrieben werden. Die Struktur schaut so aus:
+
+- Byte 	      0	      	  	 =2 Wenn Dos 2.0.
+- Bytes	      1 - 2   	     	 Anzahl der ursprünglich freien Sektoren in der VTOC. Rechnet die durch das FMS belegte Sektoren heraus. Sollte also 707
+  	      	      	     	 für Single Density sein (719 - 3 x Boot - 8 x Dir - 1 x VTOC ).
+
+- Bytes       3 - 4   	  	 Anzhal der aktuell freien Sektoren.
+- Bytes       5 - 9   	     	 Unbenutzt
+- Bytes	      10 - 99		 Belegungstabelle der Sektoren 0 bis 719. 90 Bytes. 90 x 8 Bit/ Byte ergeben 720 Sektoren. Bit 0= Belegt, Bit=1 Frei.
+- Bytes	      100 - 127 	 Unbenutzt
+
+Ein (unter Umständen nützlicher) Fehler:
+----------------------------------------
+Ein dokumentierter Fehler im FMS (File Management System) des DOS 2.0, führt dazu, dass Sektor 720 vom FMS nicht beschrieben werden Kann. Grund:
+
+Das Laufwerk nummeriert die Sektoren so:	   1 bis 720
+Das FMS nummeriert die Sektoren so:  		   0 bis 719
+
+Für das Lauwerk ist Sektor 0 nicht vorhanden. Er wird vom FMS deshalb als belegt markiert. Sektor 720 gibt es für das FMS nicht. Er kann deshalb vom FMS
+nicht beschrieben werden. Physisch ist dieser Sektor aber da  und man könnte ihn für eigene Zwecke nutzen.
+
+Bei der Entwicklung des DOS 2.5 hat man diesen Fehler ganz bewusst nicht behoben, weil sonst die alten Disketten unbrauchbar geworden wären.
+Disketten die in 'Enhached density' haben 26 Sektoren je Track, die Anzahl der Bytes je Sektor bleibt unverändert. Insgesammt gibt es jetzt aber
+(theoretisch) 1040 Sektoren.
+
+Tatsächich vom FMS ansprechbar sind aber nur 1024 Sektoren. Der Grund ist, dass für die Angabe der Sektornummer (nächster Sektor einer Datei) nur
+10 Bit zur verfügung stehen. Damit lässt sich eben nur der Zahlenbereich von 0 bis 1024 abbilden. Weil man den oben beschriebenen Fehler nun 
+mitgeschleppt hat, läuft es mit der Nummerierung, und damit dem Verlust eines Daten- Sektors so:
+
+Das Laufwerk nummeriert so: 	1 bis 1024
+Das FMS so:  			0 bis 1023
+
+Damit ist Sektor 0 für das Laufwerk ebenfalls nicht vorhanden und Sektor 1024 nicht ansprechbar. Der mitgeschleppte Fehler erweist sich hier aber
+als nützlich, weil man den Sektor 1024 nun zur Erweiterung der VTOC benutzen konnte. 
+
+Struktur der VTOC2 (enhanched density)
+--------------------------------------
+
+- Bytes 0 - 83		Wiederholt die Belegung der Sektoren 48 - 719
+- Bytes 84 - 121	Belegung für die Sektoren 720 bis 1023
+- Bytes 122 - 123	Anzahl der aktuell freien Sektoren über Sektor 719. Sollte 303 sein. Sektor 720 ist standartmäsig als belegt gekennzeichnet.
+- Bytes 124 - 127	Unbenutzt		
+
+
+

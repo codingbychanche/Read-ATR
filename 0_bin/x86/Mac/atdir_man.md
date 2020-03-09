@@ -3,7 +3,7 @@ atdir
 Shows the directory of the specified diskimage. It shows file #, start sector, # of sectors
 and the size in bytes. it also checks the files sector chain.
 
-Works for single density (720 sectors, 128 bytes/ sector) enhanched density (1040 sectors, 128
+Works for single density (720 sectors, 128 bytes/ sector) enhanched density (1023 sectors, 128
 bytes/ sector) and double density (720 sectors/ 256 bytes/ sector). 
 
 Debugging has been done, using the native 'Disk Wizard II' tool on an emulated Atari 800 XL (Atari800MacX 13.26.26).
@@ -47,7 +47,7 @@ Error codes:
       No issues
       
       F#! 
-      file number error=> File number does not match the files order in directory or
+      File number error=> File number does not match the files order in directory or
       not all file numbers from the data sectors match each other.
 
       Size! 
@@ -55,6 +55,10 @@ Error codes:
 
       #
       File was deleted.
+
+      LOOP
+      File has no end sector.
+
 
 If a deleted file (marked with '#') 'sector chain' is marked with 'OK' it can easily be restored 
 (undeleted). You can use native Atari 8- Bit Software to do so or, in the near future, a tool from

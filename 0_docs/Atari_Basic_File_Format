@@ -1,0 +1,29 @@
+Atari Basic File Format
+=======================
+
+Header:
+-------
+Each word is a pointer to the beginning of each of the various parts of the
+program file...
+
+WORD
+WORD
+WORD
+WORD
+WORD
+WORD
+WORD
+
+Variable Name Table:
+--------------------
+Last is "Ore'ed" with $80
+
+
+Variable Value Table:
+---------------------
+8 bytes per value
+
+Token Area:
+-----------
+Begins with line #
+
