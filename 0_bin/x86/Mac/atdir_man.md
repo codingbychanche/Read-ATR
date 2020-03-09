@@ -1,6 +1,6 @@
 atdir
 =====
-Shows the directory of the specified diskimage. It shows file #, start sector, # of sectors
+Shows the directory of the specified disk image. It shows file #, start sector, # of sectors
 and the size in bytes. it also checks the files sector chain.
 
 Works for single density (720 sectors, 128 bytes/ sector) enhanched density (1040 sectors, 128
@@ -26,11 +26,11 @@ FN		 = File # = Order of file in directory
 STAT	    	 = File Status *= write protected // 2= DOS 2.0 file // #= file deleted 
 		   N= File has never been used // O= File is opened // U= File is in use
 
-FILENAME    	 = Of course, it's the name!
+FILENAME    	 = Filename
 EXT		 = The extension
 START	      	 = First data sector
 SECT	    	 = Number of sectors occupied by the file
-Bytes	    	 = File size in Bytes (summ of data bytes/ sector of the file)
+Bytes	    	 = File size in Bytes (sum of data bytes/ sector of the file)
 
 SECTOR CHAIN 	 
 The 'adir' tool checks every file. Valid conditions to declare a file as OK are:
