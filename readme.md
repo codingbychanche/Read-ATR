@@ -4,15 +4,15 @@ RetroZock 2014
 www.retrozock.com
 retrozock@hotmail.com
 
-A collection of C- Language subroutines and tools for processing '*.ATR' image files. 
+A collection of C- Language tools for processing '*.ATR' image files. 
 
 A sample output of each tool is included at the end of this file.
 
 atdir
 -----
 Reads the directory of an Atari DOS 2.x formated disk and writes it to the standard output.
-Deleted files are also displayed. All files are checked (sector chain, file size, file #).
-'atdir' accepts single '*.ATR' image files as input and file list for batch processing.
+Deleted files are also displayed. All files are checked (sector chain, file size, file number).
+'atdir' accepts single '*.ATR' image files as input or a file list for batch processing.
 'atdump' accepts it's output as input.
 
 atdump
@@ -26,7 +26,7 @@ Reads the VTOC (Volume Table of Contents) from an '*.ATR' image file and writes 
 
 Version
 =======
-Execute binary without command line options, version and usage will be displplayed, or check individual source file.
+Execute binary without command line options, version and usage will be displplaye. You can also check the individual source code file.
 
 License
 =======
@@ -36,8 +36,9 @@ https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 Binary's (and how to build them....)
 ====================================
-You will find the latest binar's of all the tools in:
-    Read ATR/bin/x86/Mac 
+You will find the latest binary of all the tools in:
+    [](0_bin/x86/Mac)
+     
 
 ONLY THE MAC OS BINARY'S ARE MAINTAINED AND YOU CAN BE SHURE THAT THOSE REPRESENT THE COMPILER RESULT WITH LATEST SOURCE CODE. 
 ALL OTHER BINARY'S ARE NOT! (E.G. Atari TOS, MS- DOS...).
