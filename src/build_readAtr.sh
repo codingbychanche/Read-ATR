@@ -4,11 +4,11 @@
 # the matching folder and removes all temporary
 # files ('a.out', backup files etc...)
 #
-# After build, use 'instal' to put the binary's
+# After build, use 'install' to put the binary's
 # into the 'roots' 'bin' folder (make them available as
 # commands....) => Must have admin privileges!
 #
-# BF 4/2018
+# BF 12/2020
 
 rm errorLog
 
@@ -18,16 +18,16 @@ printf  "\e[90m"
 # Let's build
 
 echo --------------------------------------- Building 'atdir' for x86
-cc -o ../0_bin/x86/Mac/atdir  atdir.c 2>>errorLog
-cp atdir_man.md ../0_bin/x86/Mac
+cc -o ../bin/x86/Mac/atdir  atdir.c 2>>errorLog
+cp atdir_man.md ../bin/x86/Mac
 
 echo --------------------------------------- Bulding 'atdump' for x86
-cc -o ../0_bin/x86/Mac/atdump atdump.c 2>>errorLog
-cp atdump_man.md ../0_bin/x86/Mac
+cc -o ../bin/x86/Mac/atdump atdump.c 2>>errorLog
+cp atdump_man.md ../bin/x86/Mac
 
 echo --------------------------------------- Bulding 'atshvtoc' for x86
-cc -o ../0_bin/x86/Mac/atsvtoc atsvtoc.c 2>>errorLog
-cp atshvtoc_man.md ../0_bin/x86/Mac
+cc -o ../bin/x86/Mac/atsvtoc atsvtoc.c 2>>errorLog
+cp atshvtoc_man.md ../bin/x86/Mac
 
 echo --------------------------------------- Cleaning root dir.....
 echo -- Removing backup files
@@ -44,33 +44,22 @@ rm *.out
 #
 
 echo ---------------------------------------Building 'atdump' for 68000 Atari TOS
-/opt/cross-mint/bin/m68k-atari-mint-gcc -o ../0_bin/68000/TOS/atdump.ttp atdump.c 2>>errorLog
-cp atdump_man.md ../0_bin/x86/Mac
+/opt/cross-mint/bin/m68k-atari-mint-gcc -o ../bin/68000/TOS/atdump.ttp atdump.c 2>>errorLog
+cp atdump_man.md ../bin/x86/Mac
 
 echo ---------------------------------------Building 'atdir' for 68000 Atari TOS
-/opt/cross-mint/bin/m68k-atari-mint-gcc -o ../0_bin/68000/TOS/atdir.ttp atdir.c 2>>errorLog
-cp atdir_man.md ../0_bin/x86/Mac
+/opt/cross-mint/bin/m68k-atari-mint-gcc -o ../bin/68000/TOS/atdir.ttp atdir.c 2>>errorLog
+cp atdir_man.md ../bin/x86/Mac
 
 echo ---------------------------------------Building 'atsvotc' for 68000 Atari TOS
-/opt/cross-mint/bin/m68k-atari-mint-gcc -o ../0_bin/68000/TOS/atsvtoc.ttp atsvtoc.c 2>>errorLog
-cp atdir_man.md ../0_bin/x86/Mac
+/opt/cross-mint/bin/m68k-atari-mint-gcc -o ../bin/68000/TOS/atsvtoc.ttp atsvtoc.c 2>>errorLog
+cp atdir_man.md ../bin/x86/Mac
 
 echo ---------------------------------------- DONE!
 
 # Display result's
 #
 # Any errors, if so, show them
-
-if [ $(egrep "error" errorLog) ]
-then
-    echo Errors found:
-    egrep "error" errorLog
-    echo For a comlete list of errors and/ or warnings: See 'errorlog'
-else
-    echo No errors! For a complete list of warnings: See 'errorLog'
-fi
-
-# Count lines in 'errorLog'
 
 lines=0
 while read errorLog

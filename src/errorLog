@@ -1,0 +1,315 @@
+In file included from atdir.c:15:
+_D2x_fms_low.c:34:20: warning: ‘struct dir’ declared inside parameter list will not be visible outside of this definition or declaration
+   34 |             struct dir *dirp,
+      |                    ^~~
+_D2x_fms_low.c:32:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+   32 | d2x_init_image (char filename[],char image [],
+      | ^~~~~~~~~~~~~~
+In file included from atdir.c:15:
+_D2x_fms_low.c:107:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  107 | d2x_secread (struct atr_image *headerp, BYTE *daten,int sector,int boffset)
+      | ^~~~~~~~~~~
+_D2x_fms_low.c:136:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  136 | secwrite (unsigned char daten[], unsigned char *buffer[],int boffset,int sector, int bytes)
+      | ^~~~~~~~
+_D2x_fms_low.c: In function ‘secwrite’:
+_D2x_fms_low.c:143:48: warning: assignment to ‘unsigned char’ from ‘unsigned char *’ makes integer from pointer without a cast [-Wint-conversion]
+  143 |   for (i=offset;i<=(offset+bytes);i++) daten[i]=buffer[boffset++];    /* Datenbytes in den Buffer schreiben*/
+      |                                                ^
+_D2x_fms_low.c: At top level:
+_D2x_fms_low.c:169:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  169 | d2x_secnext (struct atr_image *headerp,int sektor)
+      | ^~~~~~~~~~~
+_D2x_fms_low.c:224:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  224 | d2x_secbyte (struct atr_image *headerp,int sector)
+      | ^~~~~~~~~~~
+atdir.c: In function ‘main’:
+atdir.c:68:3: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+   68 |   strcpy(thisfile,argv[0]);
+      |   ^~~~~~
+atdir.c:68:3: warning: incompatible implicit declaration of built-in function ‘strcpy’
+atdir.c:16:1: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+   15 | #include "_D2x_fms_low.c"     /* Dos 2.x FMS low level fms- functions like read or write a single sector*/
+  +++ |+#include <string.h>
+   16 | 
+atdir.c:76:5: warning: implicit declaration of function ‘version’ [-Wimplicit-function-declaration]
+   76 |     version();
+      |     ^~~~~~~
+atdir.c:77:5: warning: implicit declaration of function ‘descripe’ [-Wimplicit-function-declaration]
+   77 |     descripe();
+      |     ^~~~~~~~
+atdir.c:78:5: warning: implicit declaration of function ‘usag’ [-Wimplicit-function-declaration]
+   78 |     usag();
+      |     ^~~~
+atdir.c:155:34: warning: passing argument 2 of ‘d2x_init_image’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  155 |     if ((d2x_init_image(thisfile,*argv,&myimage,&mydir,&vtocp))==NOERROR){
+      |                                  ^~~~~
+In file included from atdir.c:15:
+_D2x_fms_low.c:32:38: note: expected ‘char *’ but argument is of type ‘const char *’
+   32 | d2x_init_image (char filename[],char image [],
+      |                                 ~~~~~^~~~~~~~
+atdir.c:155:49: warning: passing argument 4 of ‘d2x_init_image’ from incompatible pointer type [-Wincompatible-pointer-types]
+  155 |     if ((d2x_init_image(thisfile,*argv,&myimage,&mydir,&vtocp))==NOERROR){
+      |                                                 ^~~~~~
+      |                                                 |
+      |                                                 struct atr_dir (*)[128]
+In file included from atdir.c:15:
+_D2x_fms_low.c:34:25: note: expected ‘struct dir *’ but argument is of type ‘struct atr_dir (*)[128]’
+   34 |             struct dir *dirp,
+      |             ~~~~~~~~~~~~^~~~
+atdir.c:156:17: warning: implicit declaration of function ‘sdir’ [-Wimplicit-function-declaration]
+  156 |       if (sopt) sdir(*argv);                     /* Short version */
+      |                 ^~~~
+atdir.c:157:27: warning: implicit declaration of function ‘dir’ [-Wimplicit-function-declaration]
+  157 |       if (!sopt && !aopt) dir (*argv);           /* Detailed version */
+      |                           ^~~
+atdir.c:158:17: warning: implicit declaration of function ‘atdumpdir’ [-Wimplicit-function-declaration]
+  158 |       if (aopt) atdumpdir(*argv);                /* atdump compatible */
+      |                 ^~~~~~~~~
+atdir.c:174:10: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+  174 |  char *p=strchr(file,'\n');
+      |          ^~~~~~
+atdir.c:174:10: warning: incompatible implicit declaration of built-in function ‘strchr’
+atdir.c:174:10: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+atdir.c:177:45: warning: passing argument 4 of ‘d2x_init_image’ from incompatible pointer type [-Wincompatible-pointer-types]
+  177 |  if ((d2x_init_image(thisfile,file,&myimage,&mydir,&vtocp))==NOERROR){
+      |                                             ^~~~~~
+      |                                             |
+      |                                             struct atr_dir (*)[128]
+In file included from atdir.c:15:
+_D2x_fms_low.c:34:25: note: expected ‘struct dir *’ but argument is of type ‘struct atr_dir (*)[128]’
+   34 |             struct dir *dirp,
+      |             ~~~~~~~~~~~~^~~~
+atdir.c: At top level:
+atdir.c:203:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  203 | usag ()
+      | ^~~~
+atdir.c:217:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  217 | version ()
+      | ^~~~~~~
+atdir.c:228:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  228 | descripe ()
+      | ^~~~~~~~
+atdir.c:239:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  239 | sdir (char path [])
+      | ^~~~
+atdir.c: In function ‘sdir’:
+atdir.c:254:5: warning: implicit declaration of function ‘strncpy’ [-Wimplicit-function-declaration]
+  254 |     strncpy (filename,mydir[fno].filename,8);
+      |     ^~~~~~~
+atdir.c:254:5: warning: incompatible implicit declaration of built-in function ‘strncpy’
+atdir.c:254:5: note: include ‘<string.h>’ or provide a declaration of ‘strncpy’
+atdir.c: At top level:
+atdir.c:275:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  275 | atdumpdir (char *path [PATHSIZE])
+      | ^~~~~~~~~
+atdir.c: In function ‘atdumpdir’:
+atdir.c:290:5: warning: incompatible implicit declaration of built-in function ‘strncpy’
+  290 |     strncpy (ext,mydir[fno].ext,3);
+      |     ^~~~~~~
+atdir.c:290:5: note: include ‘<string.h>’ or provide a declaration of ‘strncpy’
+atdir.c:294:71: warning: format ‘%s’ expects argument of type ‘char *’, but argument 6 has type ‘char **’ [-Wformat=]
+  294 |       fprintf (stderr,"%s > Warning: The file '%s.%s' on image file '%s' has status 'deleted'\n",thisfile,filename,ext,path); /* If deleted, mark so */
+      |                                                                      ~^                                                ~~~~
+      |                                                                       |                                                |
+      |                                                                       char *                                           char **
+atdir.c:296:17: warning: format ‘%s’ expects argument of type ‘char *’, but argument 2 has type ‘char **’ [-Wformat=]
+  296 |       printf ("%s@%s.%s\n",path,filename,ext);
+      |                ~^          ~~~~
+      |                 |          |
+      |                 char *     char **
+atdir.c: At top level:
+atdir.c:309:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  309 | dir (char path[])
+      | ^~~
+atdir.c: In function ‘dir’:
+atdir.c:381:7: warning: incompatible implicit declaration of built-in function ‘strncpy’
+  381 |       strncpy (filename,mydir[fno].filename,8);
+      |       ^~~~~~~
+atdir.c:381:7: note: include ‘<string.h>’ or provide a declaration of ‘strncpy’
+atdir.c:390:9: warning: implicit declaration of function ‘file_size’ [-Wimplicit-function-declaration]
+  390 |  f_size=file_size (start);
+      |         ^~~~~~~~~
+atdir.c:433:8: warning: implicit declaration of function ‘trace’ [-Wimplicit-function-declaration]
+  433 |  fstat=trace (start,size,fno);
+      |        ^~~~~
+atdir.c: At top level:
+atdir.c:466:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  466 | trace (int start_sec,int size,int fn)
+      | ^~~~~
+atdir.c:503:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  503 | file_size(unsigned int sec)
+      | ^~~~~~~~~
+In file included from atdump.c:23:
+_D2x_fms_low.c:34:20: warning: ‘struct dir’ declared inside parameter list will not be visible outside of this definition or declaration
+   34 |             struct dir *dirp,
+      |                    ^~~
+_D2x_fms_low.c:32:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+   32 | d2x_init_image (char filename[],char image [],
+      | ^~~~~~~~~~~~~~
+In file included from atdump.c:23:
+_D2x_fms_low.c:107:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  107 | d2x_secread (struct atr_image *headerp, BYTE *daten,int sector,int boffset)
+      | ^~~~~~~~~~~
+_D2x_fms_low.c:136:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  136 | secwrite (unsigned char daten[], unsigned char *buffer[],int boffset,int sector, int bytes)
+      | ^~~~~~~~
+_D2x_fms_low.c: In function ‘secwrite’:
+_D2x_fms_low.c:143:48: warning: assignment to ‘unsigned char’ from ‘unsigned char *’ makes integer from pointer without a cast [-Wint-conversion]
+  143 |   for (i=offset;i<=(offset+bytes);i++) daten[i]=buffer[boffset++];    /* Datenbytes in den Buffer schreiben*/
+      |                                                ^
+_D2x_fms_low.c: At top level:
+_D2x_fms_low.c:169:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  169 | d2x_secnext (struct atr_image *headerp,int sektor)
+      | ^~~~~~~~~~~
+_D2x_fms_low.c:224:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  224 | d2x_secbyte (struct atr_image *headerp,int sector)
+      | ^~~~~~~~~~~
+atdump.c: In function ‘main’:
+atdump.c:72:5: warning: implicit declaration of function ‘version’ [-Wimplicit-function-declaration]
+   72 |     version();
+      |     ^~~~~~~
+atdump.c:73:5: warning: implicit declaration of function ‘descripe’ [-Wimplicit-function-declaration]
+   73 |     descripe();
+      |     ^~~~~~~~
+atdump.c:74:5: warning: implicit declaration of function ‘usag’ [-Wimplicit-function-declaration]
+   74 |     usag();
+      |     ^~~~
+atdump.c:166:52: warning: passing argument 4 of ‘d2x_init_image’ from incompatible pointer type [-Wincompatible-pointer-types]
+  166 |    if ((d2x_init_image(filename,imagefile,&myimage,&mydir,&vtocp))==NOERROR){
+      |                                                    ^~~~~~
+      |                                                    |
+      |                                                    struct atr_dir (*)[128]
+In file included from atdump.c:23:
+_D2x_fms_low.c:34:25: note: expected ‘struct dir *’ but argument is of type ‘struct atr_dir (*)[128]’
+   34 |             struct dir *dirp,
+      |             ~~~~~~~~~~~~^~~~
+atdump.c:167:10: warning: implicit declaration of function ‘checkfile’; did you mean ‘flockfile’? [-Wimplicit-function-declaration]
+  167 |      if (checkfile(atarifile)!=1025){
+      |          ^~~~~~~~~
+      |          flockfile
+atdump.c:168:18: warning: implicit declaration of function ‘dump’ [-Wimplicit-function-declaration]
+  168 |        if (copt) dump (checkfile(atarifile));
+      |                  ^~~~
+atdump.c:169:18: warning: implicit declaration of function ‘hexdump’ [-Wimplicit-function-declaration]
+  169 |        if (hopt) hexdump(checkfile(atarifile),atarifile);
+      |                  ^~~~~~~
+atdump.c:170:18: warning: implicit declaration of function ‘rawdump’ [-Wimplicit-function-declaration]
+  170 |        if (ropt) rawdump(checkfile(atarifile),atarifile);
+      |                  ^~~~~~~
+atdump.c: At top level:
+atdump.c:181:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  181 | usag ()
+      | ^~~~
+atdump.c:193:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  193 | version ()
+      | ^~~~~~~
+atdump.c:205:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  205 | descripe ()
+      | ^~~~~~~~
+atdump.c:219:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  219 | checkfile(char file[])
+      | ^~~~~~~~~
+atdump.c:277:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  277 | dump(int start)
+      | ^~~~
+atdump.c:317:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  317 | hexdump(int start,char atarifile [])
+      | ^~~~~~~
+atdump.c: In function ‘hexdump’:
+atdump.c:324:11: warning: unknown escape sequence: '\;'
+  324 |   printf ("\;------------------\n");
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~
+atdump.c:325:11: warning: unknown escape sequence: '\;'
+  325 |   printf ("\; Dump of:%s\n",atarifile);
+      |           ^~~~~~~~~~~~~~~~~
+atdump.c: At top level:
+atdump.c:367:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  367 | rawdump(int start,char atrfile [])
+      | ^~~~~~~
+In file included from atsvtoc.c:16:
+_D2x_fms_low.c:34:20: warning: ‘struct dir’ declared inside parameter list will not be visible outside of this definition or declaration
+   34 |             struct dir *dirp,
+      |                    ^~~
+_D2x_fms_low.c:32:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+   32 | d2x_init_image (char filename[],char image [],
+      | ^~~~~~~~~~~~~~
+In file included from atsvtoc.c:16:
+_D2x_fms_low.c:107:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  107 | d2x_secread (struct atr_image *headerp, BYTE *daten,int sector,int boffset)
+      | ^~~~~~~~~~~
+_D2x_fms_low.c:136:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  136 | secwrite (unsigned char daten[], unsigned char *buffer[],int boffset,int sector, int bytes)
+      | ^~~~~~~~
+_D2x_fms_low.c: In function ‘secwrite’:
+_D2x_fms_low.c:143:48: warning: assignment to ‘unsigned char’ from ‘unsigned char *’ makes integer from pointer without a cast [-Wint-conversion]
+  143 |   for (i=offset;i<=(offset+bytes);i++) daten[i]=buffer[boffset++];    /* Datenbytes in den Buffer schreiben*/
+      |                                                ^
+_D2x_fms_low.c: At top level:
+_D2x_fms_low.c:169:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  169 | d2x_secnext (struct atr_image *headerp,int sektor)
+      | ^~~~~~~~~~~
+_D2x_fms_low.c:224:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  224 | d2x_secbyte (struct atr_image *headerp,int sector)
+      | ^~~~~~~~~~~
+atsvtoc.c: In function ‘main’:
+atsvtoc.c:52:3: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+   52 |   strcpy(filename,argv[0]);
+      |   ^~~~~~
+atsvtoc.c:52:3: warning: incompatible implicit declaration of built-in function ‘strcpy’
+atsvtoc.c:17:1: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+   16 | #include "_D2x_fms_low.c"     /* Dos 2.x FMS low level fms- functions like read or write a single sector*/
+  +++ |+#include <string.h>
+   17 | #define PATHSIZE 500
+atsvtoc.c:60:5: warning: implicit declaration of function ‘version’ [-Wimplicit-function-declaration]
+   60 |     version();
+      |     ^~~~~~~
+atsvtoc.c:61:5: warning: implicit declaration of function ‘descripe’ [-Wimplicit-function-declaration]
+   61 |     descripe();
+      |     ^~~~~~~~
+atsvtoc.c:62:5: warning: implicit declaration of function ‘usag’ [-Wimplicit-function-declaration]
+   62 |     usag();
+      |     ^~~~
+atsvtoc.c:117:32: warning: passing argument 2 of ‘d2x_init_image’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  117 |   if ((d2x_init_image(filename,*argv,&myimage,&mydir,&vtocp))==NOERROR){
+      |                                ^~~~~
+In file included from atsvtoc.c:16:
+_D2x_fms_low.c:32:38: note: expected ‘char *’ but argument is of type ‘const char *’
+   32 | d2x_init_image (char filename[],char image [],
+      |                                 ~~~~~^~~~~~~~
+atsvtoc.c:117:47: warning: passing argument 4 of ‘d2x_init_image’ from incompatible pointer type [-Wincompatible-pointer-types]
+  117 |   if ((d2x_init_image(filename,*argv,&myimage,&mydir,&vtocp))==NOERROR){
+      |                                               ^~~~~~
+      |                                               |
+      |                                               struct atr_dir (*)[128]
+In file included from atsvtoc.c:16:
+_D2x_fms_low.c:34:25: note: expected ‘struct dir *’ but argument is of type ‘struct atr_dir (*)[128]’
+   34 |             struct dir *dirp,
+      |             ~~~~~~~~~~~~^~~~
+atsvtoc.c:118:5: warning: implicit declaration of function ‘shvtoc’ [-Wimplicit-function-declaration]
+  118 |     shvtoc(myimage.data);
+      |     ^~~~~~
+atsvtoc.c: At top level:
+atsvtoc.c:127:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  127 | usag ()
+      | ^~~~
+atsvtoc.c:139:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  139 | version ()
+      | ^~~~~~~
+atsvtoc.c:150:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  150 | descripe ()
+      | ^~~~~~~~
+atsvtoc.c:161:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  161 | shvtoc (unsigned char daten[])
+      | ^~~~~~
+atsvtoc.c: In function ‘shvtoc’:
+atsvtoc.c:212:5: warning: implicit declaration of function ‘showsectormap’ [-Wimplicit-function-declaration]
+  212 |     showsectormap(daten,offset,1);
+      |     ^~~~~~~~~~~~~
+atsvtoc.c: At top level:
+atsvtoc.c:257:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  257 | showsectormap(unsigned char daten[],int offset,int sector)
+      | ^~~~~~~~~~~~~
+./build_readAtr.sh: line 47: /opt/cross-mint/bin/m68k-atari-mint-gcc: No such file or directory
+./build_readAtr.sh: line 51: /opt/cross-mint/bin/m68k-atari-mint-gcc: No such file or directory
+./build_readAtr.sh: line 55: /opt/cross-mint/bin/m68k-atari-mint-gcc: No such file or directory
