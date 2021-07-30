@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/
 
-#define VERSION "\natdump V1.5.3 // 27.11.2018\n\n"
+#define VERSION "\natdump V1.5.4 // 30.7.2021 --DEBUG VERSION, filenames length=8 not detected....\n\n"
 
 #define ATARI_LF 13
 #define ATARI_RETURN 155
@@ -237,9 +237,13 @@ checkfile(char file[])
       i++;
     }
 
+    printf("%s %d %d|| ",name,i,strlen(adirentry)); /*DEBUG*/
+    
     n=i;                                          /* n points to the end of the name string */
+    
     if (i<strlen(adirentry)){                     /* Get file extension, if it is there */
       name[n]='.';                                /* File extension exists, get it! */
+
       n++;
       while (adirentry[i]==' ') i++;
       while (adirentry[i]>=33 && adirentry[i]<=127){
@@ -250,6 +254,8 @@ checkfile(char file[])
     }
     i++;
     name[n]='\0';                                   /* C- strings must be terminated by NULL */
+
+
 
     /*
      * Check if file exists and if it is readable

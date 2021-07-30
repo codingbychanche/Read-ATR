@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/  
 
-#define VERSION "\natdir V2.8.4 // 19.11.2018\n\n"
+#define VERSION "\natdir V2.8.5 // 30.7.2021\n\n"
 
 #include <stdio.h>
 
@@ -284,7 +284,8 @@ atdumpdir (char *path [PATHSIZE])
 
    while ((mydir[fno].filename[0])!=0){                     /* Read from image until last entry of directory */
      i=0;
-     while ((filename[i]=mydir[fno].filename[i])!=' ' && i<=7) i++;
+     while ((filename[i]=mydir[fno].filename[i])!=' ' && i<=7) 
+       i++;
      filename[i]='\0';
        
     strncpy (ext,mydir[fno].ext,3);
@@ -380,7 +381,7 @@ dir (char path[])
 	
       strncpy (filename,mydir[fno].filename,8);
       strncpy (ext,mydir[fno].ext,3);
-      filename [7]=0;  /* Terminate with \0 to make it a C compatible string */        
+      filename [8]='\0';  /* Terminate with \0 to make it a C compatible string */        
       ext [3]=0;       
       
         /*
