@@ -24,115 +24,127 @@ d2x_secnext (struct atr_image *headerp,int sektor)
 ./_D2x_fms_low.c:224:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 d2x_secbyte (struct atr_image *headerp,int sector)
 ^~~~~~~~~~~
-atdir.c:68:3: warning: implicitly declaring library function 'strcpy' with type 'char *(char *, const char *)'
+atdir.c:69:3: warning: implicitly declaring library function 'strcpy' with type 'char *(char *, const char *)'
   strcpy(thisfile,argv[0]);
   ^
-atdir.c:68:3: note: please include the header <string.h> or explicitly provide a declaration for 'strcpy'
-atdir.c:76:5: warning: implicit declaration of function 'version' is invalid in C99 [-Wimplicit-function-declaration]
+atdir.c:69:3: note: please include the header <string.h> or explicitly provide a declaration for 'strcpy'
+atdir.c:77:5: warning: implicit declaration of function 'version' is invalid in C99 [-Wimplicit-function-declaration]
     version();
     ^
-atdir.c:77:5: warning: implicit declaration of function 'descripe' is invalid in C99 [-Wimplicit-function-declaration]
+atdir.c:78:5: warning: implicit declaration of function 'descripe' is invalid in C99 [-Wimplicit-function-declaration]
     descripe();
     ^
-atdir.c:78:5: warning: implicit declaration of function 'usag' is invalid in C99 [-Wimplicit-function-declaration]
+atdir.c:79:5: warning: implicit declaration of function 'usag' is invalid in C99 [-Wimplicit-function-declaration]
     usag();
     ^
-atdir.c:155:34: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
+atdir.c:159:34: warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
     if ((d2x_init_image(thisfile,*argv,&myimage,&mydir,&vtocp))==NOERROR){
                                  ^~~~~
 ./_D2x_fms_low.c:32:38: note: passing argument to parameter 'image' here
 d2x_init_image (char filename[],char image [],
                                      ^
-atdir.c:155:49: warning: incompatible pointer types passing 'struct atr_dir (*)[128]' to parameter of type 'struct dir *' [-Wincompatible-pointer-types]
+atdir.c:159:49: warning: incompatible pointer types passing 'struct atr_dir (*)[128]' to parameter of type 'struct dir *' [-Wincompatible-pointer-types]
     if ((d2x_init_image(thisfile,*argv,&myimage,&mydir,&vtocp))==NOERROR){
                                                 ^~~~~~
 ./_D2x_fms_low.c:34:25: note: passing argument to parameter 'dirp' here
             struct dir *dirp,
                         ^
-atdir.c:156:17: warning: implicit declaration of function 'sdir' is invalid in C99 [-Wimplicit-function-declaration]
+atdir.c:160:27: warning: implicit declaration of function 'dir' is invalid in C99 [-Wimplicit-function-declaration]
+      if (!sopt && !aopt) dir (*argv);        /* Detailed version */
+                          ^
+atdir.c:161:17: warning: implicit declaration of function 'sdir' is invalid in C99 [-Wimplicit-function-declaration]
       if (sopt) sdir(*argv);                     /* Short version */
                 ^
-atdir.c:157:27: warning: implicit declaration of function 'dir' is invalid in C99 [-Wimplicit-function-declaration]
-      if (!sopt && !aopt) dir (*argv);           /* Detailed version */
-                          ^
-atdir.c:158:17: warning: implicit declaration of function 'atdumpdir' is invalid in C99 [-Wimplicit-function-declaration]
+atdir.c:162:17: warning: implicit declaration of function 'atdumpdir' is invalid in C99 [-Wimplicit-function-declaration]
       if (aopt) atdumpdir(*argv);                /* atdump compatible */
                 ^
-atdir.c:174:10: warning: implicitly declaring library function 'strchr' with type 'char *(const char *, int)'
+atdir.c:163:17: warning: implicit declaration of function 'atjsondir' is invalid in C99 [-Wimplicit-function-declaration]
+      if (jopt) atjsondir(*argv);
+                ^
+atdir.c:179:10: warning: implicitly declaring library function 'strchr' with type 'char *(const char *, int)'
         char *p=strchr(file,'\n');            
                 ^
-atdir.c:174:10: note: please include the header <string.h> or explicitly provide a declaration for 'strchr'
-atdir.c:177:45: warning: incompatible pointer types passing 'struct atr_dir (*)[128]' to parameter of type 'struct dir *' [-Wincompatible-pointer-types]
+atdir.c:179:10: note: please include the header <string.h> or explicitly provide a declaration for 'strchr'
+atdir.c:182:45: warning: incompatible pointer types passing 'struct atr_dir (*)[128]' to parameter of type 'struct dir *' [-Wincompatible-pointer-types]
         if ((d2x_init_image(thisfile,file,&myimage,&mydir,&vtocp))==NOERROR){
                                                    ^~~~~~
 ./_D2x_fms_low.c:34:25: note: passing argument to parameter 'dirp' here
             struct dir *dirp,
                         ^
-atdir.c:203:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atdir.c:209:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 usag ()
 ^~~~
-atdir.c:211:1: warning: control reaches end of non-void function [-Wreturn-type]
+atdir.c:217:1: warning: control reaches end of non-void function [-Wreturn-type]
 }
 ^
-atdir.c:217:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atdir.c:223:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 version ()
 ^~~~~~~
-atdir.c:222:1: warning: control reaches end of non-void function [-Wreturn-type]
+atdir.c:228:1: warning: control reaches end of non-void function [-Wreturn-type]
 }
 ^
-atdir.c:228:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atdir.c:234:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 descripe ()
 ^~~~~~~~
-atdir.c:232:1: warning: control reaches end of non-void function [-Wreturn-type]
+atdir.c:238:1: warning: control reaches end of non-void function [-Wreturn-type]
 }
 ^
-atdir.c:239:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atdir.c:245:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 sdir (char path [])
 ^~~~
-atdir.c:254:5: warning: implicitly declaring library function 'strncpy' with type 'char *(char *, const char *, unsigned long)'
+atdir.c:260:5: warning: implicitly declaring library function 'strncpy' with type 'char *(char *, const char *, unsigned long)'
     strncpy (filename,mydir[fno].filename,8);
     ^
-atdir.c:254:5: note: please include the header <string.h> or explicitly provide a declaration for 'strncpy'
-atdir.c:254:23: warning: passing 'unsigned char [8]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+atdir.c:260:5: note: please include the header <string.h> or explicitly provide a declaration for 'strncpy'
+atdir.c:260:23: warning: passing 'unsigned char [8]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
     strncpy (filename,mydir[fno].filename,8);
                       ^~~~~~~~~~~~~~~~~~~
-atdir.c:255:18: warning: passing 'unsigned char [3]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+atdir.c:261:18: warning: passing 'unsigned char [3]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
     strncpy (ext,mydir[fno].ext,3);
                  ^~~~~~~~~~~~~~
-atdir.c:275:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atdir.c:281:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 atdumpdir (char *path [PATHSIZE])
 ^~~~~~~~~
-atdir.c:291:18: warning: passing 'unsigned char [3]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+atdir.c:297:18: warning: passing 'unsigned char [3]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
     strncpy (ext,mydir[fno].ext,3);
                  ^~~~~~~~~~~~~~
-atdir.c:295:120: warning: format specifies type 'char *' but the argument has type 'char **' [-Wformat]
+atdir.c:301:120: warning: format specifies type 'char *' but the argument has type 'char **' [-Wformat]
       fprintf (stderr,"%s > Warning: The file '%s.%s' on image file '%s' has status 'deleted'\n",thisfile,filename,ext,path); /* If deleted, mark so */
                                                                      ~~                                                ^~~~
-atdir.c:297:28: warning: format specifies type 'char *' but the argument has type 'char **' [-Wformat]
+atdir.c:303:28: warning: format specifies type 'char *' but the argument has type 'char **' [-Wformat]
       printf ("%s@%s.%s\n",path,filename,ext);
                ~~          ^~~~
-atdir.c:310:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atdir.c:316:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atjsondir (char *path [PATHSIZE])
+^~~~~~~~~
+atdir.c:327:31: warning: format specifies type 'char *' but the argument has type 'char **' [-Wformat]
+  printf ("{path\":\"%s\",\n",path); /* Start of json- struct */
+                     ~~       ^~~~
+atdir.c:344:18: warning: passing 'unsigned char [3]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+    strncpy (ext,mydir[fno].ext,3);
+                 ^~~~~~~~~~~~~~
+atdir.c:367:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 dir (char path[])
 ^~~
-atdir.c:382:25: warning: passing 'unsigned char [8]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+atdir.c:439:25: warning: passing 'unsigned char [8]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
       strncpy (filename,mydir[fno].filename,8);
                         ^~~~~~~~~~~~~~~~~~~
-atdir.c:383:20: warning: passing 'unsigned char [3]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
+atdir.c:440:20: warning: passing 'unsigned char [3]' to parameter of type 'const char *' converts between pointers to integer types with different sign [-Wpointer-sign]
       strncpy (ext,mydir[fno].ext,3);
                    ^~~~~~~~~~~~~~
-atdir.c:391:9: warning: implicit declaration of function 'file_size' is invalid in C99 [-Wimplicit-function-declaration]
+atdir.c:448:9: warning: implicit declaration of function 'file_size' is invalid in C99 [-Wimplicit-function-declaration]
         f_size=file_size (start);
                ^
-atdir.c:434:8: warning: implicit declaration of function 'trace' is invalid in C99 [-Wimplicit-function-declaration]
+atdir.c:491:8: warning: implicit declaration of function 'trace' is invalid in C99 [-Wimplicit-function-declaration]
         fstat=trace (start,size,fno);
               ^
-atdir.c:467:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atdir.c:524:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 trace (int start_sec,int size,int fn)
 ^~~~~
-atdir.c:504:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+atdir.c:561:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
 file_size(unsigned int sec)
 ^~~~~~~~~
-40 warnings generated.
+44 warnings generated.
 In file included from atdump.c:23:
 ./_D2x_fms_low.c:34:20: warning: declaration of 'struct dir' will not be visible outside of this function [-Wvisibility]
             struct dir *dirp,
@@ -331,20 +343,22 @@ In file included from atdir.c:15:0:
 _D2x_fms_low.c: In function 'secwrite':
 _D2x_fms_low.c:143:48: warning: assignment makes integer from pointer without a cast [enabled by default]
 atdir.c: In function 'main':
-atdir.c:68:3: warning: incompatible implicit declaration of built-in function 'strcpy' [enabled by default]
-atdir.c:155:5: warning: passing argument 2 of 'd2x_init_image' discards 'const' qualifier from pointer target type [enabled by default]
+atdir.c:69:3: warning: incompatible implicit declaration of built-in function 'strcpy' [enabled by default]
+atdir.c:159:5: warning: passing argument 2 of 'd2x_init_image' discards 'const' qualifier from pointer target type [enabled by default]
 _D2x_fms_low.c:32:1: note: expected 'char *' but argument is of type 'const char *'
-atdir.c:155:5: warning: passing argument 4 of 'd2x_init_image' from incompatible pointer type [enabled by default]
+atdir.c:159:5: warning: passing argument 4 of 'd2x_init_image' from incompatible pointer type [enabled by default]
 _D2x_fms_low.c:32:1: note: expected 'struct dir *' but argument is of type 'struct atr_dir (*)[128]'
-atdir.c:174:10: warning: incompatible implicit declaration of built-in function 'strchr' [enabled by default]
-atdir.c:177:2: warning: passing argument 4 of 'd2x_init_image' from incompatible pointer type [enabled by default]
+atdir.c:179:10: warning: incompatible implicit declaration of built-in function 'strchr' [enabled by default]
+atdir.c:182:2: warning: passing argument 4 of 'd2x_init_image' from incompatible pointer type [enabled by default]
 _D2x_fms_low.c:32:1: note: expected 'struct dir *' but argument is of type 'struct atr_dir (*)[128]'
 atdir.c: In function 'sdir':
-atdir.c:254:5: warning: incompatible implicit declaration of built-in function 'strncpy' [enabled by default]
+atdir.c:260:5: warning: incompatible implicit declaration of built-in function 'strncpy' [enabled by default]
 atdir.c: In function 'atdumpdir':
-atdir.c:291:5: warning: incompatible implicit declaration of built-in function 'strncpy' [enabled by default]
+atdir.c:297:5: warning: incompatible implicit declaration of built-in function 'strncpy' [enabled by default]
+atdir.c: In function 'atjsondir':
+atdir.c:344:5: warning: incompatible implicit declaration of built-in function 'strncpy' [enabled by default]
 atdir.c: In function 'dir':
-atdir.c:382:7: warning: incompatible implicit declaration of built-in function 'strncpy' [enabled by default]
+atdir.c:439:7: warning: incompatible implicit declaration of built-in function 'strncpy' [enabled by default]
 In file included from atsvtoc.c:16:0:
 _D2x_fms_low.c:35:20: warning: 'struct dir' declared inside parameter list [enabled by default]
 _D2x_fms_low.c:35:20: warning: its scope is only this definition or declaration, which is probably not what you want [enabled by default]

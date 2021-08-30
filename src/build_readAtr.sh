@@ -61,18 +61,7 @@ echo ---------------------------------------- DONE!
 #
 # Any errors, if so, show them
 
-lines=0
-while read errorLog
-do
-    let "lines=lines+1"
-done < errorLog
-
-if [ $lines -gt 0 ]
-then
-    echo Error log contains $lines lines. 
-else
-    echo Error log contains no lines. You lucky bastard!
-fi
+cat errorLog | egrep "error"
 
 # Reset all escape squences...
 

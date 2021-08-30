@@ -7,7 +7,7 @@
  *
  *------------------------------------------------------------------------------------*/  
 
-#define VERSION "\natdir V2.8.5 // 30.7.2021\n\n"
+#define VERSION "\natdir V2.8.8 // 30.08.2021\n\n"
 
 #include <stdio.h>
 
@@ -38,15 +38,16 @@ struct atr_image myimage;   /* Structure of *.ATR disk image file */
 struct vtoc vtocp;          /* Structure of Atari DOS 2.x VTOC */
 
 int 
-    i,   
-    error,
-    vopt,
-    fopt,
-    sopt,
-    aopt,
-    files;
+i,   
+  error,
+  vopt,
+  fopt,
+  sopt,
+  aopt,
+  jopt,
+  files;
 char 
-    c,
+c,
   file [PATHSIZE],
   thisfile [PATHSIZE];
 
@@ -84,7 +85,7 @@ int main(int argc,const char *argv[])
    * If error, return to shell!
    */
 
-  vopt=sopt=fopt=aopt=0;
+  vopt=sopt=fopt=aopt=jopt=0;
   
   while (argc>1 && argv[1][0]=='-'){
     c=argv [1][1];
@@ -104,6 +105,10 @@ int main(int argc,const char *argv[])
       
     case 'a':           /* Show dir in an 'atdump' compatible input format */
       aopt++;
+      break;
+
+    case 'j':
+      jopt++;
       break;
     } /* switch */
     --argc;
@@ -151,11 +156,11 @@ int main(int argc,const char *argv[])
      * Short version shows just the file names and some very 
      * basic status info.
      */
-
     if ((d2x_init_image(thisfile,*argv,&myimage,&mydir,&vtocp))==NOERROR){
+      if (!sopt && !aopt) dir (*argv);        /* Detailed version */
       if (sopt) sdir(*argv);                     /* Short version */
-      if (!sopt && !aopt) dir (*argv);           /* Detailed version */
       if (aopt)	atdumpdir(*argv);                /* atdump compatible */
+      if (jopt) atjsondir(*argv);
       return(NOERROR); 
     }
     return (ERROR);
@@ -175,9 +180,10 @@ int main(int argc,const char *argv[])
 	if (p!=NULL) *p='\0';    
         
 	if ((d2x_init_image(thisfile,file,&myimage,&mydir,&vtocp))==NOERROR){
+	  if (!sopt && !aopt) dir (file);           /* Detailed version */	  
 	  if (sopt) sdir(file);                     /* Short version */
-	  if (!sopt && !aopt) dir (file);           /* Detailed version */
 	  if (aopt) atdumpdir(file);                /* atdump compatible */
+	  if (jopt) atjsondir(*argv);
 	}
 	files++;
       }
@@ -298,6 +304,57 @@ atdumpdir (char *path [PATHSIZE])
     }
     fno++;
   }
+  return (0);
+}
+
+/*------------------------------------------------------------------------------------      
+ * Dumps the dir to stdout as a json- data structure
+ * 
+ * 
+ *----------------------------------------------------------------------------------*/
+
+atjsondir (char *path [PATHSIZE])
+{
+  int 
+    fno,
+    numberOfFiles,
+    stat;
+
+  char
+    filename [9],
+    ext [4];
+
+  printf ("{path\":\"%s\",\n",path); /* Start of json- struct */
+  printf ("\t\"files\":[\n"); /* Start of json array */
+
+  /* Count files on image */
+  numberOfFiles=0;
+  while ((mydir[numberOfFiles].filename[0])!=0)
+    numberOfFiles++;
+
+  /* Get all files and build json- struct */
+  fno=0;
+  while ((mydir[fno].filename[0])!=0){   
+    
+    /* Copy filename */
+    i=0;
+    while ((filename[i]=mydir[fno].filename[i])!=' ' && i<=7) 
+      i++;
+    filename[i]='\0';    
+    strncpy (ext,mydir[fno].ext,3);
+    
+    /* Insert filename into json array) */
+    printf ("\t\"%s.%s\"",filename,ext); 
+    
+    fno++;
+
+    /* As long as it is not the last filename, add a comma to separate array elements */
+    if (fno<numberOfFiles)
+      printf (",\n");
+  }   
+
+  /* Terminate json array */
+  printf ("\n\t]\n}\n"); 
   return (0);
 }
 
